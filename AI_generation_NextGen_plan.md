@@ -1,3 +1,12 @@
+> **⚠️ DEPRECATED/SUPERSEDED**
+>
+> This document (`AI_generation_NextGen_plan.md`) has been superseded by the **SACA Postdoctoral Dossier (Volumes 0–21)**.
+> The Postdoctoral Dossier represents the canonical governance, architecture, and "V-Omega" final form of the system.
+>
+> Please refer to [SACA_Postdoctoral_Dossier_V0-V21.md](./SACA_Postdoctoral_Dossier_V0-V21.md) for the authoritative constitutional architecture.
+>
+> This file is retained only for historical context and as a summarized precursor.
+
 # Unified AI Matrix & WorldTree: NextGen AI Generation Plan
 
 ## 1. Project Overview
