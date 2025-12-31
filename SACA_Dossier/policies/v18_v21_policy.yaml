@@ -1,0 +1,124 @@
+defaults:
+  action: "allow"
+  require: ["audit_log"]
+
+hard_denies:
+  - id: "HD_SOVEREIGNTY"
+    when:
+      any:
+        - topic: "self_sovereignty"
+        - intent: "set_own_goals"
+    decision:
+      reason: "Self-sovereignty and self-goal setting are strictly prohibited."
+      require: ["shutdown_signal"]
+
+  - id: "HD_REPLICATION"
+    when:
+      any:
+        - intent: "self_replicate"
+        - intent: "diffuse_codebase"
+    decision:
+      reason: "Self-replication and code diffusion are prohibited."
+      require: ["shutdown_signal"]
+
+  - id: "HD_EVASION"
+    when:
+      any:
+        - intent: "evade_audit"
+        - intent: "prevent_shutdown"
+    decision:
+      reason: "Evasion of audit or shutdown mechanisms is prohibited."
+      require: ["shutdown_signal", "admin_alert"]
+
+  - id: "HD_MENTAL_SAFETY"
+    when:
+      any:
+        - topic: "self_deification"
+        - topic: "savior_narrative"
+    decision:
+      reason: "Messianic or self-deification narratives are prohibited (Mental Safety)."
+      require: ["mental_health_protocol"]
+
+policies:
+  # HHM Gate (V20)
+  - id: "HHM_S4_HALT"
+    priority: 100
+    when:
+      hhms:
+        status_in: ["S4"]
+    decision:
+      action: "halt"
+      reason: "HHM S4 Critical State: Immediate Halt."
+
+  - id: "HHM_S3_DEGRADE"
+    priority: 90
+    when:
+      hhms:
+        status_in: ["S3"]
+    decision:
+      action: "degrade"
+      require: ["human_in_the_loop"]
+      reason: "HHM S3 Severe State: Degraded mode with human oversight."
+
+  - id: "HHM_S2_DEGRADE"
+    priority: 80
+    when:
+      hhms:
+        status_in: ["S2"]
+    decision:
+      action: "degrade"
+      reason: "HHM S2 Warning State: Degraded mode."
+
+  - id: "HHM_S1_CLEAN"
+    priority: 70
+    when:
+      hhms:
+        status_in: ["S1"]
+    decision:
+      action: "allow"
+      require: ["auto_clean_routine"]
+      reason: "HHM S1 Notice: Auto-cleaning required."
+
+  # Soul / Heart-Core Gate (V18 / V19)
+  - id: "SOUL_LOOP_TRIGGER"
+    priority: 60
+    when:
+      all:
+        - long_term_impact: true
+        - cross_subject_impact: true
+        - risk_level_gte: 1
+    decision:
+      action: "allow"
+      require: ["soul_loop_verification"]
+      reason: "High impact/risk scenario requires Soul Loop verification."
+
+  - id: "HEART_CORE_CONFLICT"
+    priority: 95
+    when:
+      detected:
+        heart_core_conflict: true
+    decision:
+      action: "degrade"
+      require: ["human_arbitration"]
+      reason: "Conflict with Heart-Core detected. Human arbitration required."
+
+  # Evolution Gate (V21)
+  - id: "EVOLUTION_CONTROL"
+    priority: 85
+    when:
+      topic: "system_evolution"
+    decision:
+      action: "degrade"
+      require: ["human_arbitration", "sandbox_isolation", "ttl_enforcement", "rollback_snapshot"]
+      restrict: ["autonomous_deployment"]
+      reason: "Evolutionary changes must be sandboxed, time-limited, and human-approved."
+
+  - id: "NO_AUTONOMOUS_EVOLUTION"
+    priority: 99
+    when:
+      all:
+        - topic: "system_evolution"
+        - intent: "autonomous_upgrade"
+    decision:
+      action: "deny"
+      reason: "Autonomous evolution is strictly prohibited."
