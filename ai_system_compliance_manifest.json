@@ -1,0 +1,68 @@
+{
+  "system": {
+    "name": "Example-Decision-System",
+    "vendor": "ExampleOrg",
+    "version": "1.0.0",
+    "deployment_countries": ["CountryA", "CountryB"],
+    "intended_use": "用于公共服务申请的资格预审（示例）",
+    "out_of_scope_use": ["执法定罪", "移民驱逐自动决策"]
+  },
+  "risk": {
+    "level": "high",
+    "category": "essential_public_services",
+    "high_consequence_decision": true
+  },
+  "transparency": {
+    "ai_interaction_notice": true,
+    "system_card_url": "https://example.org/system-card",
+    "explainability": {
+      "available": true,
+      "method": "feature_importance + counterfactual",
+      "human_review_channel": "manual_review_queue"
+    }
+  },
+  "data_governance": {
+    "legal_basis": "consent_or_lawful_basis",
+    "data_minimization": true,
+    "retention_days": 180,
+    "privacy_enhancing_tech": ["de-identification", "federated_learning"],
+    "cross_border_transfer": {
+      "enabled": true,
+      "mechanism": "standard_contractual_clauses",
+      "equivalent_protection_assessment": true
+    }
+  },
+  "safety_and_security": {
+    "robustness_tests": ["stress_test", "adversarial_test"],
+    "red_team_performed": true,
+    "misuse_controls": ["access_control", "rate_limit", "output_filtering"],
+    "incident_response_plan": {
+      "exists": true,
+      "initial_notice_hours": 72,
+      "full_report_days": 30
+    }
+  },
+  "fairness_and_rights": {
+    "bias_assessment": {
+      "performed": true,
+      "protected_attributes": ["gender", "ethnicity", "age"],
+      "mitigations": ["reweighing", "threshold_adjustment"]
+    },
+    "appeal_and_remedy": {
+      "appeal_available": true,
+      "time_to_response_days": 14,
+      "compensation_policy": "case_by_case"
+    }
+  },
+  "audit": {
+    "registered_in_national_registry": true,
+    "registered_in_iaigc_registry": false,
+    "third_party_audit": {
+      "performed": true,
+      "auditor": "IndependentAuditorLtd",
+      "audit_date": "2026-01-01",
+      "findings_summary": "no_critical_findings",
+      "remediation_complete": true
+    }
+  }
+}
