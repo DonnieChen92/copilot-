@@ -8,6 +8,7 @@ This plan outlines the development of the "Unified AI Matrix & WorldTree," a com
 *   **Advanced Reasoning**: Implement "Extended Thinking" and "Visible Reasoning" capabilities for complex problem solving.
 *   **Agentic Autonomy**: Enable Agentic AI tasks and fully autonomous operations.
 *   **Universal Connectivity**: Establish a universal AI connection protocol underpinned by Zero-Trust security.
+*   **Universal Deployment**: Support all deployment modes (Cloud, Web/App, On-device) to ensure accessibility anywhere.
 
 ## 3. Technology Matrix & Ecosystems
 
@@ -19,21 +20,38 @@ This plan outlines the development of the "Unified AI Matrix & WorldTree," a com
 *   **Microsoft Ecosystem**: Full integration with Microsoft Copilot services.
 
 ### 3.2. Infrastructure & Deployment (The Roots)
-Multi-cloud strategy leveraging best-in-class infrastructure:
-*   **Anthropic**: Direct API integration.
-*   **Amazon Bedrock**: For scalable, managed access to foundation models.
-*   **Google Vertex AI**: For deploying Gemini and Imagen models.
-*   **Azure AI Infrastructure**: For hosting Copilot and enterprise-grade scaling.
+A comprehensive "All Modes" deployment strategy:
+
+*   **Cloud Deployment**:
+    *   **AWS**: Use **SageMaker** for training/hosting and **Bedrock** for managed access.
+    *   **Google**: Leverage **Vertex AI** for deploying Gemini and Imagen models.
+    *   **Azure**: utilize **Azure ML** for enterprise-grade lifecycle management.
+*   **Web/App Serving**:
+    *   Host high-performance APIs using **FastAPI** (Python) or **Node.js**.
+    *   Serve models via REST/gRPC endpoints to frontend applications.
+*   **On-Device / Edge**:
+    *   **Preparation**: Export models to portable formats like **ONNX**, **TensorFlow SavedModel**, or **Core ML**.
+    *   **Execution**: Use **TensorFlow Lite** (Android/IoT), **Core ML** (iOS/macOS), or **ONNX Runtime** for local, low-latency inference without internet dependency.
 
 ### 3.3. Data, Memory & Security (The Trunk)
 *   **Model Context Protocol (MCP)**: Standardized context sharing across different models.
 *   **Universal AI Connection**: A proprietary layer ensuring all models can communicate and share state.
 *   **Zero-Trust Security**: rigorous identity verification and access control at every level of the matrix.
 
+### 3.4. Operational Lifecycle (The Growth Ring)
+*   **Model Preparation**: rigorous conversion and optimization (quantization, pruning) for target environments (Cloud vs. Edge).
+*   **Monitoring**: Real-time tracking of:
+    *   **Performance**: Inference speed and throughput.
+    *   **Latency**: Response times across different regions.
+    *   **Drift**: Detection of data or concept drift to trigger retraining.
+*   **Scaling**:
+    *   **Containerization**: Use **Docker** to package models and dependencies.
+    *   **Orchestration**: Use **Kubernetes** to manage larger workloads and auto-scale based on traffic.
+
 ## 4. Roadmap
 
 ### Phase 1: The Foundation (Month 1-3)
-*   **Infrastructure Setup**: Establish accounts and secure conduits for AWS Bedrock, Google Vertex AI, and Azure.
+*   **Infrastructure Setup**: Establish accounts and secure conduits for AWS SageMaker/Bedrock, Vertex AI, and Azure.
 *   **Protocol Development**: Design and implement the initial version of the Model Context Protocol (MCP).
 *   **Security Implementation**: Roll out the Zero-Trust security framework prototype.
 
@@ -46,16 +64,17 @@ Multi-cloud strategy leveraging best-in-class infrastructure:
 
 ### Phase 3: Cognitive Expansion (Month 7-9)
 *   **Reasoning Modules**: Deploy "Extended Thinking" modules that chain thoughts across models.
-*   **Visible Reasoning**: Develop UI components to visualize the AI's decision-making process for users.
+*   **Edge Pilot**: Test ONNX/TFLite export pipelines for a "Lite" version of the agent.
 *   **Media Integration**: Add support for Imagen 3 and Veo for multi-modal generation.
 
 ### Phase 4: Autonomy & Evolution (Month 10+)
-*   **Agentic AI**: Launch autonomous agents capable of executing complex, multi-step workflows without human intervention.
-*   **Self-Optimization**: Implement systems for the Matrix to self-select the best model for a given task.
-*   **Future-Proofing**: Prepare architecture for next-gen models (e.g., Claude 4, GPT-5).
+*   **Agentic AI**: Launch autonomous agents capable of executing complex, multi-step workflows.
+*   **Full "All Modes" Rollout**: Public release of Cloud API, Web Interface, and On-Device SDKs.
+*   **Self-Optimization**: Implement systems for the Matrix to self-select the best model (Cloud vs. Local) for a given task.
 
 ## 5. Technical Requirements
 *   **Backend**: Python (FastAPI) / Go for high-concurrency orchestration.
 *   **Orchestration**: Kubernetes with multi-cluster support for multi-cloud deployment.
 *   **Frontend**: React/Next.js for the WorldTree Dashboard.
-*   **AI Frameworks**: LangChain / LangGraph for agentic workflows; PyTorch for custom fine-tuning layers.
+*   **AI Frameworks**: PyTorch, TensorFlow, ONNX Runtime.
+*   **Edge Stack**: TensorFlow Lite, Core ML tools.
