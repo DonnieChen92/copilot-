@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ai-pipeline
+  labels:
+    app.kubernetes.io/name: ai-pipeline
+    app.kubernetes.io/component: ai-orchestration
+    environment: staging

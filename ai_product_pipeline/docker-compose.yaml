@@ -1,0 +1,94 @@
+version: '3.8'
+
+services:
+  ai-pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-product-pipeline
+    ports:
+      - "8080:8080"
+    environment:
+      - ENVIRONMENT=dev
+      - PORT=8080
+      - RUST_LOG=ai_product_pipeline=debug,tower_http=debug
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - AZURE_API_KEY=${AZURE_API_KEY:-}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    networks:
+      - ai-network
+
+  # Integration with ML deployment service
+  ml-service:
+    build:
+      context: ../ml_deployment
+      dockerfile: Dockerfile
+    container_name: ml-model-service
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=/app/models/model.onnx
+      - MODEL_NAME=default
+    volumes:
+      - ../ml_deployment/models:/app/models:ro
+    networks:
+      - ai-network
+    profiles:
+      - ml
+
+  # Prometheus for metrics
+  prometheus:
+    image: prom/prometheus:v2.48.0
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./deploy/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    networks:
+      - ai-network
+    profiles:
+      - monitoring
+
+  # Grafana for visualization
+  grafana:
+    image: grafana/grafana:10.2.0
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    networks:
+      - ai-network
+    profiles:
+      - monitoring
+
+networks:
+  ai-network:
+    driver: bridge
+
+volumes:
+  prometheus_data:
+  grafana_data:

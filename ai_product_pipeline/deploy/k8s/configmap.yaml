@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-pipeline-config
+  namespace: ai-pipeline
+  labels:
+    app.kubernetes.io/name: ai-pipeline
+data:
+  ENVIRONMENT: "staging"
+  PORT: "8080"
+  MODEL_TIMEOUT_SECS: "30"
+  MAX_CONCURRENT_REQUESTS: "100"
+  RUST_LOG: "ai_product_pipeline=info,tower_http=info"
