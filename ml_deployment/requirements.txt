@@ -1,0 +1,29 @@
+# Core API framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.0
+
+# ML frameworks (install as needed)
+numpy>=1.24.0
+onnxruntime>=1.16.0
+
+# Optional: TensorFlow support
+# tensorflow>=2.15.0
+
+# Optional: PyTorch support
+# torch>=2.1.0
+
+# Optional: GPU support
+# onnxruntime-gpu>=1.16.0
+# tensorflow[and-cuda]>=2.15.0
+
+# Monitoring and observability
+prometheus-client>=0.19.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.23.0
+httpx>=0.26.0
+
+# Development
+python-dotenv>=1.0.0

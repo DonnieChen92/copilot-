@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ml-deployment
+  labels:
+    app.kubernetes.io/name: ml-deployment
+    app.kubernetes.io/component: ml-serving
