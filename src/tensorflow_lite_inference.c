@@ -20,13 +20,15 @@
 /**
  * Error handling function
  * 错误处理函数
+ * 
+ * Note: In production with TensorFlow Lite, you should pass the actual
+ * interpreter instance to get detailed error messages. This simplified
+ * version just prints the provided message.
  */
 void print_last_error(const char* message) {
-#ifdef USE_TENSORFLOW_LITE
-    printf("%s: %s\n", message, TfLiteInterpreterGetErrorMessage(NULL));
-#else
-    printf("%s: TensorFlow Lite not available in this build\n", message);
-#endif
+    // In production, get error from interpreter if available
+    // For this demo, just print the message
+    printf("%s\n", message);
 }
 
 /**
