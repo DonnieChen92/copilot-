@@ -1,0 +1,53 @@
+# Build artifacts / 构建产物
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+tflite_app
+*.out
+
+# Build directories / 构建目录
+build/
+bin/
+lib/
+obj/
+
+# CMake files / CMake文件
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile.cmake
+*.cmake
+!CMakeLists.txt
+
+# IDE files / IDE文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Dependency directories / 依赖目录
+node_modules/
+vendor/
+
+# Model files (optional, uncomment if models should not be committed)
+# 模型文件（可选，如果不应提交模型则取消注释）
+# *.tflite
+# models/
+
+# Test outputs / 测试输出
+test_output/
+*.log
+
+# Documentation build / 文档构建
+docs/_build/
+docs/.doctrees/
+
+# Temporary files / 临时文件
+tmp/
+temp/
+*.tmp
