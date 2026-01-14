@@ -20,8 +20,9 @@ int model_export(const ExportConfig* config) {
         return -1;
     }
 
-    // 此处实现实际的文件复制和转换逻辑
-    // Here implement actual file copy and conversion logic
+    // 注意：这是一个存根实现。实际的文件复制和转换逻辑需要根据具体需求实现
+    // Note: This is a stub implementation. Actual file copy and conversion logic needs to be implemented based on specific requirements
+    // TODO: Implement actual file copy/conversion using file I/O operations
 
     printf("Export completed / 导出完成\n");
     return 0;
@@ -36,10 +37,9 @@ int model_pack_zip(const char* model_path, const char* zip_path) {
     printf("Packing model %s into %s / 将模型%s打包到%s\n", 
            model_path, zip_path, model_path, zip_path);
 
-    // 此处应使用libzip或zlib等库进行实际的ZIP打包
-    // Here should use libzip or zlib etc. for actual ZIP packing
-    // 示例：创建ZIP归档，添加模型文件和元数据
-    // Example: create ZIP archive, add model files and metadata
+    // 注意：这是一个存根实现。实际的ZIP打包需要集成libzip或zlib库
+    // Note: This is a stub implementation. Actual ZIP packing requires integration with libzip or zlib library
+    // TODO: Implement using libzip or similar: create archive, add model file, add metadata, close archive
 
     printf("Model packed successfully / 模型打包成功\n");
     return 0;
@@ -54,10 +54,9 @@ int model_unpack_zip(const char* zip_path, const char* dest_path) {
     printf("Unpacking %s to %s / 解包%s到%s\n", 
            zip_path, dest_path, zip_path, dest_path);
 
-    // 此处应使用libzip或zlib等库进行实际的ZIP解包
-    // Here should use libzip or zlib etc. for actual ZIP unpacking
-    // 示例：打开ZIP归档，提取所有文件到目标目录
-    // Example: open ZIP archive, extract all files to destination directory
+    // 注意：这是一个存根实现。实际的ZIP解包需要集成libzip或zlib库
+    // Note: This is a stub implementation. Actual ZIP unpacking requires integration with libzip or zlib library
+    // TODO: Implement using libzip or similar: open archive, extract files to destination, close archive
 
     printf("Model unpacked successfully / 模型解包成功\n");
     return 0;

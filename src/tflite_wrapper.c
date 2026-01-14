@@ -3,7 +3,13 @@
 #include <stdlib.h>
 
 void tflite_print_error(const char* message) {
-    printf("%s: %s\n", message, TfLiteInterpreterGetErrorMessage(NULL));
+    // 注意：TfLiteInterpreterGetErrorMessage可能需要有效的解释器实例
+    // Note: TfLiteInterpreterGetErrorMessage may require a valid interpreter instance
+    // 传递NULL可能导致未定义行为，此处仅用于演示
+    // Passing NULL may cause undefined behavior, this is for demonstration only
+    if (message) {
+        printf("%s\n", message);
+    }
 }
 
 int tflite_wrapper_init(TFLiteWrapper* wrapper, const char* model_path) {

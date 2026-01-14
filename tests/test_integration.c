@@ -19,7 +19,7 @@ void test_api_config_init() {
     assert(config.endpoint != NULL);
     assert(strcmp(config.endpoint, "https://api.test.com") == 0);
     assert(config.timeout_seconds == 30);
-    assert(config.use_ssl == true);
+    assert(config.use_ssl);
     
     printf("✓ test_api_config_init passed / 通过\n\n");
 }
