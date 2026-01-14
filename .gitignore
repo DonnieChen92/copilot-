@@ -1,0 +1,43 @@
+# Build artifacts
+build/
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+
+# TensorFlow Lite models
+*.tflite
+*.pb
+
+# API Keys (security)
+Y/API Keys/
+*.key
+*.pem
+*.cert
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Deployment packages
+*.zip
+*.tar.gz
+*.tar.bz2
+
+# Logs
+*.log
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
