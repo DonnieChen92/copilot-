@@ -54,6 +54,10 @@ class TFLiteModelManager {
     /**
      * Run inference with custom input data
      * 使用自定义输入数据运行推理
+     * 
+     * Note: This is a demonstration stub. In production, implement actual
+     * data passing to C function or throw an error.
+     * 注意：这是一个演示存根。在生产环境中，实现实际的数据传递或抛出错误。
      */
     func runInference(withData inputData: [Float]) -> [Float]? {
         // In production, this would pass data to C function
@@ -65,8 +69,11 @@ class TFLiteModelManager {
             return nil
         }
         
-        // Return dummy output for demonstration
-        // 返回演示的虚拟输出
+        // TODO: Replace with actual inference output
+        // Return demonstration output - not for production use
+        // 返回演示输出 - 不用于生产
+        print("⚠️  Warning: Returning dummy data. Implement actual inference for production.")
+        print("⚠️  警告：返回虚拟数据。为生产实现实际推理。")
         return [0.1, 0.2, 0.3, 0.4]
     }
 }

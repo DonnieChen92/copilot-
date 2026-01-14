@@ -141,8 +141,25 @@ def convert_to_onnx(model_path: str, output_path: str = None) -> bool:
         model = tf.keras.models.load_model(model_path)
         
         # Define input signature
-        # Note: Adjust shape based on your model
-        spec = (tf.TensorSpec((None, 224, 224, 3), tf.float32, name="input"),)
+        # Note: Adjust shape based on your model's requirements
+        # Default assumes image input (batch, height, width, channels)
+        # 注意：根据模型要求调整形状
+        # 默认假设图像输入（批次、高度、宽度、通道）
+        
+        # TODO: Make dimensions configurable based on model
+        # For now, using common image dimensions (224x224x3)
+        input_height = 224
+        input_width = 224
+        input_channels = 3
+        
+        spec = (tf.TensorSpec((None, input_height, input_width, input_channels), 
+                              tf.float32, name="input"),)
+        
+        print(f"Using input shape: (batch, {input_height}, {input_width}, {input_channels})")
+        print(f"使用输入形状：(批次, {input_height}, {input_width}, {input_channels})")
+        print("Note: Adjust these dimensions for your specific model")
+        print("注意：根据您的特定模型调整这些维度")
+        print()
         
         # Convert
         print_bilingual("Converting model...", "转换模型...")

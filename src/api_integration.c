@@ -185,9 +185,16 @@ int deploy_model_full_pipeline(void) {
     // Create deployment package
     // 创建部署包
     printf("\n--- Packaging Phase 打包阶段 ---\n");
+    
+    // Build package path from components for better maintainability
+    // 从组件构建包路径以提高可维护性
+    const char* package_name = "terraform_azure_gemini_apple_google_ai.zip";
+    char package_path[512];
+    snprintf(package_path, sizeof(package_path), "Y/data/packages/%s", package_name);
+    
     create_deployment_package(
         "Y/data/exports",
-        "Y/data/packages/terraform_azure_gemini_apple_mygoogleai_mygemini_myiphone.zip"
+        package_path
     );
     
     printf("\n=== Deployment Complete 部署完成 ===\n");
