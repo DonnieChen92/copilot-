@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worldtree-api
+  labels:
+    app: worldtree-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: worldtree-api
+  template:
+    metadata:
+      labels:
+        app: worldtree-api
+    spec:
+      containers:
+      - name: api
+        image: worldtree-api:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: ENVIRONMENT
+          value: "production"
+        - name: LOG_LEVEL
+          value: "info"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: worldtree-api-service
+spec:
+  selector:
+    app: worldtree-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: LoadBalancer
