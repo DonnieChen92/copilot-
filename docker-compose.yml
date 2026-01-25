@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  ai-autopilot:
+    build: .
+    container_name: ai-autopilot-platform
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - API_TOKEN=${API_TOKEN:-}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
