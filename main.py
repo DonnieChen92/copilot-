@@ -118,10 +118,10 @@ async def autopilot_decision(req: AutopilotRequest):
         result = f"[模拟响应] 针对提示'{prompt}'的AI决策建议：请确保安全第一，遵守交通规则。根据场景分析，建议减速停车，等待绿灯。"
     else:
         try:
-            # 配置OpenAI API Key
-            openai.api_key = os.getenv("OPENAI_API_KEY")
+            # 使用新的OpenAI客户端API (v1.0+)
+            client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
             
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 model=model,
                 messages=[
                     {"role": "system", "content": system_msg},
@@ -130,7 +130,7 @@ async def autopilot_decision(req: AutopilotRequest):
                 max_tokens=max_tokens,
                 temperature=temperature,
             )
-            result = response.choices[0].message["content"]
+            result = response.choices[0].message.content
         except Exception as e:
             # 如果API调用失败，返回模拟响应而不是错误
             result = f"[模拟响应] 针对提示'{prompt}'的AI决策建议：请确保安全第一，遵守交通规则。API调用异常: {str(e)}"
@@ -257,7 +257,7 @@ class NLPPromptRequest(BaseModel):
     prompt: str = "你好！请问需要什么帮助？"
     model: str = "gpt-4o"
     token: Optional[str] = None
-    max_tokens: int = 326000
+    max_tokens: int = 2048  # 合理的默认值
     temperature: float = 0.7
 
 
@@ -283,10 +283,10 @@ async def nlp_prompt_chatbot(req: NLPPromptRequest):
         result = f"[模拟响应] 您好！我收到了您的提示：{prompt}。我是AI助手，很高兴为您服务！"
     else:
         try:
-            # 配置OpenAI API Key
-            openai.api_key = os.getenv("OPENAI_API_KEY")
+            # 使用新的OpenAI客户端API (v1.0+)
+            client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
             
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 model=model,
                 messages=[
                     {
@@ -298,7 +298,7 @@ async def nlp_prompt_chatbot(req: NLPPromptRequest):
                 max_tokens=min(max_tokens, 4096),  # 限制最大token数
                 temperature=temperature,
             )
-            result = response.choices[0].message["content"]
+            result = response.choices[0].message.content
         except Exception as e:
             # 如果API调用失败，返回模拟响应而不是错误
             result = f"[模拟响应] 您好！我收到了您的提示：{prompt}。我是AI助手，很高兴为您服务！API调用异常: {str(e)}"
