@@ -1,0 +1,12 @@
+[package]
+name = "treatment_comparison_gui"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "treatment_table"
+path = "treatment_table.rs"
+
+[dependencies]
+iced = "0.12"
+sys-info = "0.9"
