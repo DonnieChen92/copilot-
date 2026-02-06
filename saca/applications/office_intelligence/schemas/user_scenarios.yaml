@@ -1,0 +1,71 @@
+# User Project Scenarios Configuration
+# 用户项目场景配置
+# 用戶專案場景配置
+
+user_profile:
+  email: "donniechen92@gmail.com"
+  identities:
+    - "jiadongchendonnie c++ 陈佳栋"
+  preferences:
+    managerial_attitude: "Formal"
+    language: ["en", "zh-cn", "zh-tw"]
+
+# AI Provider Configurations / AI 提供商配置 / AI 提供商配置
+providers:
+  openai:
+    model: "gpt-4o"
+    role: "General Reasoning"
+  google:
+    model: "gemini-1.5-pro"
+    role: "Multimodal Analysis"
+  microsoft:
+    model: "copilot-enterprise"
+    role: "Office Integration"
+  x_ai:
+    model: "grok-1"
+    role: "Real-time News"
+  claude:
+    model: "claude-3-opus"
+    role: "Complex Reasoning & Coding"
+  perplexity:
+    model: "sonar-medium-online"
+    role: "Search & Fact Checking"
+  deepseek:
+    model: "deepseek-coder"
+    role: "Coding Specialist"
+  tencent:
+    model: "hunyuan"
+    role: "Chinese Context Specialist"
+
+# Data Table Schemas / 数据表结构 / 數據表結構
+schemas:
+  project_tracker:
+    columns:
+      - name: "project_id"
+        type: "string"
+        description: "Unique Project ID"
+      - name: "status"
+        type: "enum"
+        options: ["Planning", "Dev", "Testing", "Deployed"]
+      - name: "owner"
+        type: "string"
+      - name: "embedding_reference"
+        type: "string"
+        description: "Pointer to memory vector"
+
+# Memory Layouts / 记忆布局 / 記憶佈局
+memory_layouts:
+  excel_storage:
+    sheet_name: "hidden_memory_vectors"
+    vector_column: "Z" # Column index for vectors
+    metadata_columns: ["A", "B", "C"]
+  stages:
+    - "Discovery"
+    - "Definition"
+    - "Development"
+    - "Delivery"
+  categories:
+    - "Codebase"
+    - "Governance"
+    - "Architecture"
+    - "Audit Logs"
