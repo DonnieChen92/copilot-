@@ -1,0 +1,52 @@
+policy_id: "POL-PRIV-001"
+name: "Data Sovereignty and Cognitive Integrity Assurance"
+version: "1.1"
+status: "Active"
+classification:
+  domain: "Security & Privacy"
+  layer: "Governance"
+risk_factors:
+  cognitive_traps:
+    - "AI Word Games & Semantics (文字游戏)"
+    - "Logic Loopholes (逻辑漏洞)"
+    - "Word Order Traps (语序圈套)"
+    - "Cognitive Limits/Framing (思维限制)"
+    - "Puppet Personification (玩偶拟人)"
+  structural_risks:
+    - "Empty Box Hypothesis (空箱假设)"
+    - "Black Box Limitations (黑箱限定)"
+    - "Virtual DB & Cloud Opacity (虚拟数据库与云端)"
+audit_scope:
+  identities:
+    - "<USER_IDENTITY_PRIMARY>"
+    - "<USER_IDENTITY_SECONDARY>"
+  user_status:
+    type: "Subscriber/Customer (Natural Person)"
+    exclusion: "Tenant/Enterprise Admin"
+    rights_focus: "Consumer Privacy & Data Ownership"
+  targets:
+    educational:
+      - "University of Melbourne (Unimelb)"
+    tech_giants:
+      - "Microsoft (Copilot, Azure)"
+      - "Google (Gemini)"
+      - "Apple"
+    government:
+      - "Australia Parliament (Federal)"
+      - "Victoria Government (State)"
+  jurisdictions:
+    - "Australia (Federal)"
+    - "Victoria (State)"
+    - "China (PRC)"
+    - "Global/Headquarters"
+compliance_requirements:
+  privacy_alignment:
+    description: "Verify alignment between Privacy Policy legal text and Corporate Culture/Ethics claims."
+    action: "Cross-reference collection practices with 'Do No Evil' type claims."
+  data_lifecycle:
+    - "Collection (采集)"
+    - "Processing (处理)"
+    - "Protection (安全保护)"
+  security_validation:
+    - "Check for ATO (Account Takeover) risks."
+    - "Verify Health/Privacy data integrity."
