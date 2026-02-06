@@ -1,7 +1,7 @@
 {
   "policy_id": "POL-VAL-001",
   "name": "Donation Value and Intent Assessment",
-  "version": "1.0",
+  "version": "1.1",
   "status": "Active",
   "classification": {
     "domain": "Human Values",
@@ -33,6 +33,25 @@
     ]
   },
   "philosophy": {
-    "summary": "Donation is defined by the donor's capacity and intent, not by the absolute monetary value. A single coin given with full intent outweighs a large sum given without care."
+    "summary": "Donation is defined by the donor's capacity and intent, not by the absolute monetary value. A single coin given with full intent outweighs a large sum given without care.",
+    "cultural_contexts": {
+      "buddhism": {
+        "concept": "No attachment to form (无住相布施)",
+        "focus": "Intention (发心) outweighs material quantity.",
+        "source": "Diamond Sutra (金刚经)"
+      },
+      "society": {
+        "concept": "Public Consensus (众谈)",
+        "focus": "Sincerity and Participation (真诚与参与性) are valued over the amount."
+      },
+      "state": {
+        "concept": "National Evaluation (国评)",
+        "focus": "Authenticity, Compliance, and Social Benefit (真实性、合规性及社会效益)."
+      },
+      "religion_general": {
+        "concept": "Inner Quality (内在品质)",
+        "focus": "The spirit of offering validates the gift (e.g., Widow's Mite)."
+      }
+    }
   }
 }
