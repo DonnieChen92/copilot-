@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "document-ai-blueprint"
+version = "0.1.0"
+description = "Open-source AI document automation with LLM memory integration"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Donnie Chen", email = "donniechen92@gmail.com"},
+]
+keywords = [
+    "AI", "LLM", "document-automation", "openpyxl", "python-pptx",
+    "knowledge-graph", "NLU", "memory", "RAG",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://github.com/JiadongCHENDonnie/copilot-"
+Issues = "https://github.com/JiadongCHENDonnie/copilot-/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+
+[tool.flake8]
+max-line-length = 120
+ignore = ["E501", "W503"]

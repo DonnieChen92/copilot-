@@ -1,0 +1,79 @@
+# =============================================================================
+# Global Configuration / 全域設定 / 全局设置
+# Document-AI Open Source Blueprint
+# =============================================================================
+# Copy to settings.yaml and fill in your API keys
+# 複製為 settings.yaml 並填入您的 API 金鑰
+# 复制为 settings.yaml 并填入您的 API 密钥
+
+# --- API Keys / API 金鑰 / API 密钥 ---
+# WARNING: Never commit real API keys to version control
+# 警告：永遠不要將真實 API 金鑰提交到版本控制
+# 警告：永远不要将真实 API 密钥提交到版本控制
+api_keys:
+  openai: "${OPENAI_API_KEY}"
+  anthropic: "${ANTHROPIC_API_KEY}"
+  google: "${GOOGLE_AI_API_KEY}"
+  azure:
+    api_key: "${AZURE_OPENAI_API_KEY}"
+    endpoint: "${AZURE_OPENAI_ENDPOINT}"
+  xai: "${XAI_API_KEY}"
+  perplexity: "${PERPLEXITY_API_KEY}"
+  deepseek: "${DEEPSEEK_API_KEY}"
+  tencent:
+    secret_id: "${TENCENT_SECRET_ID}"
+    secret_key: "${TENCENT_SECRET_KEY}"
+  huggingface: "${HUGGINGFACE_API_KEY}"
+
+# --- Default Models / 預設模型 / 默认模型 ---
+models:
+  chat:
+    primary: "claude-sonnet-4-20250514"   # Anthropic Claude
+    fallback: "gpt-4o"                     # OpenAI GPT-4o
+  embedding:
+    primary: "text-embedding-ada-002"      # OpenAI
+    fallback: "BAAI/bge-large-en-v1.5"     # HuggingFace
+  fast:
+    primary: "gemini-2.0-flash"            # Google
+    fallback: "deepseek-chat"              # DeepSeek
+
+# --- Memory Configuration / 記憶配置 / 记忆配置 ---
+memory:
+  buffer:
+    max_messages: 50
+    max_tokens: 4096
+  summary:
+    strategy: "progressive"    # progressive | map_reduce | refine
+    trigger_threshold: 20      # Summarize after N messages / N 條訊息後摘要
+  entity:
+    extraction_model: "en_core_web_sm"   # spaCy model
+    use_jieba: false                      # Enable Chinese segmentation / 啟用中文分詞
+  embedding:
+    model: "text-embedding-ada-002"
+    dimensions: 1536
+    vector_store: "chromadb"              # faiss | chromadb | qdrant
+
+# --- Export Configuration / 匯出配置 / 导出配置 ---
+export:
+  output_dir: "./output"
+  excel:
+    max_rows_per_sheet: 10000
+    auto_width: true
+  pptx:
+    template: null                        # Path to template / 模板路徑
+    max_entities_per_slide: 12
+  pdf:
+    engine: "reportlab"
+
+# --- Knowledge Graph / 知識圖譜 / 知识图谱 ---
+knowledge_graph:
+  backend: "networkx"          # networkx | neo4j
+  neo4j:
+    uri: "${NEO4J_URI}"
+    user: "${NEO4J_USER}"
+    password: "${NEO4J_PASSWORD}"
+
+# --- Logging / 日誌 / 日志 ---
+logging:
+  level: "INFO"
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"

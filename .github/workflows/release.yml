@@ -1,0 +1,46 @@
+# =============================================================================
+# Release Pipeline / 發佈管線 / 发布管线
+# Triggered by version tags (v*)
+# 由版本標籤 (v*) 觸發 / 由版本标签 (v*) 触发
+# =============================================================================
+
+name: Release Pipeline
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: Build & Publish Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies / 安裝依賴
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install build twine
+
+      - name: Run tests / 執行測試
+        run: |
+          pip install pytest
+          pytest tests/ -v
+
+      - name: Build package / 構建套件
+        run: python -m build
+
+      - name: Create GitHub Release / 建立 GitHub 發佈
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*
+          generate_release_notes: true

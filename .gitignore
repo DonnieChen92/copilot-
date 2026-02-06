@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables / 環境變數 / 环境变量
+.env
+.env.local
+*.env
+
+# Output files / 輸出檔案 / 输出文件
+output/
+*.xlsx
+*.pptx
+*.pdf
+!templates/*.xlsx
+!templates/*.pptx
+
+# Coverage
+.coverage
+htmlcov/
+coverage.xml
+
+# MyPy
+.mypy_cache/

@@ -1,0 +1,170 @@
+# =============================================================================
+# Project Scenarios / 專案場景定義 / 项目场景定义
+# All AI Platform Scenarios for donniechen92@gmail.com
+# =============================================================================
+
+scenarios:
+
+  # =========================================================================
+  # Scenario 1: Automated Report Generation / 自動化報告生成 / 自动化报告生成
+  # =========================================================================
+  - id: "S001"
+    name_en: "AI-Powered Report Generation"
+    name_tw: "AI 驅動報告生成"
+    name_cn: "AI 驱动报告生成"
+    description_en: "Generate Excel/PPTX/PDF reports from LLM conversation summaries"
+    description_tw: "從 LLM 對話摘要生成 Excel/PPTX/PDF 報告"
+    description_cn: "从 LLM 对话摘要生成 Excel/PPTX/PDF 报告"
+    platforms: ["OpenAI", "Claude AI", "Google AI"]
+    components: ["openpyxl", "python-pptx", "reportlab", "LangChain"]
+    memory_type: ["summary", "entity"]
+    data_flow:
+      - "LLM generates structured summary"
+      - "Entity extraction via spaCy NER"
+      - "Summary -> openpyxl (Excel rows)"
+      - "Summary -> python-pptx (slides)"
+      - "Embeddings stored in FAISS"
+
+  # =========================================================================
+  # Scenario 2: Knowledge Base Q&A / 知識庫問答 / 知识库问答
+  # =========================================================================
+  - id: "S002"
+    name_en: "RAG-based Knowledge Base Q&A"
+    name_tw: "基於 RAG 的知識庫問答"
+    name_cn: "基于 RAG 的知识库问答"
+    description_en: "Retrieve relevant docs and answer with LLM + memory context"
+    description_tw: "檢索相關文件並使用 LLM + 記憶上下文回答"
+    description_cn: "检索相关文档并使用 LLM + 记忆上下文回答"
+    platforms: ["OpenAI", "Claude AI", "DeepSeek", "Perplexity AI"]
+    components: ["LlamaIndex", "ChromaDB", "sentence-transformers", "LangChain"]
+    memory_type: ["embedding", "buffer", "summary"]
+    data_flow:
+      - "Documents chunked and embedded"
+      - "Embeddings stored in ChromaDB"
+      - "User query embedded and similarity searched"
+      - "Top-K chunks + memory context sent to LLM"
+      - "Response stored in conversation memory"
+
+  # =========================================================================
+  # Scenario 3: Multi-model Orchestration / 多模型編排 / 多模型编排
+  # =========================================================================
+  - id: "S003"
+    name_en: "Multi-LLM Orchestration Pipeline"
+    name_tw: "多 LLM 編排管線"
+    name_cn: "多 LLM 编排管线"
+    description_en: "Route tasks to optimal LLM provider based on task type and cost"
+    description_tw: "根據任務類型和成本將任務路由到最佳 LLM 提供者"
+    description_cn: "根据任务类型和成本将任务路由到最佳 LLM 提供者"
+    platforms: ["OpenAI", "Claude AI", "Google AI", "DeepSeek", "X.AI"]
+    components: ["LangChain", "base_client.py"]
+    memory_type: ["buffer", "procedural"]
+    routing_rules:
+      - task: "complex_reasoning"
+        primary: "Claude AI (Opus)"
+        fallback: "OpenAI (o1)"
+      - task: "fast_chat"
+        primary: "DeepSeek-V3"
+        fallback: "Google Gemini Flash"
+      - task: "code_generation"
+        primary: "Claude AI (Sonnet)"
+        fallback: "OpenAI (GPT-4o)"
+      - task: "web_search"
+        primary: "Perplexity AI"
+        fallback: "X.AI (Grok)"
+      - task: "chinese_nlp"
+        primary: "Tencent Hunyuan"
+        fallback: "DeepSeek-V3"
+      - task: "image_generation"
+        primary: "OpenAI (DALL-E 3)"
+        fallback: "Google (Imagen 3)"
+
+  # =========================================================================
+  # Scenario 4: Conversation Analytics / 對話分析 / 对话分析
+  # =========================================================================
+  - id: "S004"
+    name_en: "Conversation Analytics Dashboard"
+    name_tw: "對話分析儀表板"
+    name_cn: "对话分析仪表板"
+    description_en: "Analyze conversation patterns, extract insights, export to Excel"
+    description_tw: "分析對話模式、提取見解、匯出至 Excel"
+    description_cn: "分析对话模式、提取见解、导出至 Excel"
+    platforms: ["OpenAI", "Claude AI", "Microsoft AI"]
+    components: ["openpyxl", "spaCy", "NetworkX", "sentence-transformers"]
+    memory_type: ["episodic", "semantic", "entity"]
+    exports:
+      - format: "xlsx"
+        content: "Conversation metrics, entity frequencies, topic clusters"
+      - format: "pptx"
+        content: "Visual summary slides with charts and graphs"
+
+  # =========================================================================
+  # Scenario 5: Knowledge Graph Construction / 知識圖譜構建 / 知识图谱构建
+  # =========================================================================
+  - id: "S005"
+    name_en: "Automated Knowledge Graph Construction"
+    name_tw: "自動化知識圖譜構建"
+    name_cn: "自动化知识图谱构建"
+    description_en: "Extract entities and relations from documents to build a KG"
+    description_tw: "從文件中提取實體和關係以構建知識圖譜"
+    description_cn: "从文档中提取实体和关系以构建知识图谱"
+    platforms: ["Claude AI", "OpenAI", "Google AI"]
+    components: ["spaCy", "Neo4j", "NetworkX", "PyVis", "rdflib"]
+    memory_type: ["entity", "knowledge_graph"]
+    pipeline_steps:
+      - "Document ingestion (PDF/DOCX/TXT)"
+      - "NER extraction via spaCy"
+      - "Relation extraction via LLM"
+      - "Triple storage in Neo4j"
+      - "Graph visualization via PyVis"
+      - "Export adjacency matrix to Excel"
+
+  # =========================================================================
+  # Scenario 6: Document Translation / 文件翻譯 / 文档翻译
+  # =========================================================================
+  - id: "S006"
+    name_en: "Multi-language Document Translation Pipeline"
+    name_tw: "多語言文件翻譯管線"
+    name_cn: "多语言文档翻译管线"
+    description_en: "Translate documents across EN/ZH-TW/ZH-CN with context memory"
+    description_tw: "使用上下文記憶跨 EN/ZH-TW/ZH-CN 翻譯文件"
+    description_cn: "使用上下文记忆跨 EN/ZH-TW/ZH-CN 翻译文档"
+    platforms: ["Claude AI", "DeepSeek", "Google AI", "Tencent AI"]
+    components: ["python-docx", "openpyxl", "python-pptx", "LangChain"]
+    memory_type: ["buffer", "semantic"]
+    languages: ["en", "zh-TW", "zh-CN", "ja", "ko"]
+
+  # =========================================================================
+  # Scenario 7: Meeting Minutes Automation / 會議記錄自動化 / 会议记录自动化
+  # =========================================================================
+  - id: "S007"
+    name_en: "Meeting Minutes to Document Automation"
+    name_tw: "會議記錄到文件自動化"
+    name_cn: "会议记录到文档自动化"
+    description_en: "Transcribe meetings, extract action items, generate reports"
+    description_tw: "轉錄會議、提取行動項目、生成報告"
+    description_cn: "转录会议、提取行动项目、生成报告"
+    platforms: ["OpenAI", "Google AI", "Microsoft AI"]
+    components: ["python-pptx", "openpyxl", "python-docx", "spaCy"]
+    memory_type: ["episodic", "entity", "summary"]
+    outputs:
+      - "PPTX: Meeting summary slides"
+      - "XLSX: Action items tracker"
+      - "DOCX: Full meeting minutes"
+
+  # =========================================================================
+  # Scenario 8: AI Training Data Management / AI訓練資料管理 / AI训练数据管理
+  # =========================================================================
+  - id: "S008"
+    name_en: "Training Data Curation Pipeline"
+    name_tw: "訓練資料策展管線"
+    name_cn: "训练数据策展管线"
+    description_en: "Manage, clean, and export training datasets via Excel"
+    description_tw: "透過 Excel 管理、清理和匯出訓練資料集"
+    description_cn: "通过 Excel 管理、清理和导出训练数据集"
+    platforms: ["Hugging Face", "OpenAI", "Google AI"]
+    components: ["openpyxl", "pandas", "datasets", "sentence-transformers"]
+    memory_type: ["procedural"]
+    data_formats:
+      - "JSONL for fine-tuning"
+      - "CSV/XLSX for review"
+      - "Parquet for large datasets"
