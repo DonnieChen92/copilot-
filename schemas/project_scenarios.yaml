@@ -168,3 +168,49 @@ scenarios:
       - "JSONL for fine-tuning"
       - "CSV/XLSX for review"
       - "Parquet for large datasets"
+
+  # =========================================================================
+  # Scenario 9: Tesla Autonomy AI / Tesla 自動駕駛 AI / Tesla 自动驾驶 AI
+  # =========================================================================
+  - id: "S009"
+    name_en: "Tesla Autonomy Digital Twin Integration"
+    name_tw: "Tesla 自動駕駛數位雙胞胎整合"
+    name_cn: "Tesla 自动驾驶数字双胞胎整合"
+    description_en: "Digital twin of driver habits + A* path planning + safety checks for FSD"
+    description_tw: "駕駛者習慣的數位雙胞胎 + A* 路徑規劃 + FSD 安全檢查"
+    description_cn: "驾驶者习惯的数字双胞胎 + A* 路径规划 + FSD 安全检查"
+    platforms: ["OpenAI", "Claude AI", "Google AI", "X.AI", "Tesla"]
+    components: ["path_finder.py", "safety_checker.py", "trajectory_planner.py", "data_twin_compressor.py"]
+    memory_type: ["episodic", "procedural", "working"]
+    math_foundations:
+      - "A* algorithm: f(n) = g(n) + h(n)"
+      - "Euclidean distance: d = sqrt((x2-x1)^2 + (y2-y1)^2)"
+      - "Dot product: a·b = |a||b|cos(θ)"
+      - "Shannon entropy: H = -Σp·log2(p)"
+      - "Exponential attenuation: I = I0·e^(-μxρ)"
+    pipeline_steps:
+      - "Sensor/camera data → obstacle grid"
+      - "A* path planning on grid"
+      - "Safety distance validation"
+      - "Trajectory optimization"
+      - "Driver profile compression to edge storage"
+      - "Analytics export to Excel/PPTX"
+
+  # =========================================================================
+  # Scenario 10: Space-Linked Autonomy / 太空連結自駕 / 太空连接自驾
+  # =========================================================================
+  - id: "S010"
+    name_en: "Starlink-Aided Autonomous Navigation"
+    name_tw: "星鏈輔助自主導航"
+    name_cn: "星链辅助自主导航"
+    description_en: "Satellite-aided navigation with radiation shielding simulation"
+    description_tw: "衛星輔助導航與輻射屏蔽模擬"
+    description_cn: "卫星辅助导航与辐射屏蔽模拟"
+    platforms: ["X.AI", "Google AI", "Tesla", "SpaceX"]
+    components: ["radiation_sim.py", "trajectory_planner.py", "path_finder.py"]
+    memory_type: ["procedural", "semantic"]
+    math_foundations:
+      - "Hohmann transfer: Δv = sqrt(μ/r)(sqrt(2r2/(r1+r2))-1)"
+      - "Orbital velocity: v = sqrt(μ/r)"
+      - "Radiation attenuation: I = I0·e^(-μxρ)"
+      - "Monte Carlo: average over N random trials"
