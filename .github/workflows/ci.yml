@@ -1,0 +1,113 @@
+# =============================================================================
+# CI Pipeline / 持續整合管線 / 持续集成管线
+# Document-AI Open Source Blueprint
+# =============================================================================
+# Runs on every push and pull request
+# 每次推送和拉取請求時執行
+# 每次推送和拉取请求时执行
+
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main, develop, "claude/*"]
+  pull_request:
+    branches: [main]
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  # --- Lint / 程式碼檢查 / 代码检查 ---
+  lint:
+    name: Lint & Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+
+      - name: Install dependencies / 安裝依賴 / 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 mypy
+          pip install -r requirements.txt
+
+      - name: Run flake8 / 執行 flake8 檢查 / 执行 flake8 检查
+        run: flake8 src/ --max-line-length=120 --ignore=E501,W503
+
+      - name: Run mypy / 執行型別檢查 / 执行类型检查
+        run: mypy src/ --ignore-missing-imports --no-strict-optional
+        continue-on-error: true
+
+  # --- Test / 測試 / 测试 ---
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+
+      - name: Install dependencies / 安裝依賴 / 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+
+      - name: Run tests with coverage / 執行測試含覆蓋率 / 执行测试含覆盖率
+        run: pytest tests/ -v --cov=src --cov-report=xml --cov-report=term-missing
+
+      - name: Upload coverage / 上傳覆蓋率 / 上传覆盖率
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage.xml
+
+  # --- Build / 構建 / 构建 ---
+  build:
+    name: Build & Validate
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install build tools / 安裝構建工具 / 安装构建工具
+        run: pip install build twine
+
+      - name: Build package / 構建套件 / 构建包
+        run: python -m build
+
+      - name: Validate package / 驗證套件 / 验证包
+        run: twine check dist/*
+
+      - name: Upload artifacts / 上傳產物 / 上传产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/

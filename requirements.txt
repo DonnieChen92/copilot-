@@ -1,0 +1,49 @@
+# =============================================================================
+# Python Dependencies / Python 依賴 / Python 依赖
+# Document-AI Open Source Blueprint
+# =============================================================================
+
+# --- Document Generation / 文件生成 / 文档生成 ---
+openpyxl>=3.1.0          # Excel read/write / Excel 讀寫
+python-pptx>=0.6.21      # PowerPoint generation / PowerPoint 生成
+python-docx>=1.1.0       # Word document generation / Word 文件生成
+reportlab>=4.0            # PDF generation / PDF 生成
+XlsxWriter>=3.1.0        # Alternative Excel writer / 替代 Excel 寫入器
+
+# --- NLU & NLP / 自然語言處理 ---
+spacy>=3.7.0              # NLP pipeline / NLP 管線
+jieba>=0.42.1             # Chinese segmentation / 中文分詞
+nltk>=3.8                 # Classic NLP toolkit / 經典 NLP 工具包
+sentence-transformers>=2.2.0  # Sentence embeddings / 句子嵌入
+
+# --- LLM Frameworks / LLM 框架 ---
+langchain>=0.1.0          # LLM application framework / LLM 應用框架
+llama-index>=0.10.0       # RAG framework / RAG 框架
+
+# --- LLM API Clients / LLM API 客戶端 ---
+openai>=1.12.0            # OpenAI / Azure / X.AI / Perplexity / DeepSeek
+anthropic>=0.18.0         # Anthropic Claude
+google-generativeai>=0.4.0  # Google Gemini
+huggingface-hub>=0.20.0   # Hugging Face Inference API
+# tencentcloud-sdk-python-hunyuan  # Tencent Hunyuan (uncomment if needed)
+
+# --- Vector Stores / 向量儲存 ---
+faiss-cpu>=1.7.4          # FAISS vector search / FAISS 向量搜尋
+chromadb>=0.4.0           # ChromaDB embedding store / ChromaDB 嵌入儲存
+# qdrant-client>=1.7.0    # Qdrant (uncomment if needed)
+# pinecone-client>=3.0.0  # Pinecone (uncomment if needed)
+
+# --- Knowledge Graph / 知識圖譜 ---
+networkx>=3.2             # Graph library / 圖形函式庫
+pyvis>=0.3.2              # Graph visualization / 圖形視覺化
+rdflib>=7.0.0             # RDF processing / RDF 處理
+# neo4j>=5.15.0           # Neo4j driver (uncomment if needed)
+
+# --- Utilities / 工具 ---
+pyyaml>=6.0               # YAML config / YAML 設定
+pydantic>=2.5.0           # Data validation / 資料驗證
+python-dotenv>=1.0.0      # Environment variables / 環境變數
+
+# --- Testing / 測試 ---
+pytest>=7.4.0             # Test framework / 測試框架
+pytest-cov>=4.1.0         # Coverage / 覆蓋率

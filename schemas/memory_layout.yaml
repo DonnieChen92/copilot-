@@ -1,0 +1,177 @@
+# =============================================================================
+# Memory Layout Configuration / 記憶體佈局配置 / 内存布局配置
+# Document-AI Open Source Blueprint
+# =============================================================================
+
+memory_system:
+  # Description / 說明 / 说明:
+  # Defines how LLM memory is structured, stored, and retrieved
+  # 定義 LLM 記憶如何結構化、儲存和檢索
+  # 定义 LLM 记忆如何结构化、储存和检索
+
+  layers:
+    # --- Layer 1: Buffer Memory / 緩衝記憶 / 缓冲记忆 ---
+    buffer_memory:
+      description_en: "Short-term conversation buffer (last N messages)"
+      description_tw: "短期對話緩衝（最後 N 條訊息）"
+      description_cn: "短期对话缓冲（最后 N 条消息）"
+      backend: "in-memory / Redis"
+      max_messages: 50
+      max_tokens: 4096
+      eviction_policy: "FIFO"  # First-In-First-Out / 先進先出 / 先进先出
+      integration_points:
+        - target: "openpyxl"
+          action: "Export conversation buffer to Excel worksheet"
+          action_tw: "將對話緩衝匯出至 Excel 工作表"
+          action_cn: "将对话缓冲导出至 Excel 工作表"
+        - target: "python-pptx"
+          action: "Display recent conversation on PPTX slides"
+          action_tw: "在 PPTX 幻燈片上顯示近期對話"
+          action_cn: "在 PPTX 幻灯片上显示近期对话"
+
+    # --- Layer 2: Summary Memory / 摘要記憶 / 摘要记忆 ---
+    summary_memory:
+      description_en: "Progressive summarization of conversation history"
+      description_tw: "對話歷史的漸進式摘要"
+      description_cn: "对话历史的渐进式摘要"
+      backend: "PostgreSQL / SQLite"
+      strategies:
+        - "progressive"    # Incrementally update / 增量更新
+        - "map_reduce"     # Parallel summarize then merge / 並行摘要後合併
+        - "refine"         # Iteratively refine summary / 迭代精煉摘要
+      integration_points:
+        - target: "openpyxl"
+          action: "Store summaries as Excel rows with timestamps"
+          action_tw: "將摘要存為帶時間戳的 Excel 列"
+          action_cn: "将摘要存为带时间戳的 Excel 行"
+        - target: "python-pptx"
+          action: "Auto-generate summary slides in presentations"
+          action_tw: "在簡報中自動生成摘要幻燈片"
+          action_cn: "在演示文稿中自动生成摘要幻灯片"
+
+    # --- Layer 3: Entity Memory / 實體記憶 / 实体记忆 ---
+    entity_memory:
+      description_en: "Extracted entities with types and relationships"
+      description_tw: "提取的實體及其類型和關係"
+      description_cn: "提取的实体及其类型和关系"
+      backend: "PostgreSQL + Neo4j"
+      entity_types:
+        - PERSON      # 人物
+        - ORG         # 組織 / 组织
+        - LOCATION    # 地點 / 地点
+        - PRODUCT     # 產品 / 产品
+        - CONCEPT     # 概念
+        - DATE        # 日期
+        - METRIC      # 指標 / 指标
+      integration_points:
+        - target: "openpyxl"
+          action: "Export entity table to structured Excel sheet"
+          action_tw: "將實體表匯出為結構化 Excel 表"
+          action_cn: "将实体表导出为结构化 Excel 表"
+        - target: "python-pptx"
+          action: "Create entity relationship diagrams on slides"
+          action_tw: "在幻燈片上建立實體關係圖"
+          action_cn: "在幻灯片上创建实体关系图"
+        - target: "Neo4j"
+          action: "Sync entities to graph database"
+          action_tw: "將實體同步到圖資料庫"
+          action_cn: "将实体同步到图数据库"
+
+    # --- Layer 4: Embedding Memory / 嵌入記憶 / 嵌入记忆 ---
+    embedding_memory:
+      description_en: "Vector embeddings for semantic search and retrieval"
+      description_tw: "用於語義搜尋和檢索的向量嵌入"
+      description_cn: "用于语义搜索和检索的向量嵌入"
+      backend: "FAISS / ChromaDB / Qdrant"
+      embedding_models:
+        - name: "text-embedding-ada-002"
+          provider: "OpenAI"
+          dimensions: 1536
+        - name: "text-embedding-3-large"
+          provider: "OpenAI"
+          dimensions: 3072
+        - name: "embedding-001"
+          provider: "Google"
+          dimensions: 768
+        - name: "bge-large-en-v1.5"
+          provider: "HuggingFace"
+          dimensions: 1024
+      integration_points:
+        - target: "openpyxl"
+          action: "Store embedding vectors in Excel for analysis/export"
+          action_tw: "將嵌入向量存入 Excel 供分析/匯出"
+          action_cn: "将嵌入向量存入 Excel 供分析/导出"
+        - target: "FAISS"
+          action: "Index embeddings for fast similarity search"
+          action_tw: "索引嵌入向量以進行快速相似度搜尋"
+          action_cn: "索引嵌入向量以进行快速相似度搜索"
+
+    # --- Layer 5: Knowledge Graph Memory / 知識圖譜記憶 / 知识图谱记忆 ---
+    knowledge_graph:
+      description_en: "Structured knowledge as subject-predicate-object triples"
+      description_tw: "結構化知識作為主語-謂語-賓語三元組"
+      description_cn: "结构化知识作为主语-谓语-宾语三元组"
+      backend: "Neo4j / NetworkX"
+      integration_points:
+        - target: "python-pptx"
+          action: "Visualize knowledge graph on presentation slides"
+          action_tw: "在簡報幻燈片上視覺化知識圖譜"
+          action_cn: "在演示文稿幻灯片上可视化知识图谱"
+        - target: "openpyxl"
+          action: "Export triples as Excel adjacency matrix"
+          action_tw: "將三元組匯出為 Excel 鄰接矩陣"
+          action_cn: "将三元组导出为 Excel 邻接矩阵"
+
+# --- Phases / 階段 / 阶段 ---
+memory_phases:
+  - phase: "INGEST"
+    description_en: "Receive user input, tokenize, extract entities"
+    description_tw: "接收使用者輸入、分詞、提取實體"
+    description_cn: "接收用户输入、分词、提取实体"
+    components: ["spaCy", "jieba", "sentence-transformers"]
+
+  - phase: "STORE"
+    description_en: "Persist to buffer, generate embeddings, update graph"
+    description_tw: "持久化至緩衝、生成嵌入、更新圖譜"
+    description_cn: "持久化至缓冲、生成嵌入、更新图谱"
+    components: ["PostgreSQL", "FAISS", "ChromaDB", "Neo4j"]
+
+  - phase: "RETRIEVE"
+    description_en: "Semantic search, graph traversal, context assembly"
+    description_tw: "語義搜尋、圖遍歷、上下文組裝"
+    description_cn: "语义搜索、图遍历、上下文组装"
+    components: ["FAISS", "Neo4j", "LangChain"]
+
+  - phase: "SUMMARIZE"
+    description_en: "Compress old memories, update summaries"
+    description_tw: "壓縮舊記憶、更新摘要"
+    description_cn: "压缩旧记忆、更新摘要"
+    components: ["LangChain", "LLM API"]
+
+  - phase: "EXPORT"
+    description_en: "Generate documents (Excel/PPTX/PDF) from memory"
+    description_tw: "從記憶生成文件（Excel/PPTX/PDF）"
+    description_cn: "从记忆生成文档（Excel/PPTX/PDF）"
+    components: ["openpyxl", "python-pptx", "reportlab"]
+
+# --- Categories / 分類 / 分类 ---
+memory_categories:
+  - name: "episodic"
+    description_en: "Specific conversation events and interactions"
+    description_tw: "特定對話事件和互動"
+    description_cn: "特定对话事件和交互"
+
+  - name: "semantic"
+    description_en: "General knowledge and facts extracted from conversations"
+    description_tw: "從對話中提取的一般知識和事實"
+    description_cn: "从对话中提取的一般知识和事实"
+
+  - name: "procedural"
+    description_en: "Learned workflows and task patterns"
+    description_tw: "已學習的工作流程和任務模式"
+    description_cn: "已学习的工作流程和任务模式"
+
+  - name: "working"
+    description_en: "Current session context and active state"
+    description_tw: "當前會話上下文和活動狀態"
+    description_cn: "当前会话上下文和活动状态"
