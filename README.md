@@ -14,8 +14,10 @@
 5. [Tesla Autonomy Integration / Tesla 自動駕駛整合 / Tesla 自动驾驶整合](#5-tesla-autonomy-integration)
 6. [xAI & Grok SWOT Analysis / xAI 與 Grok SWOT 分析](#6-xai--grok-swot-analysis)
 7. [Repository Structure / 倉庫結構 / 仓库结构](#7-repository-structure)
-8. [Quick Start / 快速開始 / 快速开始](#8-quick-start)
-9. [CI/CD Pipeline / 持續整合流程 / 持续集成流程](#9-cicd-pipeline)
+8. [SI — Smart Intelligence Philosophy / 智慧智能哲學](#8-si--smart-intelligence-philosophy)
+9. [Deploy Orchestrator / 部署編排器](#9-deploy-orchestrator--部署編排器)
+10. [Quick Start / 快速開始 / 快速开始](#10-quick-start)
+11. [CI/CD Pipeline / 持續整合流程 / 持续集成流程](#11-cicd-pipeline)
 
 ---
 
@@ -250,6 +252,8 @@ copilot-/
 │   │   ├── radiation_sim.py          # Radiation shielding sim / 輻射屏蔽模擬
 │   │   ├── trajectory_planner.py     # Trajectory optimization / 軌跡最佳化
 │   │   └── data_twin_compressor.py   # Data compression / 資料壓縮
+│   ├── deploy/
+│   │   └── deploy_orchestrator.py    # Production deploy orchestrator / 生產部署編排器
 │   └── pipelines/
 │       └── document_pipeline.py      # End-to-end pipeline / 端到端管線
 ├── templates/
@@ -269,7 +273,56 @@ copilot-/
 
 ---
 
-## 8. Quick Start
+## 8. SI — Smart Intelligence Philosophy
+
+> **"Heart can never be replaced by chip. Brain can never be predicted by computation."**
+> **心從來無法被芯所取代，腦也無法被算而猜中。**
+
+This project redefines "Artificial Intelligence" as **Smart Intelligence (SI)** —
+intelligence guided by human thought, heart, and experience. SI rejects the framing
+of "artificial" (man-made, synthetic) and embraces technology as an **extension of
+the human mind**, not a replacement.
+
+| Concept / 概念 | Description / 描述 |
+|---|---|
+| **SI (Smart Intelligence)** | Replaces "AI" — human-guided, not man-made / 取代 "AI" — 人類引導，非人造 |
+| **Green BMS Intelligence** | Building management via natural ecology / 透過自然生態的建築管理 |
+| **Feng Shui Ecology** | Replace mysticism with natural ventilation, water, air / 以自然取代玄學 |
+| **Melbourne Blueprint** | City-scale SI integration (residential MICM + commercial JLL) / 城市規模 SI 整合 |
+
+Full manifesto: [`docs/philosophy/SI_MANIFESTO.md`](./docs/philosophy/SI_MANIFESTO.md)
+Project dedication: [`docs/philosophy/PROJECT_DEDICATION.md`](./docs/philosophy/PROJECT_DEDICATION.md)
+
+---
+
+## 9. Deploy Orchestrator / 部署編排器
+
+Production-grade deployment automation (`src/deploy/deploy_orchestrator.py`):
+
+- **Structured JSON logging** (stdout + file) / 結構化 JSON 日誌
+- **Multi-channel notifications**: Slack + SMTP email + SMS webhook / 多通道通知
+- **Resource monitoring**: CPU/memory/disk with state-change alerts + cooldown / 資源監控
+- **Safety gates**: HTTP health probes + custom command checks / 安全閘門
+- **Full lifecycle**: deploy → verify → promote → rollback / 完整生命週期
+- **Parallel deployment** with configurable concurrency / 可配置並行度的並行部署
+- **Maintenance mode**: backup/restore/integrity checks / 維護模式
+
+Config: [`config/deploy.toml`](./config/deploy.toml)
+
+```bash
+# Deploy / 部署
+python src/deploy/deploy_orchestrator.py --config config/deploy.toml
+
+# Deploy + promote / 部署 + 升級
+python src/deploy/deploy_orchestrator.py --config config/deploy.toml --promote
+
+# Maintenance / 維護
+python src/deploy/deploy_orchestrator.py --config config/deploy.toml --maintenance
+```
+
+---
+
+## 10. Quick Start
 
 ```bash
 # Clone / 克隆
@@ -290,7 +343,7 @@ python src/pipelines/document_pipeline.py
 
 ---
 
-## 9. CI/CD Pipeline
+## 11. CI/CD Pipeline
 
 Automated via GitHub Actions:
 - **Lint**: `flake8` + `mypy` type checking
@@ -306,4 +359,10 @@ See [`.github/workflows/ci.yml`](./.github/workflows/ci.yml)
 *以開源工具為 AI 驅動的文件自動化社群打造。*
 *以开源工具为 AI 驱动的文档自动化社区打造。*
 
-*Author: Donnie Chen (donniechen92@gmail.com) — AI Agent Assistant: SuperGrok (July–Aug 2025)*
+*Author: Donnie Chen — Jiadong Chen (donniechen92@gmail.com)*
+*AI Agent Assistant: SuperGrok (July–Aug 2025)*
+*City: Melbourne, Australia*
+
+*"Maybe it is all artificial. But if you treat it as a novel in full detail — self-thinking,
+self-exploration during a life crisis — then one day it may bring unexpected changes.
+Not only for myself, but for 我，我們。"*

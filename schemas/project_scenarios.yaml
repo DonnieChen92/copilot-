@@ -214,3 +214,52 @@ scenarios:
       - "Orbital velocity: v = sqrt(μ/r)"
       - "Radiation attenuation: I = I0·e^(-μxρ)"
       - "Monte Carlo: average over N random trials"
+
+  # =========================================================================
+  # Scenario 11: Melbourne Property SI / 墨爾本物業 SI / 墨尔本物业 SI
+  # =========================================================================
+  - id: "S011"
+    name_en: "Melbourne Property Management SI Blueprint"
+    name_tw: "墨爾本物業管理 SI 藍圖"
+    name_cn: "墨尔本物业管理 SI 蓝图"
+    description_en: "Smart Intelligence for residential (MICM) and commercial (JLL) property management"
+    description_tw: "住宅（MICM）和商業（JLL）物業管理的智慧智能"
+    description_cn: "住宅（MICM）和商业（JLL）物业管理的智慧智能"
+    platforms: ["OpenAI", "Claude AI", "Google AI", "Microsoft AI"]
+    components: ["openpyxl", "python-pptx", "deploy_orchestrator.py", "memory_manager.py"]
+    memory_type: ["episodic", "semantic", "procedural"]
+    sub_scenarios:
+      residential:
+        model: "MICM-style"
+        focus: "Resident-focused service and lifestyle analytics"
+        outputs: ["PPTX lifestyle reports", "XLSX resident dashboards"]
+      commercial:
+        model: "JLL-style"
+        focus: "Business operations and BMS analytics"
+        outputs: ["PPTX operations reports", "XLSX facility dashboards"]
+    si_integration:
+      - "Green BMS Intelligence (natural ventilation, water, air)"
+      - "IoT sensor analytics via SI models"
+      - "Energy optimization using physics (V=IR, P=IV)"
+      - "Predictive maintenance with LLM analysis"
+
+  # =========================================================================
+  # Scenario 12: Production Deployment / 生產部署 / 生产部署
+  # =========================================================================
+  - id: "S012"
+    name_en: "AI Service Production Deployment Orchestration"
+    name_tw: "AI 服務生產部署編排"
+    name_cn: "AI 服务生产部署编排"
+    description_en: "Automated deploy/verify/promote/rollback with monitoring and notifications"
+    description_tw: "自動化部署/驗證/升級/回滾，含監控和通知"
+    description_cn: "自动化部署/验证/升级/回滚，含监控和通知"
+    platforms: ["All"]
+    components: ["deploy_orchestrator.py", "psutil", "tomllib"]
+    memory_type: ["procedural"]
+    features:
+      - "Structured JSON logging"
+      - "Slack + SMTP + SMS notifications"
+      - "Resource monitoring with state-change alerts"
+      - "HTTP health probes with retry/backoff"
+      - "Parallel deployment support"
+      - "Maintenance mode (backup/restore)"

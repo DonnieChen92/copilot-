@@ -1,0 +1,71 @@
+# =============================================================================
+# Deploy Orchestrator Configuration Template
+# 部署編排器配置模板 / 部署编排器配置模板
+# =============================================================================
+# Copy to config/deploy.toml and customize
+# 複製為 config/deploy.toml 並自訂
+
+[orchestrator]
+log_file = "logs/orchestrator.log"
+parallelism = 2  # 1 = sequential, >1 = parallel targets / 1=順序, >1=並行
+
+[thresholds]
+cpu_warn = 75.0
+cpu_crit = 90.0
+mem_warn = 80.0
+mem_crit = 92.0
+disk_warn = 85.0
+disk_crit = 95.0
+
+# --- Targets / 部署目標 / 部署目标 ---
+
+[[targets]]
+name = "api-service"
+deploy_cmd = ["kubectl", "apply", "-f", "k8s/api-deployment.yaml"]
+rollback_cmd = ["kubectl", "rollout", "undo", "deployment/api-service"]
+promote_cmd = ["kubectl", "set", "image", "deployment/api-service", "api=api:stable"]
+health_url = "http://api-service:8080/health"
+readiness_url = "http://api-service:8080/ready"
+deploy_timeout_s = 300
+health_retries = 5
+health_backoff_s = 2.0
+
+[[targets]]
+name = "worker-service"
+deploy_cmd = ["kubectl", "apply", "-f", "k8s/worker-deployment.yaml"]
+rollback_cmd = ["kubectl", "rollout", "undo", "deployment/worker-service"]
+health_url = "http://worker-service:8080/health"
+deploy_timeout_s = 300
+
+# --- Global Safety Checks / 全域安全檢查 ---
+
+[global_checks]
+system_integrity_cmd = ["python", "-m", "pytest", "tests/", "-x", "--tb=short"]
+network_stability_cmd = ["curl", "-sf", "http://api-service:8080/health"]
+integrity_timeout_s = 120
+network_timeout_s = 30
+
+# --- Notifications / 通知 ---
+
+[notifications]
+slack_webhook_url = ""  # Or set SLACK_WEBHOOK_URL env var
+
+[notifications.smtp]
+host = ""
+port = 587
+username = ""
+password = ""
+from = ""
+to = ""
+use_tls = true
+
+[notifications.sms]
+endpoint_url = ""
+to = ""
+
+# --- Maintenance / 維護 ---
+
+[maintenance]
+backup_cmd = ["pg_dump", "-h", "localhost", "-U", "app", "-d", "appdb", "-f", "/backup/latest.sql"]
+restore_verify_cmd = ["python", "scripts/verify_backup.py", "--file", "/backup/latest.sql"]
+timeout_s = 1800
