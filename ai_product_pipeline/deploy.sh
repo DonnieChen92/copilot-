@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # AI-DRIVEN DEPLOY PROCESS (BASH) — Rust + Swift
-# Owner: donniechen92@gmail.com
+#
+# Owner: Jiadong Chen (CHEN, JIADONG)
+# Email: donniechen92@gmail.com
+# Domain: jiadongchendonnie.ai
 #
 # Goals:
 # - End-to-end phases/stages/steps with evidence for HOW/WHAT/WHEN/WHY/WHERE
@@ -29,7 +32,10 @@ IFS=$'\n\t'
 # -----------------------------
 # Constants / Defaults
 # -----------------------------
+OWNER_NAME="Jiadong Chen"
+OWNER_LEGAL_NAME="CHEN, JIADONG"
 OWNER_EMAIL="donniechen92@gmail.com"
+OWNER_DOMAIN="jiadongchendonnie.ai"
 PRODUCT_NAME="ai_product_pipeline"
 MODE="agent"              # agent | digital_twin
 ENVIRONMENT="staging"     # dev | staging | prod

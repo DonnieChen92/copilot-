@@ -194,4 +194,10 @@ ml_deployment/
 
 ## License
 
-MIT
+MIT - Copyright (c) 2025 Jiadong Chen
+
+## Author & Contact
+
+**Owner**: Jiadong Chen (CHEN, JIADONG)
+**Email**: donniechen92@gmail.com
+**Website**: [jiadongchendonnie.ai](https://jiadongchendonnie.ai)

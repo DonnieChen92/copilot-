@@ -5,4 +5,10 @@ metadata:
   labels:
     app.kubernetes.io/name: ai-pipeline
     app.kubernetes.io/component: ai-orchestration
+    app.kubernetes.io/managed-by: jiadongchendonnie.ai
+    owner: jiadong-chen
+    contact: donniechen92@gmail.com
     environment: staging
+  annotations:
+    owner.legal-name: "CHEN, JIADONG"
+    owner.domain: "jiadongchendonnie.ai"

@@ -5,3 +5,9 @@ metadata:
   labels:
     app.kubernetes.io/name: ml-deployment
     app.kubernetes.io/component: ml-serving
+    app.kubernetes.io/managed-by: jiadongchendonnie.ai
+    owner: jiadong-chen
+    contact: donniechen92@gmail.com
+  annotations:
+    owner.legal-name: "CHEN, JIADONG"
+    owner.domain: "jiadongchendonnie.ai"

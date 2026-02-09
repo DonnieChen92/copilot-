@@ -208,8 +208,10 @@ ai_product_pipeline/
 
 ## License
 
-MIT
+MIT - Copyright (c) 2025 Jiadong Chen
 
-## Contact
+## Author & Contact
 
-Owner: donniechen92@gmail.com
+**Owner**: Jiadong Chen (CHEN, JIADONG)
+**Email**: donniechen92@gmail.com
+**Website**: [jiadongchendonnie.ai](https://jiadongchendonnie.ai)
