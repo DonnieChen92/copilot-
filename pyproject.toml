@@ -10,11 +10,12 @@ readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
 authors = [
-    {name = "Donnie Chen", email = "donniechen92@gmail.com"},
+    {name = "CHEN, JIADONG (Donnie Chen)", email = "donniechen92@gmail.com"},
 ]
 keywords = [
-    "AI", "LLM", "document-automation", "openpyxl", "python-pptx",
-    "knowledge-graph", "NLU", "memory", "RAG",
+    "SI", "smart-intelligence", "LLM", "document-automation",
+    "openpyxl", "python-pptx", "knowledge-graph", "NLU", "memory", "RAG",
+    "tesla-autonomy", "deploy-orchestrator",
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -28,8 +29,10 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/JiadongCHENDonnie/copilot-"
+Homepage = "https://jiadongchendonnie.ai"
+Repository = "https://github.com/JiadongCHENDonnie/copilot-"
 Issues = "https://github.com/JiadongCHENDonnie/copilot-/issues"
+Documentation = "https://jiadongchendonnie.ai/docs"
 
 [tool.setuptools.packages.find]
 where = ["."]

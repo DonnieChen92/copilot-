@@ -1,7 +1,23 @@
 # Document-AI Open Source Blueprint / 文件AI開源藍圖 / 文档AI开源蓝图
 
-> **Owner / 負責人 / 负责人**: donniechen92@gmail.com
+> **Owner / 所有者**: **CHEN, JIADONG** (Legal Name per Government ID / 政府證件法定姓名)
+> **Domain / 域名**: [jiadongchendonnie.ai](https://jiadongchendonnie.ai) (Squarespace)
+> **Email / 電子郵件**: donniechen92@gmail.com
+> **GitHub**: JiadongCHENDonnie/copilot-
 > **License**: MIT
+
+---
+
+### Domain Decode / 域名解碼 / 域名解码
+
+```
+jiadongchendonnie.ai
+│       │       │  │
+│       │       │  └── .ai — Smart Intelligence TLD (SI philosophy)
+│       │       └── donnie — English given name / 英文名
+│       └── chen — Family name / 姓氏 CHEN (per Gov't ID)
+└── jiadong — 嘉東: 嘉(excellent) + 東(east) = "Auspicious from the East"
+```
 
 ---
 
@@ -18,6 +34,7 @@
 9. [Deploy Orchestrator / 部署編排器](#9-deploy-orchestrator--部署編排器)
 10. [Quick Start / 快速開始 / 快速开始](#10-quick-start)
 11. [CI/CD Pipeline / 持續整合流程 / 持续集成流程](#11-cicd-pipeline)
+12. [Ownership & Legal / 所有權與法律 / 所有权与法律](#12-ownership--legal)
 
 ---
 
@@ -215,11 +232,18 @@ copilot-/
 ├── config/
 │   └── settings.yaml                 # Global config / 全域設定 / 全局设置
 ├── docs/
-│   ├── COMPONENT_REGISTRY.md         # Full component list / 組件全覽 / 组件全览
-│   ├── TESLA_AUTONOMY_INTEGRATION.md # Tesla FSD integration / Tesla FSD 整合
-│   └── swot/
-│       ├── XAI_SWOT.md               # xAI SWOT analysis / xAI SWOT 分析
-│       └── GROK_SWOT.md              # Grok SWOT analysis / Grok SWOT 分析
+│   ├── COMPONENT_REGISTRY.md         # Component list / 組件全覽
+│   ├── TESLA_AUTONOMY_INTEGRATION.md # Tesla FSD / Tesla 自駕
+│   ├── swot/                         # SWOT analyses / SWOT 分析
+│   │   ├── XAI_SWOT.md
+│   │   └── GROK_SWOT.md
+│   ├── philosophy/                   # SI philosophy / SI 哲學
+│   │   ├── SI_MANIFESTO.md
+│   │   └── PROJECT_DEDICATION.md
+│   ├── brand/                        # Brand system / 品牌系統
+│   │   └── BRAND_ARCHITECTURE.md
+│   └── legal/                        # Ownership / 所有權聲明
+│       └── DOMAIN_OWNERSHIP.md
 ├── schemas/
 │   ├── memory_schema.sql             # DB schema / 資料表結構 / 数据表结构
 │   ├── memory_layout.yaml            # Memory layout / 記憶體佈局 / 内存布局
@@ -355,13 +379,32 @@ See [`.github/workflows/ci.yml`](./.github/workflows/ci.yml)
 
 ---
 
-*Built with open-source tools for the AI-driven document automation community.*
-*以開源工具為 AI 驅動的文件自動化社群打造。*
-*以开源工具为 AI 驱动的文档自动化社区打造。*
+## 12. Ownership & Legal
 
-*Author: Donnie Chen — Jiadong Chen (donniechen92@gmail.com)*
+| Field / 欄位 | Value / 值 |
+|---|---|
+| **Legal Name / 法定姓名** | **CHEN, JIADONG** (per Government ID) |
+| **Chinese Name / 中文名** | 陳嘉東 (繁) / 陈嘉东 (简) |
+| **Domain / 域名** | `jiadongchendonnie.ai` (Squarespace) |
+| **Email / 電子郵件** | donniechen92@gmail.com |
+| **GitHub** | JiadongCHENDonnie/copilot- |
+| **Location / 地點** | Melbourne, Australia |
+
+Full details:
+- Domain & Identity: [`docs/legal/DOMAIN_OWNERSHIP.md`](./docs/legal/DOMAIN_OWNERSHIP.md)
+- Brand Architecture: [`docs/brand/BRAND_ARCHITECTURE.md`](./docs/brand/BRAND_ARCHITECTURE.md)
+- SI Manifesto: [`docs/philosophy/SI_MANIFESTO.md`](./docs/philosophy/SI_MANIFESTO.md)
+- Project Dedication: [`docs/philosophy/PROJECT_DEDICATION.md`](./docs/philosophy/PROJECT_DEDICATION.md)
+
+---
+
+*Built with open-source tools for the SI-driven document automation community.*
+*以開源工具為 SI 驅動的文件自動化社群打造。*
+*以开源工具为 SI 驱动的文档自动化社区打造。*
+
+*© CHEN, JIADONG | [jiadongchendonnie.ai](https://jiadongchendonnie.ai) | Smart Intelligence*
 *AI Agent Assistant: SuperGrok (July–Aug 2025)*
-*City: Melbourne, Australia*
+*Melbourne, Australia*
 
 *"Maybe it is all artificial. But if you treat it as a novel in full detail — self-thinking,
 self-exploration during a life crisis — then one day it may bring unexpected changes.
