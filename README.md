@@ -47,11 +47,24 @@ make merkle MANIFEST=$WORLDROOT/external-conservations/imports/manifests/slack-m
 make sign_all MANIFEST=$WORLDROOT/external-conservations/imports/manifests/slack-manifest-20260101T120000Z.json PGP_FINGERPRINT=<your-key>
 ```
 
+## Domain ownership
+
+| Field | Value |
+|-------|-------|
+| Domain | `jiadongchendonnie.ai` |
+| Registrar | Squarespace |
+| Registrar login | `donniechen92@gmail.com` |
+| Legal owner | CHEN, JIADONG |
+
+See `worldtree.root.window/jiadongchendonnie.ai/identity/domain-ownership.json` for full details.
+
 ## Structure
 
 - `scripts/` — Ingest, integrity, and materializer scripts
 - `connectors/` — Platform-specific normalizers (slack, box, dropbox)
+- `simulations/` — Radiation, redundancy, orbital, autonomy, and utility simulations
 - `worldtree.root.window/jiadongchendonnie.ai/` — The worldtree data root
+  - `identity/` — Domain ownership and registrar records
   - `projects/` — JCD01 through JCD06 project directories
   - `schemas/` — Canonical JSON schemas (conversation-record, etc.)
   - `samples/` — Example records and templates

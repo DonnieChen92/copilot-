@@ -1,0 +1,18 @@
+{
+  "domain": {
+    "name": "jiadongchendonnie.ai",
+    "registrar": "Squarespace",
+    "registrar_account_email": "donniechen92@gmail.com",
+    "status": "active"
+  },
+  "owner": {
+    "legal_name": "CHEN, JIADONG",
+    "known_as": "Donnie Chen",
+    "contact_email": "jiadongchen.donnie@outlook.com",
+    "registrar_login_email": "donniechen92@gmail.com"
+  },
+  "workspace": {
+    "root": "worldtree.root.window/jiadongchendonnie.ai",
+    "purpose": "Canonical workspace binding domain identity to project tree, schemas, conservations, and external-conservations"
+  }
+}
