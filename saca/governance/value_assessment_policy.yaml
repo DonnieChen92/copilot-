@@ -1,0 +1,38 @@
+policy_id: "POL-VAL-001"
+name: "Donation Value and Intent Assessment"
+version: "1.1"
+status: "Active"
+classification:
+  domain: "Human Values"
+  layer: "Governance"
+rules:
+  unit_sensitivity:
+    value: "Low"
+    description: "Units (Yuan, Jiao, etc.) are symbolic representations of material transfer and do not dictate the intrinsic value of the action."
+  intention_metrics:
+    primary_factor: "Heart/Mindset (Mental Integrity)"
+    secondary_factor: "Consistency (Frequency)"
+    tertiary_factor: "Magnitude (Amount)"
+  verdict_logic:
+    - condition: "Amount > 0 AND Intention == 'Sincere'"
+      result: "Valid Contribution"
+    - condition: "Frequency == 'High' AND Amount == 'Any'"
+      result: "High Trust / High Value"
+    - condition: "Unit == 'Symbolic'"
+      result: "Accepted as 'Whole'"
+philosophy:
+  summary: "Donation is defined by the donor's capacity and intent, not by the absolute monetary value. A single coin given with full intent outweighs a large sum given without care."
+  cultural_contexts:
+    buddhism:
+      concept: "No attachment to form (无住相布施)"
+      focus: "Intention (发心) outweighs material quantity."
+      source: "Diamond Sutra (金刚经)"
+    society:
+      concept: "Public Consensus (众谈)"
+      focus: "Sincerity and Participation (真诚与参与性) are valued over the amount."
+    state:
+      concept: "National Evaluation (国评)"
+      focus: "Authenticity, Compliance, and Social Benefit (真实性、合规性及社会效益)."
+    religion_general:
+      concept: "Inner Quality (内在品质)"
+      focus: "The spirit of offering validates the gift (e.g., Widow's Mite)."
