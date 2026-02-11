@@ -73,6 +73,49 @@ knowledge_graph:
     user: "${NEO4J_USER}"
     password: "${NEO4J_PASSWORD}"
 
+# --- Anti-Hallucination / 反幻覺配置 / 反幻觉配置 ---
+# Configuration for the anti-hallucination template and check filter system
+# 反幻覺模板和檢查過濾系統的配置
+anti_hallucination:
+  # Pass threshold: minimum grounding score to pass check (0.0 - 1.0)
+  # 通過閾值：通過檢查的最低基準分數
+  pass_threshold: 0.6
+
+  # Maximum retry attempts when validation fails
+  # 驗證失敗時的最大重試次數
+  max_retries: 2
+
+  # Default models for each tier / 各層級預設模型
+  models:
+    standard: "gpt-4o"                  # Standard queries / 標準查詢
+    thinking: "o3"                      # Thinking / reasoning queries / 思維推理查詢
+    codex: "gpt-4o"                     # Code generation queries / 代碼生成查詢
+
+  # Check filters to enable by default / 預設啟用的檢查過濾器
+  default_filters:
+    - "source_grounding"
+    - "claim_extraction"
+    - "citation_verify"
+    - "confidence_calibration"
+    - "code_api_verify"
+
+  # Thinking model specific settings / Thinking 模型專用設定
+  thinking:
+    consistency_passes: 3               # Number of passes for self-consistency check
+    extract_thinking_trace: true        # Parse thinking trace sections
+    verify_steps: true                  # Verify individual reasoning steps
+
+  # Templates to load / 要載入的模板
+  templates:
+    - "factual_qa"
+    - "factual_qa_thinking"
+    - "code_generation"
+    - "code_review"
+    - "reasoning_cot"
+    - "summarization"
+    - "entity_extraction"
+    - "multilingual_qa"
+
 # --- Logging / 日誌 / 日志 ---
 logging:
   level: "INFO"
