@@ -25,7 +25,7 @@ A comprehensive "All Modes" deployment strategy:
 *   **Cloud Deployment**:
     *   **AWS**: Use **SageMaker** for training/hosting and **Bedrock** for managed access.
     *   **Google**: Leverage **Vertex AI** for deploying Gemini and Imagen models.
-    *   **Azure**: utilize **Azure ML** for enterprise-grade lifecycle management.
+    *   **Azure**: Utilize **Azure ML** for enterprise-grade lifecycle management.
 *   **Web/App Serving**:
     *   Host high-performance APIs using **FastAPI** (Python) or **Node.js**.
     *   Serve models via REST/gRPC endpoints to frontend applications.
@@ -36,10 +36,10 @@ A comprehensive "All Modes" deployment strategy:
 ### 3.3. Data, Memory & Security (The Trunk)
 *   **Model Context Protocol (MCP)**: Standardized context sharing across different models.
 *   **Universal AI Connection**: A proprietary layer ensuring all models can communicate and share state.
-*   **Zero-Trust Security**: rigorous identity verification and access control at every level of the matrix.
+*   **Zero-Trust Security**: Rigorous identity verification and access control at every level of the matrix.
 
 ### 3.4. Operational Lifecycle (The Growth Ring)
-*   **Model Preparation**: rigorous conversion and optimization (quantization, pruning) for target environments (Cloud vs. Edge).
+*   **Model Preparation**: Rigorous conversion and optimization (quantization, pruning) for target environments (Cloud vs. Edge).
 *   **Monitoring**: Real-time tracking of:
     *   **Performance**: Inference speed and throughput.
     *   **Latency**: Response times across different regions.
