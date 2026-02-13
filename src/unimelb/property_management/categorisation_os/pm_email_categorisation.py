@@ -1,16 +1,21 @@
 """
-PM-Email-Categorisation.os — Master (VIC) — RES + COM
-=======================================================
+PM-Email-Categorisation.os v0.2.0 — Master (VIC) — RES + COM
+==============================================================
 AI-first email and document categorisation operating system for
 property management, designed by Jiadong Chen (陈佳栋).
+
+v0.2.0 — Enhanced Stakeholder Model:
+- Explicit stakeholder vocab:
+    RES: Renters / Rental Providers
+    COM: Clients / Landlords / Tenants
+- Stakeholder-aware cover-scan, routing, and lock escalation
+- Portfolio detection (RES vs COM) from email signals
+- Vault escalation for PII / ID documents / applications
 
 Foundation:
 - AI-first cover scan: Outlook email + Teams messages/channels +
   calendar invites + attachments + share-folder links
 - Deterministic routing: 99-folder tree (RES + COM)
-- Stakeholder tagging:
-    RES: Renters / Rental Providers
-    COM: Tenants / Landlords / Clients
 - ID-binding subfolders:
     Portfolio_ID + Building_ID + (TEN_ID or LEASE_ID) + Project_ID
 - Locks/Vault:
@@ -67,6 +72,147 @@ class FolderCategory(Enum):
     EXPORTS = "Exports"
     ARCHIVE = "Archive"
     REVIEW = "Review"
+
+
+class Stakeholder(Enum):
+    """Stakeholder types — orthogonal to category, influences routing and locks."""
+
+    # Residential
+    RES_RENTERS = "RESIDENTIAL.RENTERS"
+    RES_RENTAL_PROVIDERS = "RESIDENTIAL.RENTAL_PROVIDERS"
+    # Commercial
+    COM_CLIENTS = "COMMERCIAL.CLIENTS"
+    COM_LANDLORDS = "COMMERCIAL.LANDLORDS"
+    COM_TENANTS = "COMMERCIAL.TENANTS"
+    # Unknown
+    UNKNOWN = "UNKNOWN"
+
+
+class PMCategory(Enum):
+    """PM taxonomy top-level categories (email-centric)."""
+
+    PM_RES = "PM_RES"
+    PM_COM = "PM_COM"
+    PM_GEN = "PM_GEN"
+    GOV_VIC = "GOV_VIC"
+    VENDORS = "VENDORS"
+    FINANCE = "FINANCE"
+    LEGAL = "LEGAL"
+    INSURANCE = "INSURANCE"
+    UTILITIES = "UTILITIES"
+    STRATA_OC = "STRATA_OC"
+    SHOWINGS = "SHOWINGS"
+    LEASING = "LEASING"
+    MAINT = "MAINT"
+    TENANCY = "TENANCY"
+    BOND_RTBA = "BOND_RTBA"
+    ARREARS = "ARREARS"
+    SAFETY = "SAFETY"
+    IT_DOCS = "IT_DOCS"
+    REVIEW = "REVIEW"
+
+
+# =============================================================================
+# Stakeholder keywords for inference (from v0.2.0 schema appendix)
+# =============================================================================
+
+STAKEHOLDER_KEYWORDS: dict[str, list[str]] = {
+    "RESIDENTIAL.RENTERS": [
+        "renter", "tenant", "applicant", "application",
+        "maintenance request", "bond refund", "condition report",
+    ],
+    "RESIDENTIAL.RENTAL_PROVIDERS": [
+        "rental provider", "owner", "landlord",
+        "owner approval", "owner instructions",
+    ],
+    "COMMERCIAL.TENANTS": [
+        "tenant", "lessee", "occupier",
+        "fitout", "make good", "access request",
+    ],
+    "COMMERCIAL.LANDLORDS": [
+        "landlord", "lessor", "asset owner", "owner approval",
+    ],
+    "COMMERCIAL.CLIENTS": [
+        "client", "portfolio", "asset management",
+        "reporting pack", "capex", "budget",
+    ],
+}
+
+# Portfolio detection keywords
+PORTFOLIO_COMMERCIAL_KEYWORDS = [
+    "outgoings", "cpi", "make good", "fitout", "option",
+    "rent review", "lease admin", "occupier", "lessee", "lessor",
+]
+PORTFOLIO_RESIDENTIAL_KEYWORDS = [
+    "renter", "bond", "rtba", "routine inspection",
+    "entry notice", "fixed term", "rent increase",
+    "rental provider", "condition report", "notice of entry",
+]
+
+# Vault escalation keyword groups (from v0.2.0 locks section)
+VAULT_L4_KEYWORDS = [
+    "passport", "visa", "immi", "home affairs", "bdm",
+    "births deaths marriages", "tenant application", "application",
+    "100 points", "id document", "driver licence", "medicare card",
+    "bank statement", "payslip", "pay slip", "proof of identity",
+]
+LOCK_L3_KEYWORDS = [
+    "rent arrears", "breach notice", "notice to vacate", "vcat",
+    "tribunal", "police", "insurance claim", "bond claim",
+    "compensation", "privacy", "complaint",
+]
+
+# Stakeholder routing folder map
+STAKEHOLDER_FOLDER_MAP: dict[str, str] = {
+    "RESIDENTIAL.RENTERS": "RES/20_Stakeholders/Renters/",
+    "RESIDENTIAL.RENTAL_PROVIDERS": "RES/21_Stakeholders/Rental_Providers/",
+    "COMMERCIAL.CLIENTS": "COM/20_Stakeholders/Clients/",
+    "COMMERCIAL.LANDLORDS": "COM/21_Stakeholders/Landlords/",
+    "COMMERCIAL.TENANTS": "COM/22_Stakeholders/Tenants/",
+}
+
+VAULT_FOLDER_MAP: dict[str, str] = {
+    "RESIDENTIAL.RENTERS": "VAULT/Residential/Renters_ID_Applications/",
+    "RESIDENTIAL.RENTAL_PROVIDERS": "VAULT/Residential/Rental_Providers_PII/",
+    "COMMERCIAL.CLIENTS": "VAULT/Commercial/Clients_Confidential/",
+    "COMMERCIAL.LANDLORDS": "VAULT/Commercial/Landlords_Confidential/",
+    "COMMERCIAL.TENANTS": "VAULT/Commercial/Tenants_Confidential/",
+}
+
+# PMOS labels
+PMOS_LABELS: dict[str, list[str]] = {
+    "base": [
+        "PMOS/PROFESSIONAL", "PMOS/RESIDENTIAL", "PMOS/COMMERCIAL",
+        "PMOS/LOCK-L1", "PMOS/LOCK-L2", "PMOS/LOCK-L3", "PMOS/LOCK-L4-VAULT",
+        "PMOS/REVIEW",
+    ],
+    "stakeholder": [
+        "PMOS/RES-RENTERS", "PMOS/RES-RENTAL_PROVIDERS",
+        "PMOS/COM-CLIENTS", "PMOS/COM-LANDLORDS", "PMOS/COM-TENANTS",
+    ],
+    "category": [
+        "PMOS/LEASING", "PMOS/MAINT", "PMOS/SHOWINGS", "PMOS/FINANCE",
+        "PMOS/LEGAL", "PMOS/ARREARS", "PMOS/BOND-RTBA", "PMOS/INSURANCE",
+        "PMOS/STRATA-OC", "PMOS/UTILITIES", "PMOS/VENDORS", "PMOS/GOV-VIC",
+        "PMOS/SAFETY", "PMOS/IT-DOCS",
+    ],
+}
+
+
+@dataclass
+class CoverScanResult:
+    """Output of Stage-0 cover scan (stakeholder-aware)."""
+
+    pm_category_top: str = ""
+    pm_category_sub: str = ""
+    portfolio_guess: str = "UNKNOWN"
+    stakeholder_primary: str = "UNKNOWN"
+    stakeholder_secondary: str = "NONE"
+    lock_level_guess: str = "L1"
+    labels: list[str] = field(default_factory=list)
+    routing_folder: str = ""
+    needs_deep_extraction: bool = False
+    rationale: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -491,3 +637,145 @@ class PMEmailCategorisationOS:
             "vault_folders": len(self.get_folders_by_lock_level(domain, LockLevel.L4_VAULT)),
             "confidential_folders": len(self.get_folders_by_lock_level(domain, LockLevel.L3_CONFIDENTIAL)),
         }
+
+    # =================================================================
+    # v0.2.0 — Stakeholder-Aware Cover Scan & Lock Escalation
+    # =================================================================
+
+    def detect_portfolio(self, text: str) -> str:
+        """Detect portfolio (RESIDENTIAL / COMMERCIAL) from text signals."""
+        text_lower = text.lower()
+        com_score = sum(1 for kw in PORTFOLIO_COMMERCIAL_KEYWORDS if kw in text_lower)
+        res_score = sum(1 for kw in PORTFOLIO_RESIDENTIAL_KEYWORDS if kw in text_lower)
+        if com_score > res_score:
+            return "COMMERCIAL"
+        if res_score > com_score:
+            return "RESIDENTIAL"
+        return "UNKNOWN"
+
+    def infer_stakeholder(self, portfolio: str, text: str) -> str:
+        """Infer primary stakeholder from portfolio context and text."""
+        text_lower = text.lower()
+        best_match = "UNKNOWN"
+        best_score = 0
+
+        for stakeholder_key, keywords in STAKEHOLDER_KEYWORDS.items():
+            # Filter to matching portfolio
+            if portfolio == "RESIDENTIAL" and not stakeholder_key.startswith("RESIDENTIAL"):
+                continue
+            if portfolio == "COMMERCIAL" and not stakeholder_key.startswith("COMMERCIAL"):
+                continue
+
+            score = sum(1 for kw in keywords if kw in text_lower)
+            if score > best_score:
+                best_score = score
+                best_match = stakeholder_key
+
+        return best_match
+
+    def detect_secondary_stakeholder(self, text: str) -> str:
+        """Detect if multiple counterparties are in the thread."""
+        multi_party_signals = [
+            "cc landlord", "cc tenant", "copied the owner",
+            "copied the tenant", "forwarded to tenant", "forwarded to owner",
+        ]
+        text_lower = text.lower()
+        if any(sig in text_lower for sig in multi_party_signals):
+            return "PRESENT"
+        return "NONE"
+
+    def escalate_lock_level(self, text: str) -> str:
+        """Determine lock level escalation based on vault/sensitive keywords."""
+        text_lower = text.lower()
+        if any(kw in text_lower for kw in VAULT_L4_KEYWORDS):
+            return "L4_VAULT"
+        if any(kw in text_lower for kw in LOCK_L3_KEYWORDS):
+            return "L3_SENSITIVE"
+        return "L1_INTERNAL"
+
+    def get_stakeholder_folder(self, stakeholder: str) -> str:
+        """Get the stakeholder-specific routing folder."""
+        return STAKEHOLDER_FOLDER_MAP.get(stakeholder, "")
+
+    def get_vault_folder(self, stakeholder: str) -> str:
+        """Get the vault folder for a stakeholder."""
+        return VAULT_FOLDER_MAP.get(stakeholder, "VAULT/General/")
+
+    def cover_scan(
+        self,
+        subject: str,
+        body: str = "",
+        from_domain: str = "",
+        attachment_names: list[str] | None = None,
+    ) -> CoverScanResult:
+        """
+        Stage-0 cover scan: label portfolio, stakeholder, category,
+        lock level, and routing folder from cover signals.
+
+        This is the v0.2.0 stakeholder-aware first-pass triage.
+        """
+        combined = f"{subject} {body}"
+        attachment_text = " ".join(attachment_names or [])
+        full_text = f"{combined} {attachment_text}"
+
+        result = CoverScanResult()
+        result.labels.append("PMOS/PROFESSIONAL")
+
+        # 1. Portfolio detection
+        result.portfolio_guess = self.detect_portfolio(combined)
+        if result.portfolio_guess == "RESIDENTIAL":
+            result.labels.append("PMOS/RESIDENTIAL")
+            result.pm_category_top = "PM_RES"
+        elif result.portfolio_guess == "COMMERCIAL":
+            result.labels.append("PMOS/COMMERCIAL")
+            result.pm_category_top = "PM_COM"
+        else:
+            result.pm_category_top = "PM_GEN"
+
+        # 2. Stakeholder inference
+        result.stakeholder_primary = self.infer_stakeholder(
+            result.portfolio_guess, combined
+        )
+        if result.stakeholder_primary != "UNKNOWN":
+            # Map stakeholder to PMOS label
+            stake_label_map = {
+                "RESIDENTIAL.RENTERS": "PMOS/RES-RENTERS",
+                "RESIDENTIAL.RENTAL_PROVIDERS": "PMOS/RES-RENTAL_PROVIDERS",
+                "COMMERCIAL.CLIENTS": "PMOS/COM-CLIENTS",
+                "COMMERCIAL.LANDLORDS": "PMOS/COM-LANDLORDS",
+                "COMMERCIAL.TENANTS": "PMOS/COM-TENANTS",
+            }
+            label = stake_label_map.get(result.stakeholder_primary)
+            if label:
+                result.labels.append(label)
+            result.rationale.append(
+                f"Stakeholder inferred as {result.stakeholder_primary}."
+            )
+
+        # 3. Secondary stakeholder
+        result.stakeholder_secondary = self.detect_secondary_stakeholder(combined)
+        if result.stakeholder_secondary == "PRESENT":
+            result.rationale.append(
+                "Thread includes multiple counterparties; careful sharing controls."
+            )
+
+        # 4. Lock level escalation
+        result.lock_level_guess = self.escalate_lock_level(full_text)
+        if result.lock_level_guess == "L4_VAULT":
+            result.labels.append("PMOS/LOCK-L4-VAULT")
+            result.needs_deep_extraction = True
+            result.routing_folder = self.get_vault_folder(result.stakeholder_primary)
+            result.rationale.append("ID/application content => Vault only.")
+        elif result.lock_level_guess == "L3_SENSITIVE":
+            result.labels.append("PMOS/LOCK-L3")
+            result.needs_deep_extraction = True
+        else:
+            result.labels.append("PMOS/LOCK-L1")
+
+        # 5. Stakeholder routing (if not vault-routed)
+        if not result.routing_folder and result.stakeholder_primary != "UNKNOWN":
+            result.routing_folder = self.get_stakeholder_folder(
+                result.stakeholder_primary
+            )
+
+        return result

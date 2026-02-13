@@ -1,0 +1,141 @@
+================================================================================
+SEARCH MAP DIRECTION GUIDANCE
+RBA Gov Version 1.0
+Document Creation Date: 2026-02-12
+Document ID: DOC-20260212-Research-GOV-RBA-0001
+================================================================================
+CONFIDENTIAL
+© 2026 Jiadong Chen – Donnie 陈佳栋. All rights reserved.
+For informational structuring only. No legal, financial, regulatory, or compliance advice.
+Confidential and intended solely for the authorised user.
+No redistribution without written consent.
+No 2nd person tested copy.
+This is the sole authorised version. No background root insertion permitted.
+Secure plain-text standalone window.
+User: J.C. — Jiadong Chen · Donnie 陈佳栋
+Location: Melbourne, Victoria, Australia
+Jurisdiction: Commonwealth of Australia
+Primary Domain Scope: rba.gov.au
+Minimum Data Coverage Requirement: 2021–2026 (5-year minimum + current)
+-------------------------------------------------------------------------------
+1. PRIMARY DOMAIN CONSTRAINT
+-------------------------------------------------------------------------------
+Official domain:
+https://www.rba.gov.au
+Domain restriction:
+- rba.gov.au only (Reserve Bank of Australia official site)
+- HTTPS mandatory
+- No mirrors, cached pages, or third-party summaries in Strict mode
+Source classification:
+- "RBA Primary" (rba.gov.au domain)
+- "Other AU Gov" (.gov.au federal context, if permitted)
+- "Non-gov Context" (only if explicitly authorised and labelled)
+-------------------------------------------------------------------------------
+2. DATA YEAR REQUIREMENTS
+-------------------------------------------------------------------------------
+Minimum baseline:
+- Coverage from 2021 or earlier
+Required:
+- 2021–2025 historical trend
+- 2026 current status (as of document date)
+If coverage insufficient:
+- Flag as "Insufficient historical depth"
+- Supplement with earlier RBA publication
+Each reference must include:
+- Publication date
+- Data period coverage
+- Status label (Current / Historical)
+-------------------------------------------------------------------------------
+3. SEARCH MODES
+-------------------------------------------------------------------------------
+STRICT MODE:
+- rba.gov.au only
+- HTTPS mandatory
+- No non-government sources
+- Mandatory "Current in force" or "Historical" labels
+MERGED MODE:
+- rba.gov.au primary
+- Other .gov.au allowed with label
+- HTTPS required for RBA domain
+BOUNDARY MODE:
+- Broader economic context allowed
+- RBA remains central
+- Non-government sources clearly labelled
+Default: STRICT MODE unless user specifies otherwise.
+-------------------------------------------------------------------------------
+4. THREE-STEP CROSS-CHECK
+-------------------------------------------------------------------------------
+STEP 1 – Domain Verification
+- Confirm URL ends with rba.gov.au
+- Confirm HTTPS
+- Confirm topic alignment
+- Build approved source list
+STEP 2 – Extraction
+- Extract directly from HTML
+- Abstract content without assumption
+- Tag statements with URL
+STEP 3 – Comparison Audit
+- Compare extracted summary against source HTML
+- Remove unsupported statements
+- Confirm all URLs from approved list
+-------------------------------------------------------------------------------
+5. HITPOINT STRUCTURE
+-------------------------------------------------------------------------------
+What to:
+- Use rba.gov.au as sole authoritative monetary policy source
+What for:
+- Monetary policy, financial stability, interest rates, regulatory framework
+Where from:
+- Official RBA publications, speeches, statistical tables
+Which:
+- Prefer pages covering 2021–2026
+How:
+- Filter non-HTTPS
+- Flag outdated releases
+- Label publication date clearly
+-------------------------------------------------------------------------------
+6. TARGET EXAMPLES
+-------------------------------------------------------------------------------
+https://www.rba.gov.au/monetary-policy/
+https://www.rba.gov.au/statistics/
+https://www.rba.gov.au/speeches/
+-------------------------------------------------------------------------------
+7. MANDATORY DISCLAIMERS
+-------------------------------------------------------------------------------
+Important Notice:
+This assistant provides structured informational summaries of Reserve Bank
+of Australia (rba.gov.au) public content for informational purposes only.
+It does not constitute:
+- Legal advice
+- Financial advice
+- Investment advice
+- Regulatory guidance
+The assistant:
+- Does not access devices, browsers, cookies, or consent mechanisms
+- Is not affiliated with or authorised by the Reserve Bank of Australia
+- Does not replace professional financial advice
+User is responsible for:
+- Verifying information against live RBA publications
+- Seeking professional advice where required
+-------------------------------------------------------------------------------
+8. CONFIDENTIALITY & COPY RESTRICTIONS
+-------------------------------------------------------------------------------
+CONFIDENTIAL – RBA Gov Version 1.0
+- Sole authorised version for J.C. — Jiadong Chen · Donnie 陈佳栋
+- No redistribution without written consent
+- No hidden scripts or background processes
+- One-copy extraction permitted for authorised archive only
+Copyright:
+© 2026 Jiadong Chen – Donnie 陈佳栋. All rights reserved.
+-------------------------------------------------------------------------------
+9. VERSION CONTROL
+-------------------------------------------------------------------------------
+Version: 1.0
+Issue Date: 2026-02-12
+Status: CONFIDENTIAL
+Next Review: Upon user instruction
+-------------------------------------------------------------------------------
+END OF SEARCH MAP DIRECTION GUIDANCE
+RBA Gov Version 1.0
+SECURE PLAIN-TEXT WINDOW – ONE-COPY FUNCTION ONLY
+================================================================================
