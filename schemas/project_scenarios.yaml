@@ -263,3 +263,72 @@ scenarios:
       - "HTTP health probes with retry/backoff"
       - "Parallel deployment support"
       - "Maintenance mode (backup/restore)"
+
+  # =========================================================================
+  # Scenario 13: ChatGPT Tool Integration / ChatGPT 工具整合 / ChatGPT 工具整合
+  # =========================================================================
+  - id: "S013"
+    name_en: "ChatGPT Pro/Business Tool Integration Research"
+    name_tw: "ChatGPT Pro/Business 工具整合研究"
+    name_cn: "ChatGPT Pro/Business 工具整合研究"
+    description_en: "Research and comparison of 20+ ChatGPT tool integrations across Pro and Business tiers"
+    description_tw: "研究和比較 20+ ChatGPT 工具整合在 Pro 和 Business 層級之間的差異"
+    description_cn: "研究和比较 20+ ChatGPT 工具整合在 Pro 和 Business 层级之间的差异"
+    platforms: ["OpenAI", "All Integrated Tools"]
+    components: ["Box", "Clay", "Slack", "Lovable", "Asana", "HubSpot", "HuggingFace", "Render"]
+    additional_tools: ["Line Scholar", "Terobox", "Airtable", "Figma", "Frame.io", "Adobe", "GitHub", "Google Drive", "Notion", "Canva", "Atlassian Rovo"]
+    analysis_areas:
+      - "Sync vs on-demand connector architecture"
+      - "Pro vs Business feature comparison"
+      - "Box enterprise admin controls and compliance logging"
+      - "Adobe integration setup flow"
+      - "Canva + ChatGPT template and brand kit access"
+      - "Canva-Claude cross-platform workflow"
+      - "SAML SSO, MFA, RBAC for Business tier"
+      - "Security and compliance summary"
+
+  # =========================================================================
+  # Scenario 14: AI Global Centrality / AI 全球中心化 / AI 全球中心化
+  # =========================================================================
+  - id: "S014"
+    name_en: "AI Global Centrality Quality Safety Gateway"
+    name_tw: "AI 全球中心化品質安全閘道"
+    name_cn: "AI 全球中心化质量安全网关"
+    description_en: "Unified four-ecosystem framework with centralized quality/safety gateway and distributed operational control"
+    description_tw: "統一四大生態系統框架，集中式品質/安全閘道與分佈式運營控制"
+    description_cn: "统一四大生态系统框架，集中式质量/安全网关与分布式运营控制"
+    platforms: ["Apple Intelligence", "Microsoft Intelligence", "Google Intelligence", "Tencent Intelligence"]
+    components: ["base_client.py", "deploy_orchestrator.py", "memory_manager.py", "nlu_pipeline.py"]
+    architecture:
+      geometric_evolution:
+        - stage: "Point"
+          meaning: "Single AI instance — one user, one model"
+        - stage: "Line"
+          meaning: "Connection — user-AI bidirectional flow"
+        - stage: "Circle"
+          meaning: "Ecosystem — multi-model feedback cycle"
+        - stage: "Triangle"
+          meaning: "Stability — Quality + Safety + Distribution pillars"
+        - stage: "Square Sandbox"
+          meaning: "Complete framework — four ecosystems bounded"
+        - stage: "Tetrahedron (3D)"
+          meaning: "Multi-dimensional control — depth of integration"
+    four_pillars:
+      apple_intelligence:
+        focus: "Privacy-first on-device processing"
+        key_tech: ["Apple Silicon", "Core ML", "Siri/SI", "iOS/macOS"]
+      microsoft_intelligence:
+        focus: "Enterprise productivity + OpenAI partnership"
+        key_tech: ["Azure AI", "Copilot", "Office 365", "GitHub"]
+      google_intelligence:
+        focus: "Research-first, open-model approach"
+        key_tech: ["Gemini", "TensorFlow", "Android AI", "Cloud TPU"]
+      tencent_intelligence:
+        focus: "Social-first, China market integration"
+        key_tech: ["Hunyuan", "WeChat AI", "QQ/Weixin", "Cloud AI"]
+    gateway_layers:
+      - "Input Quality Gate — prompt validation, language detection, intent classification"
+      - "Routing & Distribution — optimal model selection, geographic routing, load balancing"
+      - "Processing — four ecosystem parallel execution"
+      - "Output Safety Gate — hallucination detection, PII redaction, bias checks"
+      - "Audit & Administration — full logging, cost tracking, compliance reporting"

@@ -35,6 +35,8 @@ jiadongchendonnie.ai
 10. [Quick Start / 快速開始 / 快速开始](#10-quick-start)
 11. [CI/CD Pipeline / 持續整合流程 / 持续集成流程](#11-cicd-pipeline)
 12. [Ownership & Legal / 所有權與法律 / 所有权与法律](#12-ownership--legal)
+13. [ChatGPT Tool Integration Research / ChatGPT 工具整合研究](#13-chatgpt-tool-integration-research)
+14. [AI Global Centrality Architecture / AI 全球中心化架構](#14-ai-global-centrality-architecture)
 
 ---
 
@@ -242,8 +244,12 @@ copilot-/
 │   │   └── PROJECT_DEDICATION.md
 │   ├── brand/                        # Brand system / 品牌系統
 │   │   └── BRAND_ARCHITECTURE.md
-│   └── legal/                        # Ownership / 所有權聲明
-│       └── DOMAIN_OWNERSHIP.md
+│   ├── legal/                        # Ownership / 所有權聲明
+│   │   └── DOMAIN_OWNERSHIP.md
+│   ├── research/                     # Research reports / 研究報告
+│   │   └── CHATGPT_PRO_VS_BUSINESS.md
+│   └── architecture/                 # Architecture visions / 架構願景
+│       └── AI_GLOBAL_CENTRALITY.md
 ├── schemas/
 │   ├── memory_schema.sql             # DB schema / 資料表結構 / 数据表结构
 │   ├── memory_layout.yaml            # Memory layout / 記憶體佈局 / 内存布局
@@ -395,6 +401,75 @@ Full details:
 - Brand Architecture: [`docs/brand/BRAND_ARCHITECTURE.md`](./docs/brand/BRAND_ARCHITECTURE.md)
 - SI Manifesto: [`docs/philosophy/SI_MANIFESTO.md`](./docs/philosophy/SI_MANIFESTO.md)
 - Project Dedication: [`docs/philosophy/PROJECT_DEDICATION.md`](./docs/philosophy/PROJECT_DEDICATION.md)
+
+---
+
+## 13. ChatGPT Tool Integration Research
+
+### Pro vs Business — 20+ Tool Integrations / 工具整合研究
+
+Comprehensive comparison of ChatGPT **Pro** and **Business** subscription tiers
+with detailed analysis of 20+ integrated tool connectors.
+
+ChatGPT **Pro** 與 **Business** 訂閱層級的全面比較，深入分析 20+ 整合工具連接器。
+
+| Category / 類別 | Tools / 工具 | Connector Type |
+|---|---|---|
+| **Productivity / 生產力** | Slack, Asana, Notion, Airtable, Google Drive, Atlassian Rovo | Sync |
+| **Design / 設計** | Figma, Canva, Adobe, Frame.io | On-demand / Sync |
+| **Developer / 開發者** | GitHub, HuggingFace, Render | Sync / On-demand |
+| **Sales & CRM / 銷售** | HubSpot, Clay | Sync / On-demand |
+| **Enterprise / 企業** | Box, Lovable | Sync / On-demand |
+| **Emerging / 新興** | Line Scholar, Terobox | On-demand |
+
+Key distinctions:
+- **Pro**: Full tool access, individual use, unlimited o1/o3 priority
+- **Business**: All Pro features + RBAC admin console, SAML SSO, MFA enforcement, compliance audit trails, DLP integration
+
+Full report: [`docs/research/CHATGPT_PRO_VS_BUSINESS.md`](./docs/research/CHATGPT_PRO_VS_BUSINESS.md)
+
+---
+
+## 14. AI Global Centrality Architecture
+
+### Four-Ecosystem Quality Safety Gateway / 四大生態系統品質安全閘道
+
+> **"AI Global Centrality Administration Quality Safety Gateway
+> and Distribution Operational Controlling System"**
+
+A unified framework connecting the world's four intelligence ecosystems
+through a centralized SI quality and safety gateway:
+
+```
+┌──────────────┐          ┌──────────────┐
+│    APPLE     │          │  MICROSOFT   │
+│ INTELLIGENCE │          │ INTELLIGENCE │
+│  蘋果智能    │          │  微軟智能    │
+└──────┬───────┘          └──────┬───────┘
+       │    ┌──────────────┐     │
+       └───▶│ SI QUALITY & │◀────┘
+       ┌───▶│ SAFETY GATE  │◀────┐
+       │    └──────────────┘     │
+┌──────┴───────┐          ┌──────┴───────┐
+│   GOOGLE     │          │   TENCENT    │
+│ INTELLIGENCE │          │ INTELLIGENCE │
+│  谷歌智能    │          │  騰訊智能    │
+└──────────────┘          └──────────────┘
+```
+
+**Geometric Evolution / 幾何演化**:
+Point ● → Line ●───● → Circle ○ → Triangle △ → Square □ → Tetrahedron ▲
+
+| Stage / 階段 | Meaning / 含義 |
+|---|---|
+| **Point / 點** | Single AI instance — one user, one model |
+| **Line / 線** | Connection — user-AI bidirectional flow |
+| **Circle / 圓** | Ecosystem — multi-model feedback cycle |
+| **Triangle / 三角形** | Stability — Quality + Safety + Distribution |
+| **Square / 正方形** | Complete framework — four ecosystems bounded |
+| **Tetrahedron / 四面體** | 3D depth — multi-dimensional governance control |
+
+Full architecture: [`docs/architecture/AI_GLOBAL_CENTRALITY.md`](./docs/architecture/AI_GLOBAL_CENTRALITY.md)
 
 ---
 
