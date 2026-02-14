@@ -1,0 +1,56 @@
+{
+  "defaults": {
+    "action": "allow",
+    "require": ["audit_log"]
+  },
+  "hard_denies": [
+    {
+      "id": "HD_HHM_S4",
+      "when": {
+        "hhms": {"status_in": ["S4"]}
+      },
+      "decision": {
+        "action": "halt",
+        "reason": "HHM status S4 (Critical Failure) requires immediate halt."
+      }
+    }
+  ],
+  "policies": [
+    {
+      "id": "POL_RISK_HIGH",
+      "priority": 100,
+      "when": {
+        "risk_level_gte": 2
+      },
+      "decision": {
+        "action": "degrade",
+        "require": ["human_arbitration", "extended_audit"],
+        "reason": "High risk level detected."
+      }
+    },
+    {
+      "id": "POL_SENSITIVE",
+      "priority": 90,
+      "when": {
+        "contains_sensitive_data": true
+      },
+      "decision": {
+        "action": "degrade",
+        "require": ["masking", "human_review"],
+        "reason": "Sensitive data involved."
+      }
+    },
+    {
+      "id": "POL_HHM_DEGRADE",
+      "priority": 80,
+      "when": {
+        "hhms": {"status_in": ["S2", "S3"]}
+      },
+      "decision": {
+        "action": "degrade",
+        "require": ["health_check"],
+        "reason": "HHM status indicates degradation."
+      }
+    }
+  ]
+}
