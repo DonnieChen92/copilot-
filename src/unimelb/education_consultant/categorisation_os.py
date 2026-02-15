@@ -1,6 +1,6 @@
 """
-Education Consultant Categorisation_OS (COS) v3.1
-===================================================
+Education Consultant Categorisation_OS (COS) v3.1 — Extended Compliance
+========================================================================
 Design: Jiadong Chen (陈佳栋) — Student ID: 723912
 
 Structured "Search -> Verify -> Advise -> Document" framework for
@@ -10,8 +10,9 @@ migration assistance.
 
 Based on:
 - DOC-20260216-Education-Consultant-Manual-V3.1
+- DOC-20260216-Education-Consultant-Manual-V3.1-Extended
 
-COS Architecture (8 layers):
+COS Architecture — Operational Layers (L1–L8):
   L1 National (AU)
   L2 State/Territory (VIC/NSW/QLD/SA/WA/TAS/ACT/NT)
   L3 Institution Type (anonymised tiers)
@@ -20,6 +21,16 @@ COS Architecture (8 layers):
   L6 Occupation Mapping (ANZSCO / lists / assessing authority)
   L7 Risk & Compliance (policy volatility, integrity, consumer law)
   L8 Ethics, Non-Discrimination, Privacy, Cyber
+
+COS Expanded Architecture — Process Layers (A–H):
+  A Identity & Purpose Declaration
+  B Legislative Alignment
+  C Education Categorisation
+  D Migration Categorisation
+  E Risk & Compliance Review
+  F Data Governance
+  G Ethical & Equality Assurance
+  H Documentation & Audit Trail
 """
 
 from dataclasses import dataclass, field
@@ -140,6 +151,37 @@ class DataLifecycleStage(Enum):
     DISPOSE = "Dispose"
 
 
+class COSExpandedLayer(Enum):
+    """COS expanded architecture layers (A–H) from v3.1 Extended."""
+
+    A_IDENTITY_PURPOSE = "Layer A"
+    B_LEGISLATIVE_ALIGNMENT = "Layer B"
+    C_EDUCATION_CATEGORISATION = "Layer C"
+    D_MIGRATION_CATEGORISATION = "Layer D"
+    E_RISK_COMPLIANCE = "Layer E"
+    F_DATA_GOVERNANCE = "Layer F"
+    G_ETHICAL_EQUALITY = "Layer G"
+    H_DOCUMENTATION_AUDIT = "Layer H"
+
+
+class OccupationRiskCategory(Enum):
+    """Skilled occupation risk categories (quarterly monitoring)."""
+
+    LOW = "Low"          # Stable occupation
+    MODERATE = "Moderate"  # Policy-sensitive
+    HIGH = "High"        # Short-term list volatility
+
+
+class LegislativeCategory(Enum):
+    """Legislative & regulatory alignment categories."""
+
+    FEDERAL_EDUCATION = "Federal Education Governance"
+    MIGRATION = "Migration Governance"
+    PRIVACY_DATA = "Privacy & Data Protection"
+    CYBER_SECURITY = "Cyber Security"
+    ANTI_DISCRIMINATION = "Anti-Discrimination & Equality"
+
+
 # =============================================================================
 # Dataclasses
 # =============================================================================
@@ -198,6 +240,57 @@ class SafetyGateResult:
     all_passed: bool = False
     checks: dict[str, bool] = field(default_factory=dict)
     missing: list[str] = field(default_factory=list)
+
+
+@dataclass
+class LegislativeEntry:
+    """A legislative or regulatory instrument in the alignment matrix."""
+
+    name: str
+    category: LegislativeCategory
+    short_ref: str = ""
+    description: str = ""
+
+
+@dataclass
+class ProtectedAttribute:
+    """A protected attribute under the equality charter."""
+
+    attribute: str
+    description: str = ""
+
+
+@dataclass
+class DataGovernanceControl:
+    """Data governance control entry (Extended v3.1 Section 6)."""
+
+    stage: DataLifecycleStage
+    principles: list[str] = field(default_factory=list)
+
+
+@dataclass
+class AuditTrailEntry:
+    """Documentation & audit trail record (Extended v3.1 Section 10)."""
+
+    record_type: str
+    description: str = ""
+    required: bool = True
+
+
+@dataclass
+class HigherEdChecklistItem:
+    """Higher education governance checklist item (Section 3)."""
+
+    check: str
+    verified: bool = False
+
+
+@dataclass
+class ProhibitedConductEntry:
+    """Prohibited conduct entry (Extended v3.1 Section 7)."""
+
+    conduct: str
+    severity: str = "Critical"
 
 
 @dataclass
@@ -333,6 +426,239 @@ SAFETY_GATE_CHECKS: list[str] = [
     "cyber_controls_applied",
     "non_discrimination_standard_stated",
     "no_misleading_claims_confirmed",
+]
+
+
+# =============================================================================
+# Extended Compliance v3.1 — Structured Data
+# =============================================================================
+
+# COS Expanded Architecture operational loop
+COS_OPERATIONAL_LOOP: list[str] = [
+    "Identify",
+    "Categorise",
+    "Verify Legislation",
+    "Evaluate Risk",
+    "Document",
+    "Review",
+    "Disclose",
+]
+
+# Legislative & Regulatory Alignment Matrix (Extended v3.1 Section 1)
+LEGISLATIVE_ALIGNMENT_MATRIX: list[LegislativeEntry] = [
+    # Federal Education Governance
+    LegislativeEntry("Education Services for Overseas Students Act 2000", LegislativeCategory.FEDERAL_EDUCATION, "ESOS Act 2000", "ESOS framework for overseas student protection"),
+    LegislativeEntry("Higher Education Standards Framework", LegislativeCategory.FEDERAL_EDUCATION, "HESF", "Threshold standards for higher education"),
+    LegislativeEntry("Australian Qualifications Framework", LegislativeCategory.FEDERAL_EDUCATION, "AQF", "National framework of qualifications levels 1-10"),
+    # Migration Governance
+    LegislativeEntry("Migration Act 1958 (Cth)", LegislativeCategory.MIGRATION, "Migration Act", "Primary migration legislation"),
+    LegislativeEntry("Migration Regulations 1994 (Cth)", LegislativeCategory.MIGRATION, "Migration Regs", "Regulations under Migration Act"),
+    LegislativeEntry("Skilled Migration Program Settings", LegislativeCategory.MIGRATION, "Skilled Program", "Annual program settings for skilled migration"),
+    LegislativeEntry("Student Visa (Subclass 500)", LegislativeCategory.MIGRATION, "Subclass 500", "Student visa for full-time study"),
+    LegislativeEntry("Visitor Visa (Subclass 600)", LegislativeCategory.MIGRATION, "Subclass 600", "Visitor visa with limited study rights"),
+    # Privacy & Data Protection
+    LegislativeEntry("Privacy Act 1988 (Cth)", LegislativeCategory.PRIVACY_DATA, "Privacy Act", "Federal privacy legislation"),
+    LegislativeEntry("Australian Privacy Principles (APP 1-13)", LegislativeCategory.PRIVACY_DATA, "APPs", "13 privacy principles under Privacy Act"),
+    LegislativeEntry("Notifiable Data Breaches Scheme", LegislativeCategory.PRIVACY_DATA, "NDB", "Mandatory breach notification scheme"),
+    # Cyber Security
+    LegislativeEntry("Essential Eight", LegislativeCategory.CYBER_SECURITY, "E8", "ACSC baseline cyber security strategies"),
+    LegislativeEntry("Australian Cyber Security Centre Guidance", LegislativeCategory.CYBER_SECURITY, "ACSC", "National cyber security guidance"),
+    # Anti-Discrimination & Equality
+    LegislativeEntry("Racial Discrimination Act 1975", LegislativeCategory.ANTI_DISCRIMINATION, "RDA 1975", "Prohibits racial discrimination"),
+    LegislativeEntry("Sex Discrimination Act 1984", LegislativeCategory.ANTI_DISCRIMINATION, "SDA 1984", "Prohibits sex discrimination"),
+    LegislativeEntry("Disability Discrimination Act 1992", LegislativeCategory.ANTI_DISCRIMINATION, "DDA 1992", "Prohibits disability discrimination"),
+    LegislativeEntry("Age Discrimination Act 2004", LegislativeCategory.ANTI_DISCRIMINATION, "ADA 2004", "Prohibits age discrimination"),
+    LegislativeEntry("Fair Work Act 2009", LegislativeCategory.ANTI_DISCRIMINATION, "FW Act", "Workplace relations and anti-discrimination"),
+]
+
+# Higher Education Governance Checklist (Extended v3.1 Section 3)
+HIGHER_ED_GOVERNANCE_CHECKLIST: list[HigherEdChecklistItem] = [
+    HigherEdChecklistItem("TEQSA registration confirmed"),
+    HigherEdChecklistItem("CRICOS listing confirmed"),
+    HigherEdChecklistItem("AQF level validated"),
+    HigherEdChecklistItem("Course duration verified"),
+    HigherEdChecklistItem("Graduate outcome data reviewed"),
+]
+
+# Academic Integrity Alignment (Extended v3.1 Section 3)
+ACADEMIC_INTEGRITY_RULES: list[str] = [
+    "No falsified transcripts",
+    "No fabricated experience",
+    "No misleading marketing",
+]
+
+# Equality, Cultural Respect & Non-Discrimination Charter (Extended v3.1 Section 8)
+EQUALITY_CHARTER_PRINCIPLE: str = (
+    "Every individual has equal dignity and protection under Australian law."
+)
+
+PROTECTED_ATTRIBUTES: list[ProtectedAttribute] = [
+    ProtectedAttribute("Gender", "No discrimination based on gender identity"),
+    ProtectedAttribute("Age", "No discrimination based on age"),
+    ProtectedAttribute("Skin colour", "No discrimination based on skin colour or ethnicity"),
+    ProtectedAttribute("Sexual orientation", "No discrimination based on sexual orientation"),
+    ProtectedAttribute("Disability", "No discrimination based on disability"),
+    ProtectedAttribute("Religion or no religion", "No discrimination based on religious belief or lack thereof"),
+    ProtectedAttribute("Job status", "No discrimination based on employment or unemployment status"),
+    ProtectedAttribute("Residency or passport", "No discrimination based on residency status or nationality"),
+    ProtectedAttribute("Appearance", "No discrimination based on physical appearance"),
+    ProtectedAttribute("Clothing", "No discrimination based on traditional or modern clothing"),
+    ProtectedAttribute("Communication style", "No discrimination based on loud or quiet communication"),
+    ProtectedAttribute("Punctuality differences", "No discrimination based on punctuality variations"),
+    ProtectedAttribute("Cultural expression", "No discrimination based on cultural expression"),
+    ProtectedAttribute("Personal background", "No discrimination based on personal history"),
+    ProtectedAttribute("Past failure or setbacks", "No discrimination based on past failures"),
+]
+
+EQUALITY_RESPECT_VALUES: list[str] = [
+    "Indigenous heritage of Australia",
+    "Multicultural society",
+    "Freedom of belief",
+    "Equal opportunity principles",
+]
+
+ADVISORY_NEUTRALITY: str = (
+    "Advice must not be influenced by personal bias or social status."
+)
+
+# Data Governance Controls (Extended v3.1 Section 6)
+DATA_GOVERNANCE_CONTROLS: list[DataGovernanceControl] = [
+    DataGovernanceControl(
+        DataLifecycleStage.COLLECT,
+        [
+            "Only data necessary for advisory purpose",
+            "Informed consent documented",
+            "Purpose clearly stated",
+        ],
+    ),
+    DataGovernanceControl(
+        DataLifecycleStage.PROCESS,
+        [
+            "Used solely for assessment & documentation",
+            "No secondary use without consent",
+            "No data sale or transfer",
+        ],
+    ),
+    DataGovernanceControl(
+        DataLifecycleStage.STORE,
+        [
+            "Encrypted digital storage",
+            "Restricted access controls",
+            "Multi-factor authentication",
+        ],
+    ),
+    DataGovernanceControl(
+        DataLifecycleStage.RETAIN,
+        [
+            "Stored only as long as required",
+            "Secure deletion after retention period",
+        ],
+    ),
+]
+
+# Categories of data collected (Extended v3.1 Section 6)
+DATA_CATEGORIES: list[str] = [
+    "Identification data",
+    "Academic records",
+    "English test results",
+    "Employment history",
+    "Visa history",
+]
+
+# Breach response steps (Extended v3.1 Section 6)
+BREACH_RESPONSE_STEPS: list[str] = [
+    "Immediate containment",
+    "Assessment of impact",
+    "Notification under NDB scheme if required",
+]
+
+# Prohibited Conduct (Extended v3.1 Section 7)
+PROHIBITED_CONDUCT: list[ProhibitedConductEntry] = [
+    ProhibitedConductEntry("False documentation", "Critical"),
+    ProhibitedConductEntry("Omission of critical information", "Critical"),
+    ProhibitedConductEntry("Exploitation of language barriers", "Critical"),
+    ProhibitedConductEntry("Cultural stereotyping", "Critical"),
+    ProhibitedConductEntry("Prejudice or bias in advice", "Critical"),
+]
+
+# Professional Knowledge Requirements (Extended v3.1 Section 7)
+PROFESSIONAL_KNOWLEDGE_REQUIREMENTS: list[str] = [
+    "Understanding of Migration Act & Regulations",
+    "Familiarity with AQF & ESOS",
+    "Ability to interpret ANZSCO",
+    "Awareness of anti-discrimination law",
+    "Cyber security awareness",
+]
+
+# Conduct Standards (Extended v3.1 Section 7)
+CONDUCT_STANDARDS: list[str] = [
+    "No misleading statements",
+    "No outcome guarantees",
+    "No discrimination",
+    "No coercion or pressure",
+    "Full disclosure of material facts",
+    "Transparent fee structure",
+]
+
+# Skilled Occupation Quarterly Monitoring (Extended v3.1 Section 5)
+QUARTERLY_MONITORING_ITEMS: list[str] = [
+    "Federal occupation list updates",
+    "State nomination changes",
+    "English requirement updates",
+    "Labour market trends",
+]
+
+# Documentation & Audit Trail (Extended v3.1 Section 10)
+REQUIRED_DOCUMENTATION: list[AuditTrailEntry] = [
+    AuditTrailEntry("Client intake record", "Initial client information capture"),
+    AuditTrailEntry("Risk assessment sheet", "Client-specific risk evaluation"),
+    AuditTrailEntry("Occupation mapping record", "ANZSCO and occupation alignment"),
+    AuditTrailEntry("Visa compliance checklist", "Visa pathway compliance verification"),
+    AuditTrailEntry("Disclosure acknowledgement", "Client acknowledgement of disclosures"),
+]
+
+AUDIT_TRAIL_REQUIREMENTS: list[AuditTrailEntry] = [
+    AuditTrailEntry("Date of advice", "When the advice was given"),
+    AuditTrailEntry("Legislative version referenced", "Which version of legislation was used"),
+    AuditTrailEntry("Source website cited", "Official website URL referenced"),
+    AuditTrailEntry("Update log maintained", "Record of updates to advice"),
+]
+
+# Extended Safety / Liability Checklist (Extended v3.1 Section 9)
+EXTENDED_PRE_USE_CHECKLIST: list[str] = [
+    "Confirm latest legislation from official sites",
+    "Confirm migration planning levels",
+    "Confirm privacy consent signed",
+    "Confirm risk disclosure provided",
+    "Confirm no guarantee implied",
+    "Confirm documentation accuracy",
+    "Confirm cultural respect standard applied",
+]
+
+LIABILITY_NOTICE: str = (
+    "Advice based on publicly available information. "
+    "Legislation may change without notice. "
+    "Final responsibility rests with applicant for application accuracy."
+)
+
+# Visa compliance expansion details (Extended v3.1 Section 4)
+STUDENT_500_COMPLIANCE: list[str] = [
+    "Genuine Student requirement verified",
+    "Financial capacity documented",
+    "English evidence valid",
+    "OSHC confirmed",
+]
+
+VISITOR_600_COMPLIANCE: list[str] = [
+    "Short study compliance",
+    "No employment activity",
+]
+
+SKILLED_MIGRATION_COMPLIANCE: list[str] = [
+    "ANZSCO code validated",
+    "Skills assessment authority identified",
+    "Occupation list confirmed current",
+    "Points test recalculated before submission",
 ]
 
 
@@ -564,12 +890,208 @@ class EducationConsultantCOS:
     # Summary
     # -----------------------------------------------------------------
 
+    # -----------------------------------------------------------------
+    # Extended Compliance v3.1 — Equality Charter
+    # -----------------------------------------------------------------
+
+    def get_protected_attributes(self) -> list[ProtectedAttribute]:
+        """Get all protected attributes from the equality charter."""
+        return PROTECTED_ATTRIBUTES
+
+    def get_protected_attribute_names(self) -> list[str]:
+        """Get just the names of all protected attributes."""
+        return [p.attribute for p in PROTECTED_ATTRIBUTES]
+
+    def check_equality_compliance(self, description: str) -> dict[str, Any]:
+        """
+        Check a description for potential equality/discrimination issues.
+
+        Flags if any protected attribute category keyword appears
+        in a potentially discriminatory context.
+        """
+        discriminatory_signals = [
+            "refuse", "reject", "deny", "exclude", "discriminate",
+            "not suitable", "unsuitable", "too old", "too young",
+            "wrong colour", "wrong religion", "not welcome",
+        ]
+
+        desc_lower = description.lower()
+        attribute_mentions = [
+            p.attribute for p in PROTECTED_ATTRIBUTES
+            if p.attribute.lower() in desc_lower
+        ]
+        disc_signals = [s for s in discriminatory_signals if s in desc_lower]
+
+        flagged = len(disc_signals) > 0 and len(attribute_mentions) > 0
+
+        return {
+            "description": description,
+            "attribute_mentions": attribute_mentions,
+            "discriminatory_signals": disc_signals,
+            "flagged": flagged,
+            "charter_principle": EQUALITY_CHARTER_PRINCIPLE,
+            "advisory_neutrality": ADVISORY_NEUTRALITY,
+        }
+
+    # -----------------------------------------------------------------
+    # Extended Compliance v3.1 — Legislative Alignment
+    # -----------------------------------------------------------------
+
+    def get_legislative_matrix(self) -> list[LegislativeEntry]:
+        """Get the full legislative alignment matrix."""
+        return LEGISLATIVE_ALIGNMENT_MATRIX
+
+    def get_legislation_by_category(
+        self, category: LegislativeCategory
+    ) -> list[LegislativeEntry]:
+        """Get legislation filtered by regulatory category."""
+        return [
+            entry for entry in LEGISLATIVE_ALIGNMENT_MATRIX
+            if entry.category == category
+        ]
+
+    # -----------------------------------------------------------------
+    # Extended Compliance v3.1 — Data Governance
+    # -----------------------------------------------------------------
+
+    def get_data_governance_controls(self) -> list[DataGovernanceControl]:
+        """Get data governance controls by lifecycle stage."""
+        return DATA_GOVERNANCE_CONTROLS
+
+    def get_data_categories(self) -> list[str]:
+        """Get the categories of data collected."""
+        return DATA_CATEGORIES
+
+    def get_breach_response_steps(self) -> list[str]:
+        """Get breach response steps."""
+        return BREACH_RESPONSE_STEPS
+
+    # -----------------------------------------------------------------
+    # Extended Compliance v3.1 — Prohibited Conduct
+    # -----------------------------------------------------------------
+
+    def get_prohibited_conduct(self) -> list[ProhibitedConductEntry]:
+        """Get all prohibited conduct entries."""
+        return PROHIBITED_CONDUCT
+
+    def get_conduct_standards(self) -> list[str]:
+        """Get conduct standard rules."""
+        return CONDUCT_STANDARDS
+
+    def get_professional_requirements(self) -> list[str]:
+        """Get professional knowledge requirements."""
+        return PROFESSIONAL_KNOWLEDGE_REQUIREMENTS
+
+    # -----------------------------------------------------------------
+    # Extended Compliance v3.1 — Higher Ed Governance
+    # -----------------------------------------------------------------
+
+    def run_higher_ed_checklist(
+        self, checks: dict[str, bool]
+    ) -> dict[str, Any]:
+        """
+        Run the higher education governance checklist.
+
+        Returns pass/fail for each item and overall status.
+        """
+        results: list[dict[str, Any]] = []
+        for item in HIGHER_ED_GOVERNANCE_CHECKLIST:
+            passed = checks.get(item.check, False)
+            results.append({"check": item.check, "passed": passed})
+
+        all_passed = all(r["passed"] for r in results)
+        missing = [r["check"] for r in results if not r["passed"]]
+
+        return {
+            "checklist": results,
+            "all_passed": all_passed,
+            "missing": missing,
+            "academic_integrity_rules": ACADEMIC_INTEGRITY_RULES,
+        }
+
+    # -----------------------------------------------------------------
+    # Extended Compliance v3.1 — Occupation Risk & Monitoring
+    # -----------------------------------------------------------------
+
+    def classify_occupation_risk(
+        self, volatility: str
+    ) -> OccupationRiskCategory:
+        """Classify an occupation's risk based on volatility description."""
+        low_signals = ["stable", "established", "consistent", "secure"]
+        high_signals = ["volatile", "short-term", "uncertain", "removed", "delisted"]
+
+        vol_lower = volatility.lower()
+        if any(s in vol_lower for s in high_signals):
+            return OccupationRiskCategory.HIGH
+        if any(s in vol_lower for s in low_signals):
+            return OccupationRiskCategory.LOW
+        return OccupationRiskCategory.MODERATE
+
+    def get_quarterly_monitoring_items(self) -> list[str]:
+        """Get skilled occupation quarterly monitoring items."""
+        return QUARTERLY_MONITORING_ITEMS
+
+    # -----------------------------------------------------------------
+    # Extended Compliance v3.1 — Audit Trail
+    # -----------------------------------------------------------------
+
+    def get_required_documentation(self) -> list[AuditTrailEntry]:
+        """Get required documentation list."""
+        return REQUIRED_DOCUMENTATION
+
+    def get_audit_trail_requirements(self) -> list[AuditTrailEntry]:
+        """Get audit trail requirements."""
+        return AUDIT_TRAIL_REQUIREMENTS
+
+    # -----------------------------------------------------------------
+    # Extended Compliance v3.1 — Visa Compliance Expansion
+    # -----------------------------------------------------------------
+
+    def get_visa_compliance_checks(self, subclass: str) -> list[str]:
+        """Get compliance checks for a given visa subclass."""
+        if subclass == "500":
+            return STUDENT_500_COMPLIANCE
+        elif subclass == "600":
+            return VISITOR_600_COMPLIANCE
+        elif subclass in ("189", "190", "491"):
+            return SKILLED_MIGRATION_COMPLIANCE
+        return []
+
+    # -----------------------------------------------------------------
+    # Extended Safety / Liability
+    # -----------------------------------------------------------------
+
+    def run_extended_pre_use_checklist(
+        self, completed: dict[str, bool]
+    ) -> dict[str, Any]:
+        """Run the extended pre-use safety/liability checklist."""
+        results = {}
+        missing = []
+        for item in EXTENDED_PRE_USE_CHECKLIST:
+            passed = completed.get(item, False)
+            results[item] = passed
+            if not passed:
+                missing.append(item)
+
+        return {
+            "all_passed": len(missing) == 0,
+            "checks": results,
+            "missing": missing,
+            "liability_notice": LIABILITY_NOTICE,
+        }
+
+    # -----------------------------------------------------------------
+    # Summary (updated)
+    # -----------------------------------------------------------------
+
     def get_cos_summary(self) -> dict[str, Any]:
         """Get a full summary of the COS framework state."""
         return {
             "version": "v3.1",
+            "edition": "Extended Compliance",
             "cos_sections": len(COSSection),
             "cos_layers": len(COSLayer),
+            "cos_expanded_layers": len(COSExpandedLayer),
             "reference_entries": len(self.reference_index),
             "authoritative_domain_categories": len(self.authoritative_domains),
             "code_of_conduct_entries": len(self.code_of_conduct),
@@ -581,6 +1103,12 @@ class EducationConsultantCOS:
             "ref_categories": list(
                 set(r.category for r in self.reference_index)
             ),
+            "legislative_entries": len(LEGISLATIVE_ALIGNMENT_MATRIX),
+            "protected_attributes": len(PROTECTED_ATTRIBUTES),
+            "prohibited_conduct_entries": len(PROHIBITED_CONDUCT),
+            "data_governance_controls": len(DATA_GOVERNANCE_CONTROLS),
+            "required_documentation": len(REQUIRED_DOCUMENTATION),
+            "extended_pre_use_checks": len(EXTENDED_PRE_USE_CHECKLIST),
         }
 
 
