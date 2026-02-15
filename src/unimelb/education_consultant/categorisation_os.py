@@ -582,3 +582,370 @@ class EducationConsultantCOS:
                 set(r.category for r in self.reference_index)
             ),
         }
+
+
+# =============================================================================
+# Education Search Architecture — VIC Master Level
+# =============================================================================
+
+class InstitutionProfile(Enum):
+    """Anonymised institution profile tiers."""
+
+    GROUP_OF_EIGHT = "Group of Eight profile"
+    INDUSTRY_INTEGRATED = "Industry-integrated profile"
+    QUANTITATIVE_EMPHASIS = "Quantitative emphasis profile"
+
+
+class AcademicCluster(Enum):
+    """Melbourne metropolitan academic clusters."""
+
+    CBD = "CBD Academic Cluster"
+    INNER_SUBURBAN = "Inner Suburban Academic Cluster"
+    OUTER_METROPOLITAN = "Outer Metropolitan Academic Cluster"
+
+
+class SearchStep(Enum):
+    """Education consultant 4-step search flow."""
+
+    GEOGRAPHIC_FILTERING = "Step 1: Geographic Filtering"
+    INSTITUTION_BENCHMARKING = "Step 2: Institution Benchmarking"
+    SUBJECT_EVALUATION = "Step 3: Subject Evaluation"
+    STUDENT_FIT_ASSESSMENT = "Step 4: Student Fit Assessment"
+
+
+@dataclass
+class InstitutionEntry:
+    """An anonymised institution in the search architecture."""
+
+    label: str                          # e.g. "University A"
+    profile: InstitutionProfile
+    cluster: AcademicCluster
+    faculties: list[str] = field(default_factory=list)
+    disciplines: list[str] = field(default_factory=list)
+    aqf_level: int = 9                  # default: Masters
+
+
+@dataclass
+class SubjectLayer:
+    """Generic master subject template structure."""
+
+    academic_foundation: list[str] = field(default_factory=list)
+    analytical_layer: list[str] = field(default_factory=list)
+    applied_business_context: list[str] = field(default_factory=list)
+    integration_layer: list[str] = field(default_factory=list)
+
+
+@dataclass
+class SearchStepResult:
+    """Result of a single search step evaluation."""
+
+    step: str
+    criteria: list[str] = field(default_factory=list)
+    findings: list[str] = field(default_factory=list)
+    score: str = ""   # HIGH / MEDIUM / LOW alignment
+
+
+@dataclass
+class SearchArchitectureResult:
+    """Full search architecture evaluation output."""
+
+    institution_label: str = ""
+    geographic_result: SearchStepResult | None = None
+    benchmarking_result: SearchStepResult | None = None
+    subject_result: SearchStepResult | None = None
+    fit_result: SearchStepResult | None = None
+    overall_alignment: str = ""   # HIGH / MEDIUM / LOW
+    recommendation: str = ""
+
+
+# Default institution registry (anonymised per Section 2)
+INSTITUTION_REGISTRY: list[InstitutionEntry] = [
+    InstitutionEntry(
+        label="University A",
+        profile=InstitutionProfile.GROUP_OF_EIGHT,
+        cluster=AcademicCluster.CBD,
+        faculties=["Business & Economics Faculty"],
+        disciplines=["Data / Analytics Discipline", "Strategy & Management Discipline"],
+        aqf_level=9,
+    ),
+    InstitutionEntry(
+        label="University B",
+        profile=InstitutionProfile.INDUSTRY_INTEGRATED,
+        cluster=AcademicCluster.INNER_SUBURBAN,
+        faculties=["Business & Law College"],
+        disciplines=["Applied Analytics Stream", "Innovation & Enterprise Stream"],
+        aqf_level=9,
+    ),
+    InstitutionEntry(
+        label="University C",
+        profile=InstitutionProfile.QUANTITATIVE_EMPHASIS,
+        cluster=AcademicCluster.CBD,
+        faculties=["Business School"],
+        disciplines=["Advanced Quantitative Methods", "Global Strategy Focus"],
+        aqf_level=9,
+    ),
+]
+
+# Default subject template (Section 3)
+DEFAULT_SUBJECT_TEMPLATE = SubjectLayer(
+    academic_foundation=[
+        "Theoretical Frameworks",
+        "Conceptual Models",
+        "Literature Integration",
+    ],
+    analytical_layer=[
+        "Data Interpretation",
+        "Statistical / Decision Models",
+        "Risk & Scenario Evaluation",
+    ],
+    applied_business_context=[
+        "Case Study Analysis",
+        "Organisational Evaluation",
+        "Strategic Trade-offs",
+    ],
+    integration_layer=[
+        "Cross-topic Synthesis",
+        "Professional Recommendation",
+        "Ethical & Governance Consideration",
+    ],
+)
+
+# Search step criteria definitions (Section 4)
+SEARCH_STEP_CRITERIA: dict[str, list[str]] = {
+    "geographic_filtering": [
+        "State Policy (VIC)",
+        "Visa / Migration Relevance",
+        "Employment Outlook Alignment",
+    ],
+    "institution_benchmarking": [
+        "Ranking & Reputation",
+        "Industry Linkage",
+        "Graduate Outcomes",
+        "AQF Compliance",
+    ],
+    "subject_evaluation": [
+        "Assessment Structure",
+        "Skill Development Outcome",
+        "Quantitative vs Strategic Balance",
+        "Research Pathway Compatibility",
+    ],
+    "student_fit_assessment": [
+        "Academic Background Match",
+        "Career Objective Fit",
+        "Financial & Timeline Planning",
+        "Risk Scenario Planning",
+    ],
+}
+
+# Professional development path (Section 5)
+PROFESSIONAL_DEVELOPMENT_PATH: list[str] = [
+    "Academic Depth Enhancement",
+    "Analytical Capability Upgrade",
+    "Communication & Presentation Standard",
+    "Cross-institution Benchmark Awareness",
+    "Reputation & Ethical Governance Awareness",
+]
+
+
+class EducationSearchArchitecture:
+    """
+    Education Search Architecture — VIC Master Level.
+
+    Implements the structured search flow:
+    Identify -> Compare -> Verify -> Align -> Recommend -> Document
+
+    Four-step evaluation:
+    1. Geographic Filtering
+    2. Institution Benchmarking
+    3. Subject Evaluation
+    4. Student Fit Assessment
+    """
+
+    def __init__(self) -> None:
+        self.institutions = INSTITUTION_REGISTRY
+        self.subject_template = DEFAULT_SUBJECT_TEMPLATE
+        self.search_criteria = SEARCH_STEP_CRITERIA
+        self.professional_dev_path = PROFESSIONAL_DEVELOPMENT_PATH
+
+    # -----------------------------------------------------------------
+    # Institution registry
+    # -----------------------------------------------------------------
+
+    def get_institution(self, label: str) -> InstitutionEntry | None:
+        """Get an institution by its anonymised label."""
+        for inst in self.institutions:
+            if inst.label == label:
+                return inst
+        return None
+
+    def get_institutions_by_profile(
+        self, profile: InstitutionProfile
+    ) -> list[InstitutionEntry]:
+        """Get all institutions with a given profile type."""
+        return [i for i in self.institutions if i.profile == profile]
+
+    def get_institutions_by_cluster(
+        self, cluster: AcademicCluster
+    ) -> list[InstitutionEntry]:
+        """Get all institutions in an academic cluster."""
+        return [i for i in self.institutions if i.cluster == cluster]
+
+    def get_institutions_by_aqf(self, aqf_level: int) -> list[InstitutionEntry]:
+        """Get all institutions offering a specific AQF level."""
+        return [i for i in self.institutions if i.aqf_level == aqf_level]
+
+    # -----------------------------------------------------------------
+    # Subject template
+    # -----------------------------------------------------------------
+
+    def get_subject_layer_names(self) -> list[str]:
+        """Get the four subject layer names."""
+        return [
+            "Academic Foundation",
+            "Analytical Layer",
+            "Applied Business Context",
+            "Integration Layer",
+        ]
+
+    def get_subject_components(self) -> dict[str, list[str]]:
+        """Get all subject template components by layer."""
+        return {
+            "Academic Foundation": self.subject_template.academic_foundation,
+            "Analytical Layer": self.subject_template.analytical_layer,
+            "Applied Business Context": self.subject_template.applied_business_context,
+            "Integration Layer": self.subject_template.integration_layer,
+        }
+
+    def count_subject_components(self) -> int:
+        """Count total subject components across all layers."""
+        components = self.get_subject_components()
+        return sum(len(v) for v in components.values())
+
+    # -----------------------------------------------------------------
+    # 4-step search flow
+    # -----------------------------------------------------------------
+
+    def evaluate_geographic(
+        self, state: str = "VIC", findings: list[str] | None = None
+    ) -> SearchStepResult:
+        """Step 1: Geographic Filtering."""
+        return SearchStepResult(
+            step=SearchStep.GEOGRAPHIC_FILTERING.value,
+            criteria=self.search_criteria["geographic_filtering"],
+            findings=findings or [],
+            score="HIGH" if state == "VIC" else "MEDIUM",
+        )
+
+    def evaluate_institution(
+        self, institution_label: str, findings: list[str] | None = None
+    ) -> SearchStepResult:
+        """Step 2: Institution Benchmarking."""
+        inst = self.get_institution(institution_label)
+        score = "LOW"
+        if inst:
+            if inst.profile == InstitutionProfile.GROUP_OF_EIGHT:
+                score = "HIGH"
+            elif inst.profile == InstitutionProfile.INDUSTRY_INTEGRATED:
+                score = "HIGH"
+            else:
+                score = "MEDIUM"
+
+        return SearchStepResult(
+            step=SearchStep.INSTITUTION_BENCHMARKING.value,
+            criteria=self.search_criteria["institution_benchmarking"],
+            findings=findings or [],
+            score=score,
+        )
+
+    def evaluate_subject(
+        self, findings: list[str] | None = None
+    ) -> SearchStepResult:
+        """Step 3: Subject Evaluation."""
+        return SearchStepResult(
+            step=SearchStep.SUBJECT_EVALUATION.value,
+            criteria=self.search_criteria["subject_evaluation"],
+            findings=findings or [],
+        )
+
+    def evaluate_student_fit(
+        self, findings: list[str] | None = None
+    ) -> SearchStepResult:
+        """Step 4: Student Fit Assessment."""
+        return SearchStepResult(
+            step=SearchStep.STUDENT_FIT_ASSESSMENT.value,
+            criteria=self.search_criteria["student_fit_assessment"],
+            findings=findings or [],
+        )
+
+    def run_full_search(
+        self,
+        institution_label: str,
+        state: str = "VIC",
+        geo_findings: list[str] | None = None,
+        bench_findings: list[str] | None = None,
+        subject_findings: list[str] | None = None,
+        fit_findings: list[str] | None = None,
+    ) -> SearchArchitectureResult:
+        """
+        Run the full 4-step search architecture evaluation.
+
+        Identify -> Compare -> Verify -> Align -> Recommend -> Document
+        """
+        geo = self.evaluate_geographic(state, geo_findings)
+        bench = self.evaluate_institution(institution_label, bench_findings)
+        subj = self.evaluate_subject(subject_findings)
+        fit = self.evaluate_student_fit(fit_findings)
+
+        # Derive overall alignment from step scores
+        scores = [geo.score, bench.score, subj.score, fit.score]
+        high_count = scores.count("HIGH")
+        low_count = scores.count("LOW")
+
+        if high_count >= 3:
+            overall = "HIGH"
+        elif low_count >= 2:
+            overall = "LOW"
+        else:
+            overall = "MEDIUM"
+
+        inst = self.get_institution(institution_label)
+        recommendation = ""
+        if inst and overall == "HIGH":
+            recommendation = (
+                f"{inst.label} ({inst.profile.value}) shows strong alignment "
+                f"across geographic, institutional, subject, and student fit criteria."
+            )
+        elif inst and overall == "MEDIUM":
+            recommendation = (
+                f"{inst.label} ({inst.profile.value}) shows moderate alignment; "
+                f"review subject and student fit criteria for closer match."
+            )
+        else:
+            recommendation = (
+                "Further evaluation needed; consider broadening institution set."
+            )
+
+        return SearchArchitectureResult(
+            institution_label=institution_label,
+            geographic_result=geo,
+            benchmarking_result=bench,
+            subject_result=subj,
+            fit_result=fit,
+            overall_alignment=overall,
+            recommendation=recommendation,
+        )
+
+    def get_search_summary(self) -> dict[str, Any]:
+        """Get a summary of the search architecture framework."""
+        return {
+            "institutions": len(self.institutions),
+            "profiles": list(set(i.profile.value for i in self.institutions)),
+            "clusters": list(set(i.cluster.value for i in self.institutions)),
+            "search_steps": len(self.search_criteria),
+            "total_criteria": sum(
+                len(v) for v in self.search_criteria.values()
+            ),
+            "subject_layers": len(self.get_subject_layer_names()),
+            "subject_components": self.count_subject_components(),
+            "professional_dev_items": len(self.professional_dev_path),
+        }

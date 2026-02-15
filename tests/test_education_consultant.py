@@ -6,6 +6,7 @@ Tests for Education Consultant Categorisation_OS (COS) v3.1.
 import pytest
 
 from src.unimelb.education_consultant.categorisation_os import (
+    AcademicCluster,
     AQFLevel,
     COSLayer,
     COSSection,
@@ -13,14 +14,21 @@ from src.unimelb.education_consultant.categorisation_os import (
     Confidence,
     ConductEntry,
     DataLifecycleStage,
+    DEFAULT_SUBJECT_TEMPLATE,
     EducationConsultantCOS,
+    EducationSearchArchitecture,
     Impact,
+    INSTITUTION_REGISTRY,
+    InstitutionProfile,
     PathwayOption,
+    PROFESSIONAL_DEVELOPMENT_PATH,
     REFERENCE_INDEX,
     ReferenceEntry,
     RoleType,
     SAFETY_GATE_CHECKS,
     SafetyGateResult,
+    SEARCH_STEP_CRITERIA,
+    SearchStep,
     StateTerritory,
     TraceabilityClaim,
     VisaSubclass,
@@ -393,3 +401,198 @@ class TestEducationConsultantCOS:
         assert summary["aqf_levels"] == 10
         assert summary["states_territories"] == 8
         assert len(summary["ref_categories"]) >= 8
+
+
+# --- Education Search Architecture ---
+
+
+class TestSearchArchitectureData:
+    """Tests for search architecture static data."""
+
+    def test_institution_registry_count(self):
+        assert len(INSTITUTION_REGISTRY) == 3
+
+    def test_institution_registry_labels(self):
+        labels = [i.label for i in INSTITUTION_REGISTRY]
+        assert "University A" in labels
+        assert "University B" in labels
+        assert "University C" in labels
+
+    def test_all_institutions_aqf_9(self):
+        for inst in INSTITUTION_REGISTRY:
+            assert inst.aqf_level == 9
+
+    def test_institution_profiles(self):
+        profiles = [i.profile for i in INSTITUTION_REGISTRY]
+        assert InstitutionProfile.GROUP_OF_EIGHT in profiles
+        assert InstitutionProfile.INDUSTRY_INTEGRATED in profiles
+        assert InstitutionProfile.QUANTITATIVE_EMPHASIS in profiles
+
+    def test_institution_clusters(self):
+        clusters = [i.cluster for i in INSTITUTION_REGISTRY]
+        assert AcademicCluster.CBD in clusters
+        assert AcademicCluster.INNER_SUBURBAN in clusters
+
+    def test_subject_template_four_layers(self):
+        assert len(DEFAULT_SUBJECT_TEMPLATE.academic_foundation) == 3
+        assert len(DEFAULT_SUBJECT_TEMPLATE.analytical_layer) == 3
+        assert len(DEFAULT_SUBJECT_TEMPLATE.applied_business_context) == 3
+        assert len(DEFAULT_SUBJECT_TEMPLATE.integration_layer) == 3
+
+    def test_search_step_criteria_count(self):
+        assert len(SEARCH_STEP_CRITERIA) == 4
+        assert "geographic_filtering" in SEARCH_STEP_CRITERIA
+        assert "institution_benchmarking" in SEARCH_STEP_CRITERIA
+        assert "subject_evaluation" in SEARCH_STEP_CRITERIA
+        assert "student_fit_assessment" in SEARCH_STEP_CRITERIA
+
+    def test_search_step_criteria_detail(self):
+        assert len(SEARCH_STEP_CRITERIA["geographic_filtering"]) == 3
+        assert len(SEARCH_STEP_CRITERIA["institution_benchmarking"]) == 4
+        assert len(SEARCH_STEP_CRITERIA["subject_evaluation"]) == 4
+        assert len(SEARCH_STEP_CRITERIA["student_fit_assessment"]) == 4
+
+    def test_professional_development_path(self):
+        assert len(PROFESSIONAL_DEVELOPMENT_PATH) == 5
+        assert "Academic Depth Enhancement" in PROFESSIONAL_DEVELOPMENT_PATH
+
+    def test_search_step_enum(self):
+        assert len(SearchStep) == 4
+        assert "Step 1" in SearchStep.GEOGRAPHIC_FILTERING.value
+
+
+class TestEducationSearchArchitecture:
+    """Tests for the search architecture framework class."""
+
+    def test_init(self):
+        arch = EducationSearchArchitecture()
+        assert len(arch.institutions) == 3
+        assert arch.subject_template is not None
+        assert len(arch.search_criteria) == 4
+
+    # --- Institution lookup ---
+
+    def test_get_institution_found(self):
+        arch = EducationSearchArchitecture()
+        inst = arch.get_institution("University A")
+        assert inst is not None
+        assert inst.profile == InstitutionProfile.GROUP_OF_EIGHT
+
+    def test_get_institution_not_found(self):
+        arch = EducationSearchArchitecture()
+        assert arch.get_institution("University Z") is None
+
+    def test_get_institutions_by_profile(self):
+        arch = EducationSearchArchitecture()
+        go8 = arch.get_institutions_by_profile(InstitutionProfile.GROUP_OF_EIGHT)
+        assert len(go8) == 1
+        assert go8[0].label == "University A"
+
+    def test_get_institutions_by_cluster(self):
+        arch = EducationSearchArchitecture()
+        cbd = arch.get_institutions_by_cluster(AcademicCluster.CBD)
+        assert len(cbd) == 2  # University A and University C
+
+    def test_get_institutions_by_aqf(self):
+        arch = EducationSearchArchitecture()
+        masters = arch.get_institutions_by_aqf(9)
+        assert len(masters) == 3
+
+    # --- Subject template ---
+
+    def test_get_subject_layer_names(self):
+        arch = EducationSearchArchitecture()
+        names = arch.get_subject_layer_names()
+        assert len(names) == 4
+        assert "Academic Foundation" in names
+        assert "Integration Layer" in names
+
+    def test_get_subject_components(self):
+        arch = EducationSearchArchitecture()
+        components = arch.get_subject_components()
+        assert len(components) == 4
+        assert "Theoretical Frameworks" in components["Academic Foundation"]
+        assert "Data Interpretation" in components["Analytical Layer"]
+
+    def test_count_subject_components(self):
+        arch = EducationSearchArchitecture()
+        assert arch.count_subject_components() == 12  # 3 + 3 + 3 + 3
+
+    # --- 4-step search flow ---
+
+    def test_evaluate_geographic_vic(self):
+        arch = EducationSearchArchitecture()
+        result = arch.evaluate_geographic("VIC")
+        assert result.score == "HIGH"
+        assert len(result.criteria) == 3
+
+    def test_evaluate_geographic_non_vic(self):
+        arch = EducationSearchArchitecture()
+        result = arch.evaluate_geographic("NSW")
+        assert result.score == "MEDIUM"
+
+    def test_evaluate_institution_go8(self):
+        arch = EducationSearchArchitecture()
+        result = arch.evaluate_institution("University A")
+        assert result.score == "HIGH"
+        assert len(result.criteria) == 4
+
+    def test_evaluate_institution_unknown(self):
+        arch = EducationSearchArchitecture()
+        result = arch.evaluate_institution("University Z")
+        assert result.score == "LOW"
+
+    def test_evaluate_subject(self):
+        arch = EducationSearchArchitecture()
+        result = arch.evaluate_subject(findings=["Strong quantitative focus"])
+        assert len(result.criteria) == 4
+        assert "Strong quantitative focus" in result.findings
+
+    def test_evaluate_student_fit(self):
+        arch = EducationSearchArchitecture()
+        result = arch.evaluate_student_fit(
+            findings=["Good academic background match"]
+        )
+        assert len(result.criteria) == 4
+        assert "Good academic background match" in result.findings
+
+    # --- Full search ---
+
+    def test_run_full_search_high_alignment(self):
+        arch = EducationSearchArchitecture()
+        result = arch.run_full_search(
+            institution_label="University A",
+            state="VIC",
+            geo_findings=["VIC policy aligned"],
+            bench_findings=["Go8 ranking confirmed"],
+            subject_findings=["Strong analytics"],
+            fit_findings=["Background match"],
+        )
+        assert result.institution_label == "University A"
+        assert result.geographic_result is not None
+        assert result.benchmarking_result is not None
+        assert result.subject_result is not None
+        assert result.fit_result is not None
+        assert result.overall_alignment in ("HIGH", "MEDIUM")
+        assert result.recommendation != ""
+
+    def test_run_full_search_unknown_institution(self):
+        arch = EducationSearchArchitecture()
+        result = arch.run_full_search(
+            institution_label="University Z",
+            state="NSW",
+        )
+        assert result.benchmarking_result.score == "LOW"
+        assert result.geographic_result.score == "MEDIUM"
+
+    # --- Summary ---
+
+    def test_search_summary(self):
+        arch = EducationSearchArchitecture()
+        summary = arch.get_search_summary()
+        assert summary["institutions"] == 3
+        assert summary["search_steps"] == 4
+        assert summary["total_criteria"] == 15  # 3 + 4 + 4 + 4
+        assert summary["subject_layers"] == 4
+        assert summary["subject_components"] == 12
+        assert summary["professional_dev_items"] == 5
