@@ -1,0 +1,360 @@
+# =============================================================================
+# Jules AI Configuration / Jules AI 配置 / Jules AI 配置
+# Google's Asynchronous AI Coding Assistant Setup
+# =============================================================================
+# This file helps Jules understand the Document-AI Open Source Blueprint
+# codebase structure, conventions, and best practices.
+# =============================================================================
+
+project:
+  name: "Document-AI Open Source Blueprint"
+  description: "Unified AI Matrix platform for document generation, LLM memory management, and knowledge graph construction"
+  owner: "donniechen92@gmail.com"
+  license: "MIT"
+  languages:
+    primary: "Python"
+    supported: ["Python 3.10+"]
+  
+# ============================================================================
+# Project Structure / 專案結構 / 项目结构
+# ============================================================================
+structure:
+  source_code: "./src"
+  tests: "./tests"
+  configuration: "./config"
+  schemas: "./schemas"
+  documentation: "./docs"
+  templates: "./templates"
+  
+  key_modules:
+    - path: "src/excel/excel_engine.py"
+      purpose: "Excel document generation using openpyxl"
+      description: "Export LLM memory (conversations, entities, embeddings) to Excel"
+      
+    - path: "src/pptx/pptx_engine.py"
+      purpose: "PowerPoint presentation generation using python-pptx"
+      description: "Create summary slides from conversation memory and knowledge graphs"
+      
+    - path: "src/llm_api/"
+      purpose: "Multi-LLM API client implementations"
+      description: "Unified interface for OpenAI, Google, Azure, Claude, DeepSeek, X.AI, etc."
+      
+    - path: "src/llm_memory/memory_manager.py"
+      purpose: "LLM memory management system"
+      description: "Buffer, summary, entity, and embedding memory layers"
+      
+    - path: "src/nlu/nlu_pipeline.py"
+      purpose: "Natural Language Understanding pipeline"
+      description: "Entity extraction, relation extraction using spaCy and LLM"
+      
+    - path: "src/knowledge_graph/kg_builder.py"
+      purpose: "Knowledge graph construction"
+      description: "Build and query knowledge graphs using NetworkX and Neo4j"
+      
+    - path: "src/pipelines/document_pipeline.py"
+      purpose: "End-to-end document automation pipeline"
+      description: "Orchestrate LLM conversation → NLU → Memory → Document Export"
+
+# ============================================================================
+# Coding Conventions / 編碼慣例 / 编码惯例
+# ============================================================================
+conventions:
+  style:
+    - "Follow PEP 8 Python style guidelines"
+    - "Use type hints for function parameters and return values"
+    - "Include trilingual docstrings (English, Traditional Chinese, Simplified Chinese)"
+    - "Use descriptive variable names that reflect the data they contain"
+    
+  documentation:
+    format: "Google-style docstrings"
+    languages:
+      - "English (primary)"
+      - "Traditional Chinese (繁體中文)"
+      - "Simplified Chinese (简体中文)"
+    example: |
+      """
+      Export conversation history to Excel.
+      將對話歷史匯出至 Excel。
+      将对话历史导出至 Excel。
+      
+      Args:
+          messages: List of conversation messages / 訊息列表 / 消息列表
+      
+      Returns:
+          Output file path / 輸出檔案路徑 / 输出文件路径
+      """
+  
+  testing:
+    framework: "pytest"
+    coverage_target: "80%"
+    naming: "test_*.py in tests/ directory"
+    
+  imports:
+    style: "absolute imports from package root"
+    grouping:
+      - "Standard library imports first"
+      - "Third-party imports second"
+      - "Local application imports last"
+
+# ============================================================================
+# AI Platform Integrations / AI 平台整合 / AI 平台整合
+# ============================================================================
+llm_providers:
+  implemented:
+    - name: "OpenAI"
+      models: ["GPT-4o", "GPT-4-turbo", "o1", "o3", "DALL-E 3"]
+      client: "src/llm_api/openai_client.py"
+      
+    - name: "Google AI"
+      models: ["Gemini 2.0 Flash", "Gemini Pro", "Imagen 3"]
+      client: "src/llm_api/google_client.py"
+      
+    - name: "Anthropic"
+      models: ["Claude Opus 4", "Sonnet 4", "Haiku"]
+      client: "src/llm_api/anthropic_client.py"
+      
+    - name: "Azure OpenAI"
+      models: ["GPT-4", "Phi-3", "Azure Copilot"]
+      client: "src/llm_api/azure_client.py"
+      
+    - name: "DeepSeek"
+      models: ["DeepSeek-V3", "DeepSeek-R1"]
+      client: "src/llm_api/deepseek_client.py"
+      
+    - name: "X.AI"
+      models: ["Grok-2", "Grok-3"]
+      client: "src/llm_api/xai_client.py"
+      
+    - name: "Perplexity"
+      models: ["pplx-70b-online", "sonar"]
+      client: "src/llm_api/perplexity_client.py"
+      
+    - name: "Tencent"
+      models: ["Hunyuan-Large", "Hunyuan-Pro"]
+      client: "src/llm_api/tencent_client.py"
+      
+    - name: "Hugging Face"
+      models: ["Any open model (Llama, Mistral, etc.)"]
+      client: "src/llm_api/huggingface_client.py"
+
+# ============================================================================
+# Key Dependencies / 主要依賴 / 主要依赖
+# ============================================================================
+dependencies:
+  document_generation:
+    - name: "openpyxl"
+      purpose: "Excel file creation and manipulation"
+    - name: "python-pptx"
+      purpose: "PowerPoint presentation generation"
+    - name: "python-docx"
+      purpose: "Word document generation"
+    - name: "reportlab"
+      purpose: "PDF generation"
+      
+  nlp_and_understanding:
+    - name: "spacy"
+      purpose: "NER, POS tagging, dependency parsing"
+    - name: "transformers"
+      purpose: "HuggingFace models for embeddings and NLP"
+    - name: "sentence-transformers"
+      purpose: "Sentence embeddings for semantic search"
+    - name: "jieba"
+      purpose: "Chinese text segmentation"
+      
+  llm_frameworks:
+    - name: "langchain"
+      purpose: "LLM application framework with memory and chains"
+    - name: "llama-index"
+      purpose: "Data framework for RAG and indexing"
+      
+  knowledge_graphs:
+    - name: "networkx"
+      purpose: "Graph analysis and manipulation"
+    - name: "neo4j"
+      purpose: "Graph database driver"
+    - name: "pyvis"
+      purpose: "Interactive graph visualization"
+      
+  vector_stores:
+    - name: "faiss-cpu"
+      purpose: "Facebook AI Similarity Search"
+    - name: "chromadb"
+      purpose: "Embedding database"
+    - name: "qdrant-client"
+      purpose: "Vector similarity search"
+
+# ============================================================================
+# Common Tasks / 常見任務 / 常见任务
+# ============================================================================
+common_tasks:
+  add_new_llm_provider:
+    steps:
+      - "Create new client in src/llm_api/{provider}_client.py"
+      - "Inherit from base_client.BaseLLMClient"
+      - "Implement chat() and stream_chat() methods"
+      - "Add provider to README.md AI Platform Integration table"
+      - "Add tests in tests/test_llm_api.py"
+      - "Update config/settings.yaml with API key configuration"
+      
+  add_new_document_export:
+    steps:
+      - "Add export method to appropriate engine (excel_engine.py or pptx_engine.py)"
+      - "Follow existing naming convention: export_{type}_memory()"
+      - "Include trilingual docstrings"
+      - "Add corresponding method in document_pipeline.py"
+      - "Write tests in tests/test_excel.py or tests/test_pptx.py"
+      
+  add_memory_layer:
+    steps:
+      - "Define schema in schemas/memory_schema.sql"
+      - "Add configuration in schemas/memory_layout.yaml"
+      - "Implement in src/llm_memory/memory_manager.py"
+      - "Add export methods to excel_engine.py and pptx_engine.py"
+      - "Write tests in tests/test_memory.py"
+      
+  fix_import_errors:
+    steps:
+      - "Check if all required dependencies are in requirements.txt"
+      - "Verify Python version is 3.10+"
+      - "Run: pip install -r requirements.txt"
+      - "Check for circular imports in module structure"
+
+# ============================================================================
+# Testing Guidelines / 測試指南 / 测试指南
+# ============================================================================
+testing:
+  setup:
+    command: "pip install -r requirements.txt && pip install pytest pytest-cov"
+    
+  run_all_tests:
+    command: "pytest tests/ -v"
+    
+  run_specific_test:
+    command: "pytest tests/test_{module}.py -v"
+    
+  run_with_coverage:
+    command: "pytest tests/ --cov=src --cov-report=html"
+    
+  test_structure:
+    - "Each source module should have corresponding test file"
+    - "Use fixtures for common test data"
+    - "Mock external API calls (LLM providers)"
+    - "Test both success and error cases"
+
+# ============================================================================
+# Special Instructions for Jules / Jules 特別說明 / Jules 特别说明
+# ============================================================================
+jules_instructions:
+  project_understanding:
+    - "This is a multilingual project supporting English, Traditional Chinese, and Simplified Chinese"
+    - "All user-facing strings and documentation should be trilingual"
+    - "The project integrates with 9 different LLM providers"
+    - "Main goal: Convert LLM conversations into structured documents (Excel, PPTX, PDF)"
+    
+  when_adding_features:
+    - "Always include type hints"
+    - "Write trilingual docstrings"
+    - "Update README.md if adding new component or integration"
+    - "Add corresponding tests"
+    - "Follow existing code patterns in similar modules"
+    
+  when_fixing_bugs:
+    - "Check if bug affects other similar modules"
+    - "Add regression test to prevent future occurrences"
+    - "Update documentation if behavior changes"
+    
+  integration_patterns:
+    memory_to_document: |
+      1. Memory data is stored in MemoryManager
+      2. to_excel_data() or to_pptx_data() converts to export format
+      3. ExcelEngine or PPTXEngine handles actual file generation
+      4. DocumentPipeline orchestrates the full flow
+      
+    llm_client_pattern: |
+      1. All clients inherit from BaseLLMClient
+      2. Implement chat(messages) -> response
+      3. Implement stream_chat(messages) -> iterator
+      4. Handle API authentication and error cases
+      5. Return standardized response format
+
+# ============================================================================
+# Architecture Patterns / 架構模式 / 架构模式
+# ============================================================================
+patterns:
+  separation_of_concerns:
+    - "Engines (excel, pptx) only handle file generation"
+    - "Memory manager only handles data storage"
+    - "Pipeline orchestrates between components"
+    - "LLM clients only handle API communication"
+    
+  data_flow:
+    typical_flow: |
+      User Input → LLM API Client → Response
+      → NLU Pipeline (entity extraction)
+      → Memory Manager (store entities, summaries)
+      → Knowledge Graph Builder (relations)
+      → Document Pipeline (orchestration)
+      → Excel/PPTX Engine (export)
+      → Output Files
+      
+  error_handling:
+    - "Use try-except for API calls"
+    - "Provide fallback options for LLM provider failures"
+    - "Log errors with context information"
+    - "Return meaningful error messages to users"
+
+# ============================================================================
+# Configuration / 配置 / 配置
+# ============================================================================
+configuration:
+  settings_file: "config/settings.yaml"
+  environment_variables:
+    - "OPENAI_API_KEY"
+    - "GOOGLE_API_KEY"
+    - "ANTHROPIC_API_KEY"
+    - "AZURE_OPENAI_API_KEY"
+    - "AZURE_OPENAI_ENDPOINT"
+    - "DEEPSEEK_API_KEY"
+    - "XAI_API_KEY"
+    - "PERPLEXITY_API_KEY"
+    - "TENCENT_SECRET_ID"
+    - "TENCENT_SECRET_KEY"
+    - "HUGGINGFACE_API_KEY"
+    
+  required_for_basic_usage:
+    - "At least one LLM provider API key"
+    - "Python 3.10 or higher"
+    - "Dependencies from requirements.txt"
+
+# ============================================================================
+# Quick Reference / 快速參考 / 快速参考
+# ============================================================================
+quick_reference:
+  start_here: "src/pipelines/document_pipeline.py demonstrates full workflow"
+  demo_usage: "Run: python src/pipelines/document_pipeline.py"
+  add_llm_client: "See src/llm_api/base_client.py for interface"
+  export_format: "See src/excel/excel_engine.py and src/pptx/pptx_engine.py"
+  memory_system: "See src/llm_memory/memory_manager.py"
+  
+  common_errors:
+    - error: "ImportError: No module named 'X'"
+      solution: "Run: pip install -r requirements.txt"
+      
+    - error: "API authentication failed"
+      solution: "Set appropriate API key environment variables"
+      
+    - error: "Type errors in IDE"
+      solution: "Install type stubs: pip install types-*"
+
+# ============================================================================
+# Roadmap / 路線圖 / 路线图
+# ============================================================================
+future_enhancements:
+  - "Add support for PDF parsing and extraction"
+  - "Implement real-time streaming document generation"
+  - "Add web UI for interactive document creation"
+  - "Support for more graph database backends"
+  - "Enhanced multimodal support (images, audio in documents)"
+  - "Distributed processing for large document batches"
+  - "Integration with Google Jules for autonomous coding assistance"
+  - "Integration with GitHub Copilot for real-time coding support"
