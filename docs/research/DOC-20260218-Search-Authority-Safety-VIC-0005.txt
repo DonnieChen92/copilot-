@@ -1,0 +1,285 @@
+================================================================================
+DOC-20260218-Search-Authority-Safety-VIC-0005
+Title: Search Authority & Website Safety Verification Framework — VIC / Melbourne
+Version: 1.0
+Date: 2026-02-18
+Design: Jiadong Chen (陈佳栋) — Student ID: 723912
+Scope: Melbourne / Victoria / Australia — from VIC 3000 (City of Melbourne)
+        to all 79 Councils & Suburbs
+================================================================================
+
+
+SECTION 1 — Problem & Scope
+================================================================================
+
+Goal:
+When searching the web for information related to government, legislation,
+property, commercial entities, and community services within Melbourne /
+Victoria / Australia (starting from VIC 3000 — City of Melbourne):
+
+1. Assign "authority level + trust weight" to each web source
+2. Verify truthfulness for government, legislative, property & business data
+3. Include personal/community feedback while avoiding:
+   - Directed implantation (导向型植入)
+   - Backend manipulation (后台引导误判)
+   - Malicious redirects (重定向)
+   - Website pollution (网站污染)
+4. Ensure technical security of visited websites (HTTPS/cert/domain/redirect)
+
+Principle: Bi-directional inclusion of personal commentary as free speech,
+open & transparent, accepting suggestions and criticism — while prohibiting
+cyber-bullying (网暴).
+
+
+SECTION 2 — Authority Source Hierarchy (6 Levels)
+================================================================================
+
+Level 1: Government & Legislative Bodies (最高权威)
+--------
+  Domain ID: .gov.au / .vic.gov.au (policy-restricted, government-only)
+  Key VIC / Melbourne sites:
+    - vic.gov.au                         — VIC Government unified portal
+    - legislation.vic.gov.au             — VIC legislation (original legal texts)
+    - melbourne.vic.gov.au               — City of Melbourne (VIC 3000 council)
+    - vic.gov.au/know-your-council       — All 79 council info & performance
+
+  Rule: .gov.au / .vic.gov.au with content matching page title, traceable
+  to specific department/contact = highest authority + primary source.
+
+
+Level 2: Official Bodies / Official Organisations
+--------
+  Government-established or government-authorised professional bodies:
+    - abs.gov.au           — ABS (Australian Bureau of Statistics)
+    - data.vic.gov.au      — DataVic (VIC open data, 4800+ datasets)
+    - land.vic.gov.au      — Land Use Victoria / LANDATA
+    - consumer.vic.gov.au  — Consumer Affairs Victoria
+    - scamwatch.gov.au     — National Anti-Scam Centre / Scamwatch (ACCC)
+    - cyber.gov.au         — Australian Cyber Security Centre
+
+  Rule: Statistics/policy/guidelines from these bodies = "professional +
+  authoritative", second only to legislative text itself.
+
+
+Level 3: Company Official Publications
+--------
+  For commercial / property entities from VIC 3000 onwards:
+    - ABR (Australian Business Register): gov registry for businesses
+    - ABN Lookup: public query tool for ABN/ACN/company name
+
+  Verification:
+    - Website must show ABN, matchable in ABN Lookup
+    - Address in VIC 3000 or corresponding suburb
+    - Contact verifiable (phone, physical address on map)
+
+  Rule: ABN present + found in ABR = legitimate company (not necessarily
+  trustworthy, but not a "ghost store"). No ABN or ABN not found + claiming
+  "Australian local brand" = high alert (ACCC ghost store pattern).
+
+
+Level 4: Academic Publications
+--------
+  Domain: .edu.au (Australian universities & research institutions)
+  Example: unimelb.edu.au
+
+  Rule: Academic sources for theory + methodology support. Do NOT substitute
+  for government guidance or legal text on local policy/regulation/admin.
+
+
+Level 5: Mainstream Media
+--------
+  Australian context "mainstream media":
+    - ABC News (abc.net.au) — public broadcaster, "most trusted news source"
+    - The Age — Melbourne's newspaper of record
+    - Herald Sun, The Australian — cross-reference multiple outlets
+
+  Rule: Media = "alert signal" for government actions / regulatory updates.
+  Final authority falls back to Consumer Affairs / relevant legislation.
+  Always cross-reference multiple media sources to avoid single-stance bias.
+
+
+Level 6: Community Sources / User Comments
+--------
+  Usage principle:
+    1. Only as "experience feedback signal", NOT as legal/factual basis
+    2. For property agents/developers, use:
+       - Google Maps / Apple Maps reviews
+       - Independent review sites (ProductReview, Trustpilot etc.)
+       - Watch for fake positive/negative review flooding
+    3. Community opinion = "input" for decisions, but weight clearly
+       below levels 1-5
+
+  Cultural principle:
+    - 文明评论 (civilised commentary)
+    - 禁止网暴 (prohibition of cyber-bullying)
+    - Free speech + open transparency + accept suggestions & criticism
+
+
+SECTION 3 — Quantitative Authority & Truthfulness Scoring Model
+================================================================================
+
+Total Score T = 0.4 × Source Authority
+              + 0.2 × Transparency
+              + 0.2 × Evidence Quality
+              + 0.1 × Security
+              + 0.1 × Cross-Verification
+
+Each dimension scored 1–5:
+
+3.1 Source Authority (1–5)
+  5: .gov.au, .vic.gov.au, parliament, ABS, Land Use VIC, DataVic,
+     Consumer Affairs, Cyber.gov.au
+  4: .edu.au universities, authoritative research institutions,
+     government-authorised semi-official bodies
+  3: Large legitimate company websites (ABN + ABR verified), mainstream media
+  2: General .org.au, personal blogs, forums (no clear endorsement)
+  1: Unknown source, suspicious imitation sites, content farms
+
+3.2 Transparency (1–5)
+  Checks:
+  - Clear About / Contact / Privacy Policy / Disclaimer
+  - Organisation structure, legal entity, ABN disclosed
+  - Articles have date, author, data source citations
+  - Revision history / correction notices present
+
+3.3 Evidence Quality (1–5)
+  - Cites Level 1-2 authoritative data (ABS, DataVic, Land Use VIC etc.)
+  - Provides specific methodology, sample size, time range
+  - Separates "opinion/speculation" from "fact/data"
+
+3.4 Security (1–5)
+  Based on 5-point safety check (see Section 4)
+
+3.5 Cross-Verification (1–5)
+  Rule: Any key fact (property regulation, title info, population data,
+  subsidy details) must be cross-verified in >=2 different Level 1-2
+  authoritative sources.
+
+
+SECTION 4 — Website Safety Checks (5 Items)
+================================================================================
+
+Check A: HTTPS + Valid Certificate
+  - URL begins with https://
+  - No browser security warnings
+  - Certificate CA is legitimate
+  - Certificate within validity period
+  - Certificate domain matches visited domain
+  - ACSC recommends only entering sensitive info on HTTPS sites
+
+  Scoring:
+    5: Enforced HTTPS, HSTS, valid certificate
+    3-4: Mostly HTTPS, minor HTTP resources
+    1-2: Plain HTTP or certificate errors
+
+Check B: Domain Registration Entity
+  - .gov.au / .vic.gov.au: strict policy, government-only entities
+  - .com.au / .net.au: requires local entity or ABN (higher bar than .com)
+  - Verify via WHOIS or auDA query tools
+
+Check C: Official Primary Domain
+  - Is this the officially published domain? (e.g. City of Melbourne in
+    all official channels points to melbourne.vic.gov.au)
+  - Watch for lookalike domains: vic-gov.au.com, gov-au-vic.org = NOT official
+
+Check D: No Redirect to Unknown Third-Party TLD
+  - After clicking search result, check for:
+    - Multiple redirects
+    - Landing on unrelated overseas strange-suffix domains
+    - Frequent download/plugin/prize popups
+  - ACCC & Scamwatch: scam sites often impersonate local business/government
+
+Check E: Browser Security Alerts
+  - Any "This site is not secure" / "Invalid certificate" / "Malware detected"
+    = score 0, exit immediately
+  - Browser + security tools (Safe Browsing etc.) joint warning = exit
+
+
+SECTION 5 — Anti-Manipulation & Pollution Detection
+================================================================================
+
+5.1 Search Engine Habits
+  1. Priority: use site: and suffix constraints
+     - Government: site:vic.gov.au, site:*.gov.au
+     - Legislation: site:legislation.vic.gov.au
+     - Official data: site:data.vic.gov.au + keyword
+
+  2. Exclude ads & content farms
+     - Skip results marked "Ad" (especially property, loans, investment)
+     - Check domain + org name in result snippet before clicking
+
+  3. Multi-engine cross-reference
+     - Use >=2 different search engines (Google + DuckDuckGo/Bing)
+     - If "shocking info" only appears on one corner site = likely noise
+
+5.2 Directed Implantation Detection
+  Red flags:
+  - Extreme single-stance + violent emotional expression, no Level 1-2 refs
+  - "Buy now" / "Sign up now" everywhere, info bound to sales content
+  - Long article with zero external references/reports/legal links
+  - Simple "magic answer" for complex problem, forced toward product/stance
+
+  Rule: Even if technically HTTPS-safe, these pages should be heavily
+  downweighted in the authority model.
+
+
+SECTION 6 — VIC 3000 Property Verification Example
+================================================================================
+
+Scenario: Verify property title, zoning & current buy/sell regulations for
+an address in VIC 3000.
+
+Step 1 — Title & Ownership:
+  LANDATA / Land Use Victoria → Property & Parcel Search → Property Report
+  Confirms: LGA, zoning, utilities
+
+Step 2 — Council Information:
+  Know Your Council → City of Melbourne → performance reports
+
+Step 3 — Relevant Legislation:
+  legislation.vic.gov.au → Property Law Act, Sale of Land Act etc.
+
+Step 4 — Transaction/Regulatory Rules:
+  consumer.vic.gov.au → Buying/selling property, underquoting rules,
+  consumer rights
+
+Step 5 — Specific Agent/Developer:
+  Check official website (.com.au), verify ABN displayed
+  ABN Lookup → confirm ABN exists, registered in Australia
+
+Step 6 — Media + Community:
+  ABC News, The Age → search project/developer reports
+  Google Maps reviews → civilised feedback, watch for review flooding
+
+
+SECTION 7 — Quick Reference ("Pocket Rules")
+================================================================================
+
+For every new website/information, especially regarding policy, law,
+property, money:
+
+1. Check domain suffix first:
+   .gov.au / .vic.gov.au → trust priority
+   .edu.au → academic/theory reference
+   .com.au → check ABN first
+   Other suffixes → default low weight
+
+2. Verify HTTPS + valid certificate, no strange redirects, no browser warnings
+
+3. Confirm entity identity:
+   Government/official → referenced in other official channels?
+   Company → findable in ABN Lookup?
+
+4. Ask two questions:
+   - Is this info confirmed in >=2 Level 1-2 authoritative sources?
+   - Is this page objectively explaining facts, or pushing a stance/product/emotion?
+
+5. When money or personal info involved, follow Scamwatch "Stop-Check-Protect":
+   STOP  → Don't rush to pay, don't rush to enter personal info
+   CHECK → Check domain, check ABN, check official channels
+   PROTECT → If anomaly found, exit & consider reporting to Scamwatch
+
+
+================================================================================
+END OF DOCUMENT
+================================================================================

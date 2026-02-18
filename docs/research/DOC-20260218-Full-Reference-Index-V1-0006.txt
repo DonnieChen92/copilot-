@@ -1,0 +1,385 @@
+================================================================================
+DOC-20260218-Full-Reference-Index-V1-0006
+Title: Full Index of References & Appendices — V1.0 (for DonnieC)
+Version: 1.0
+Date: 2026-02-18
+Design: Jiadong Chen (陈佳栋) — Student ID: 723912
+Scope: Postcode 3000 Melbourne, VIC, extending to full Australia
+Purpose: Baseline index for authority + truthfulness + safety verification
+         model, for NLP, automated agents, compliance checks
+================================================================================
+
+
+0. SCOPE & VERSION NOTES
+================================================================================
+
+Region focus: Postcode 3000 Melbourne and its state Victoria, extending
+to full Australia.
+Purpose: Baseline reference index V1.0 for the "authority + truthfulness
++ safety" judgment model, callable by NLP, automated agents, compliance
+checks.
+
+
+1. REFERENCE SOURCE INDEX (Grouped by Type)
+================================================================================
+
+
+1.1 State Government, Legislation & Local Government
+------------------------------------------------------
+
+R1.1 VIC Government Unified Portal
+  URL: https://www.vic.gov.au
+  Role: VIC government unified entry point — departments, policies,
+        budgets, data, standards & guidelines.
+
+R1.2 Victorian Legislation — State Legislation Primary Site
+  URL: https://www.legislation.vic.gov.au
+  Role: VIC legislation primary source — Bills, Acts, statutory rules.
+
+R1.3 Victoria Government Gazette
+  URL: https://www.gazette.vic.gov.au
+  Role: Official decisions/announcements from Governor, departments,
+        councils, companies and individuals.
+
+R1.4 Local Government Victoria & Know Your Council
+  Local Government Victoria: https://www.localgovernment.vic.gov.au
+  Know Your Council: https://www.vic.gov.au/know-your-council
+  LGPRF Performance Data: https://discover.data.vic.gov.au/dataset/local-government-performance-reporting
+
+R1.5 City of Melbourne (VIC 3000)
+  URL: https://www.melbourne.vic.gov.au
+
+
+1.2 Land, Title & Property Information
+------------------------------------------------------
+
+R2.1 Land Use Victoria — Core Land Information Body
+  URL: https://www.land.vic.gov.au
+  Functions: Land registration, title information, spatial data,
+             valuation, place names, government land policy.
+
+R2.2 Property & Parcel Search
+  URL: https://www.land.vic.gov.au/property-and-parcel-search
+  Use: Generate Property Report for specific address/parcel —
+       confirms LGA, zoning, public services.
+
+R2.3 Land Registration — Fees, Guides & Forms
+  URL: https://www.land.vic.gov.au/land-registration/fees-guides-and-forms
+
+
+1.3 Open Data, Statistics & Performance Indicators
+------------------------------------------------------
+
+R3.1 DataVic — Statewide Open Data Catalogue
+  URL: https://www.data.vic.gov.au
+  Definition: VIC public sector open data catalogue, managed through
+              DataVic Access Policy.
+
+R3.2 Local Government Performance Reporting (LGPRF)
+  Dataset: Same as R1.4 — covers 79 councils' mandatory performance
+           indicators, underpins Know Your Council dashboard.
+
+R3.3 Australian Bureau of Statistics (ABS)
+  URL: https://www.abs.gov.au
+  Role: Federal official statistics — economy, population, social data.
+
+
+1.4 Consumer Protection, Scams & Cyber Security
+------------------------------------------------------
+
+R4.1 Consumer Affairs Victoria (CAV)
+  URL: https://www.consumer.vic.gov.au
+  Role: VIC consumer regulator — rental, property buy/sell, building,
+        shopping, licensing & dispute mediation.
+
+R4.2 Australian Competition and Consumer Commission (ACCC)
+  URL: https://www.accc.gov.au
+  Scams overview: https://www.accc.gov.au/consumers/stay-protected/scams
+
+R4.3 Scamwatch (operated by ACCC)
+  URL: https://www.scamwatch.gov.au
+  Stop. Check. Protect.: https://www.scamwatch.gov.au/stop-check-protect
+  Resources: https://www.scamwatch.gov.au/research-and-resources/resources/stop-check-protect-resources
+
+R4.4 National Anti-Scam Centre (NASC)
+  URL: https://www.nasc.gov.au
+  Function: National scam intelligence coordination, trend monitoring.
+
+R4.5 Australian Cyber Security Centre (ACSC) / cyber.gov.au
+  URL: https://www.cyber.gov.au
+  Role: ACSC (under ASD) — federal cyber security advice & incident
+        response primary channel.
+
+
+1.5 Domain & DNS Policy / Registration
+------------------------------------------------------
+
+R5.1 gov.au Domain Policy — domainname.gov.au
+  URL: https://www.domainname.gov.au
+  Domain Policies: https://www.domainname.gov.au/domain-policies
+  Covers: Policy & Governance Framework, Eligibility & Allocation,
+          Dispute Resolution, Application of auDA Policy.
+
+R5.2 .au Domain Administration (auDA)
+  URL: https://www.auda.org.au
+  Role: .au national TLD policy & self-regulatory body.
+
+
+1.6 Business Entity / ABN Verification
+------------------------------------------------------
+
+R6.1 Australian Business Register (ABR) & ABN Lookup
+  ABR Info: https://www.abr.gov.au
+  ABN Lookup: https://abr.business.gov.au
+  Use: Verify any entity claiming VIC/Melbourne location —
+       ABN valid, status normal, registered in Australia.
+
+
+1.7 Service Portals & Specialist Government Sites
+------------------------------------------------------
+
+R7.1 Service Victoria
+  URL: https://service.vic.gov.au
+  Function: Digital government service entry point.
+
+R7.2 Public Health & Wellbeing Regulations Example
+  URL: https://www.health.vic.gov.au/legislation/public-health-and-wellbeing-regulations-2019
+  Use: Example of thematic legislation site linking back to
+       Legislation Victoria.
+
+
+1.8 Mainstream Media (for cross-verification)
+------------------------------------------------------
+
+R8.1 ABC News (Australia)
+  URL: https://www.abc.net.au
+  Role: Public broadcaster news division — cross-verify scams,
+        regulatory & social issue reporting.
+
+R8.2 The Age
+  Role: Melbourne's newspaper of record — VIC politics & social issues.
+
+R8.3 Herald Sun, News.com.au
+  Role: Commercial mainstream media — multi-source comparison.
+
+R8.4 The Guardian Australia
+  Role: Investigative reporting (ghost stores, scam patterns etc.).
+
+
+1.9 Background / Meta References
+------------------------------------------------------
+
+R9.1 ABS Legal Basis
+  Australian Bureau of Statistics Act 1975:
+  https://www.legislation.gov.au/Details/C2014C00618
+
+R9.2 DataVic / ABS / auDA Third-party Descriptions
+  DataVic platform technical & management background.
+  ABS as "national statistical agency" authoritative description.
+  auDA role additional explanations.
+
+
+2. APPENDIX SYSTEM (Methodology Modules V1.0)
+================================================================================
+
+
+Appendix A — Source Authority Hierarchy (1-6)
+------------------------------------------------------
+
+Level | Category                        | Typical Examples
+------|---------------------------------|----------------------------------------
+  1   | Government & Legislative Bodies  | vic.gov.au, legislation.vic.gov.au,
+      |                                 | Gazette, LUV, CAV, ABS
+  2   | Official / Statutory Bodies      | DataVic, ACSC/cyber.gov.au, NASC,
+      |                                 | Local Government Victoria
+  3   | Company Official (with ABN)     | ABR/ABN Lookup verifiable .com.au/.org.au
+  4   | Academic & Research             | .edu.au universities, research centres
+  5   | Mainstream Media                | ABC, The Age, Herald Sun, Guardian AU
+  6   | Community / User Reviews        | Maps reviews, forums, social media
+
+In scoring system, Level determines SourceAuthority base score range.
+
+
+Appendix B — Composite Trust Scoring Model
+------------------------------------------------------
+
+Formula:
+  T = 0.4 x SourceAuthority
+    + 0.2 x Transparency
+    + 0.2 x EvidenceQuality
+    + 0.1 x Security
+    + 0.1 x CrossCheck
+
+Each dimension 1-5 scale.
+
+Engineering implementation: can be a rule function, or in vector
+retrieval / RAG pipeline as re-ranking additional weight.
+
+
+Appendix C — Website Safety 5-Point Check (Technical)
+------------------------------------------------------
+
+1. HTTPS & Certificate
+2. Domain Registration Entity & Policy Constraints
+3. Primary Domain vs Lookalike Domain
+4. Redirect Behaviour (Redirect Hygiene)
+5. Browser / Platform Security Alerts + Stop. Check. Protect
+
+
+Appendix D — Search & Evaluation Pipeline (Orchestratable)
+------------------------------------------------------
+
+Phase 1: Government-first Query (site:vic.gov.au etc.)
+Phase 2: Regulatory & Cyber Security Layer (CAV, ACCC, Scamwatch, NASC, ACSC)
+Phase 3: Business Entity / ABN Verification
+Phase 4: Media & Community Feedback
+Phase 5: Scoring & Decision (T >= 4 threshold for "trusted fact")
+
+
+Appendix E — Community / User Content Usage Rules
+------------------------------------------------------
+
+Position: Experience feedback, pain point collection, early risk signal.
+NOT for establishing legal responsibility, rights/obligations, or
+official standards alone.
+
+Priority: Posts that cite & link Level 1-2 official sources.
+Downweight: Extreme emotion, pure subjective judgment, no evidence/links,
+suspected review flooding.
+
+
+================================================================================
+FULL URL REGISTRY — VICTORIA PUBLIC / NON-PROFIT / GOVERNMENT / LANDMARK
+LEGAL & SAFE INDEX (FREE ACCESS) — V1.0
+================================================================================
+
+
+【1. VICTORIA & AUSTRALIA — GOVERNMENT】
+
+https://www.vic.gov.au
+https://www.legislation.vic.gov.au
+https://www.gazette.vic.gov.au
+https://service.vic.gov.au
+https://www.data.vic.gov.au
+https://www.deeca.vic.gov.au
+https://www.health.vic.gov.au
+https://www.emergency.vic.gov.au
+https://my.gov.au
+https://www.legislation.gov.au
+https://www.abs.gov.au
+
+
+【2. LOCAL GOVERNMENT】
+
+https://www.melbourne.vic.gov.au
+https://www.localgovernment.vic.gov.au
+https://www.vic.gov.au/know-your-council
+
+
+【3. LAND, PROPERTY, PLANNING】
+
+https://www.land.vic.gov.au
+https://www.land.vic.gov.au/property-and-parcel-search
+https://www.land.vic.gov.au/land-registration
+https://www.planning.vic.gov.au
+https://www.land.vic.gov.au/maps-and-spatial
+
+
+【4. ENERGY & UTILITIES】
+
+https://www.esc.vic.gov.au
+https://www.originenergy.com.au
+https://www.agl.com.au
+https://www.redenergy.com.au
+https://www.simplyenergy.com.au
+https://www.gww.com.au
+https://southeastwater.com.au
+https://www.citipower.com.au
+https://www.unitedenergy.com.au
+
+
+【5. NON-PROFIT / HUMANITARIAN】
+
+https://www.redcross.org.au
+https://www.stjohnvic.com.au
+https://www.salvationarmy.org.au
+https://www.missionaustralia.com.au
+https://www.bsl.org.au
+
+
+【6. ENVIRONMENTAL / ANIMAL WELFARE】
+
+https://www.parks.vic.gov.au
+https://www.epa.vic.gov.au
+https://www.rspcavic.org
+https://www.zoo.org.au
+https://www.sustainability.vic.gov.au
+
+
+【7. CULTURE / LIBRARIES / MUSEUMS】
+
+https://www.slv.vic.gov.au
+https://museumsvictoria.com.au
+https://www.ngv.vic.gov.au
+https://www.artscentremelbourne.com.au
+https://www.fedsquare.com
+https://www.shrine.org.au
+
+
+【8. EDUCATION — EARLY CHILDHOOD -> K12 -> TAFE -> UNIVERSITY -> PHD】
+
+https://www.vic.gov.au/early-childhood
+https://www.vic.gov.au/education
+https://www.vcaa.vic.edu.au
+https://www.tafecourses.com.au
+https://www.unimelb.edu.au
+https://www.monash.edu
+https://www.rmit.edu.au
+https://www.swinburne.edu.au
+https://www.deakin.edu.au
+https://www.latrobe.edu.au
+https://www.vu.edu.au
+
+
+【9. LANDMARKS / COMPLEXES — A-GRADE & PUBLIC】
+
+https://marvelstadium.com.au
+https://www.mcg.org.au
+https://www.rodlaverarena.com
+https://mcec.com.au
+https://www.docklands.com.au
+https://www.southbank.net.au
+https://qvm.com.au
+https://www.rbg.vic.gov.au
+https://www.zoo.org.au/melbourne
+
+
+【10. COMMUNITY SERVICES】
+
+https://www.nhvic.org.au
+https://www.volunteeringvictoria.org.au
+https://cisvic.org.au
+https://www.homeaffairs.gov.au/amep
+
+
+【11. TRANSPORT / LOGISTICS】
+
+https://www.ptv.vic.gov.au
+https://www.vicroads.vic.gov.au
+https://www.melbourneairport.com.au
+https://www.avalonairport.com.au
+https://auspost.com.au
+
+
+【12. SAFETY / CYBER / CONSUMER PROTECTION】
+
+https://www.cyber.gov.au
+https://www.scamwatch.gov.au
+https://www.nasc.gov.au
+https://www.consumer.vic.gov.au
+https://www.victimsofcrime.vic.gov.au
+
+
+================================================================================
+END OF DOCUMENT
+================================================================================
