@@ -1,0 +1,469 @@
+# =============================================================================
+# PM-Email-Categorisation.os (Victoria Property Manager) — enhanced stakeholder model
+# =============================================================================
+# Adds explicit stakeholder vocab:
+# - Commercial Real Estate: Clients / Landlords / Tenants
+# - Residential Real Estate: Renters / Rental Providers
+# Integrates stakeholder inference into cover-scan labels, routing, and lock escalation.
+#
+# Design: Jiadong Chen (陈佳栋) — donniechen92@gmail.com
+# Location: VIC 3166, Victoria, Australia
+# Date: 2026-02-13 (Australia/Melbourne)
+# =============================================================================
+
+meta:
+  id: "PM-Email-Categorisation.os"
+  version: "0.2.0"
+  locale: "en-AU"
+  parent_system: "Categorisation.os"
+  primary_objective: "First-pass triage and filing for VIC property management communications (RES + COM) with stakeholder-aware routing."
+
+# -------------------------
+# 0) CONTEXT AXES + STAKEHOLDER MODEL
+# -------------------------
+context_defaults:
+  work_nature: "PROFESSIONAL"
+  org_type: "PROFIT"
+  exposure: "PRIVATE"
+  portfolio:
+    enum: ["RESIDENTIAL", "COMMERCIAL", "MIXED", "UNKNOWN"]
+    default: "UNKNOWN"
+
+stakeholder_model:
+  # Stakeholder is orthogonal to category; it influences routing, locks, and follow-up actions.
+  stakeholders:
+    RESIDENTIAL:
+      RENTERS:
+        label: "Renters (tenants in residential context)"
+        synonyms: ["renter", "tenant", "occupant", "applicant"]
+      RENTAL_PROVIDERS:
+        label: "Rental Providers (landlords/owners in residential context)"
+        synonyms: ["rental provider", "landlord", "owner", "lessor"]
+    COMMERCIAL:
+      CLIENTS:
+        label: "Clients (investors/owners/corporate client-side stakeholders)"
+        synonyms: ["client", "principal", "owner", "investor", "asset owner"]
+      LANDLORDS:
+        label: "Landlords (lessors in commercial leasing)"
+        synonyms: ["landlord", "lessor", "building owner"]
+      TENANTS:
+        label: "Tenants (lessees in commercial leasing)"
+        synonyms: ["tenant", "lessee", "occupier"]
+  fields:
+    - stakeholder_primary    # one of the above
+    - stakeholder_secondary  # optional (e.g., landlord+tenant thread)
+    - counterparty_role_hint # "sender"|"recipient"|"third_party" (who the email refers to)
+  defaults:
+    stakeholder_primary: "UNKNOWN"
+    stakeholder_secondary: "NONE"
+    counterparty_role_hint: "UNKNOWN"
+
+stakeholder_to_lock_rules:
+  # Stakeholders do not automatically increase lock, but PII/compliance does.
+  escalate_if_contains_pii_for:
+    - "RESIDENTIAL.RENTERS"
+    - "RESIDENTIAL.RENTAL_PROVIDERS"
+    - "COMMERCIAL.TENANTS"
+    - "COMMERCIAL.LANDLORDS"
+    - "COMMERCIAL.CLIENTS"
+
+# -------------------------
+# 1) LOCK / VAULT POLICY (PM-specific)
+# -------------------------
+locks:
+  escalation_rules_pm:
+    - if_any_keywords: ["passport", "visa", "immi", "home affairs", "bdm", "births deaths marriages"]
+      then_lock: "L4_VAULT"
+    - if_any_keywords:
+        ["tenant application", "application", "100 points", "id document", "driver licence", "medicare card",
+         "bank statement", "payslip", "pay slip", "proof of identity"]
+      then_lock: "L4_VAULT"
+    - if_any_keywords:
+        ["rent arrears", "breach notice", "notice to vacate", "vcat", "tribunal", "police", "insurance claim",
+         "bond claim", "compensation", "privacy", "complaint"]
+      then_min_lock: "L3_SENSITIVE"
+    - if_contains_property_address_and_person_name: true
+      then_min_lock: "L3_SENSITIVE"
+
+# -------------------------
+# 2) SOURCES
+# -------------------------
+sources:
+  email:
+    fields:
+      - from
+      - to
+      - cc
+      - subject
+      - body_snippet
+      - attachment_names
+      - attachment_mime_types
+      - share_links
+      - calendar_invite_present
+      - headers_minimal
+  messages:
+    fields:
+      - sender
+      - channel
+      - timestamp
+      - text_snippet
+      - attachments_present
+      - share_links
+  calendar:
+    fields:
+      - organizer
+      - attendees
+      - title
+      - description_snippet
+      - location
+      - meeting_link
+      - share_links
+      - attached_files
+      - start_time
+      - end_time
+
+# -------------------------
+# 3) PM TAXONOMY (email-centric)
+# -------------------------
+pm_taxonomy:
+  top_level:
+    PM_RES: {label: "Property Management — Residential"}
+    PM_COM: {label: "Property Management — Commercial"}
+    PM_GEN: {label: "Property Management — General/Shared"}
+    GOV_VIC: {label: "Victoria Government / Regulators"}
+    VENDORS: {label: "Trades / Contractors / Service Providers"}
+    FINANCE: {label: "Invoices / Payments / Trust Accounting"}
+    LEGAL: {label: "VCAT / Legal / Notices / Compliance"}
+    INSURANCE: {label: "Insurance / Claims"}
+    UTILITIES: {label: "Utilities / Essential Services"}
+    STRATA_OC: {label: "Owners Corporation / Strata"}
+    SHOWINGS: {label: "Inspections / Access / Keys"}
+    LEASING: {label: "Leasing / Renewals / Rent Review"}
+    MAINT: {label: "Maintenance / Work Orders"}
+    TENANCY: {label: "Tenancy Issues / Complaints"}
+    BOND_RTBA: {label: "Bond / RTBA / Bond Claims"}
+    ARREARS: {label: "Rent Arrears / Breach / Notices"}
+    SAFETY: {label: "Safety / Emergencies"}
+    IT_DOCS: {label: "Shared Links / Portals"}
+    REVIEW: {label: "Needs Review / Unclear"}
+  residential_sub:
+    - "Applications"
+    - "Routine Inspections"
+    - "Repairs"
+    - "Bond"
+    - "Notices"
+    - "End of Lease"
+    - "Renter Issues"
+    - "Rental Provider Instructions"
+  commercial_sub:
+    - "Lease Admin"
+    - "Rent Review"
+    - "Outgoings"
+    - "Make Good"
+    - "Fitout / Works"
+    - "Access / Security"
+    - "BMS / Facilities"
+    - "Client Reporting"
+
+# -------------------------
+# 4) AI ROLE #1 — COVER SCAN (stakeholder-aware)
+# -------------------------
+ai_pipeline:
+  stage_0_cover_scan:
+    objective: "Label portfolio (RES/COM), stakeholder (renter/rental provider vs client/landlord/tenant), category, lock, and route using cover signals."
+    cover_signals:
+      - from_domain
+      - subject_keywords
+      - attachment_filename_patterns
+      - link_domains_in_body
+      - calendar_title_keywords
+      - organizer_domain
+    outputs:
+      - pm_category_top
+      - pm_category_sub
+      - portfolio_guess
+      - stakeholder_primary
+      - stakeholder_secondary
+      - lock_level_guess
+      - labels
+      - routing_folder
+      - needs_deep_extraction_flag
+      - suggested_actions
+    constraints:
+      - "Stakeholder inference must be keyword/domain based; if ambiguous -> UNKNOWN + REVIEW."
+      - "If likely PII thread -> escalate lock and avoid auto-share."
+  stage_1_deep_extraction:
+    objective: "Extract property address, lease/tenancy references, invoice/notice details when required."
+    triggers:
+      - "needs_deep_extraction_flag == true"
+      - "lock_level_guess in [L3_SENSITIVE, L4_VAULT]"
+      - "category in [FINANCE, LEGAL, ARREARS, INSURANCE, BOND_RTBA]"
+    outputs:
+      - property_address_detected
+      - tenancy_reference_detected
+      - lease_reference_detected
+      - invoice_number_detected
+      - key_dates_detected
+      - final_labels_and_rationale
+
+# -------------------------
+# 5) LABEL SET (adds stakeholder labels)
+# -------------------------
+labels:
+  base:
+    - "PMOS/PROFESSIONAL"
+    - "PMOS/RESIDENTIAL"
+    - "PMOS/COMMERCIAL"
+    - "PMOS/LOCK-L1"
+    - "PMOS/LOCK-L2"
+    - "PMOS/LOCK-L3"
+    - "PMOS/LOCK-L4-VAULT"
+    - "PMOS/REVIEW"
+  stakeholder:
+    # Residential
+    - "PMOS/RES-RENTERS"
+    - "PMOS/RES-RENTAL_PROVIDERS"
+    # Commercial
+    - "PMOS/COM-CLIENTS"
+    - "PMOS/COM-LANDLORDS"
+    - "PMOS/COM-TENANTS"
+  category:
+    - "PMOS/LEASING"
+    - "PMOS/MAINT"
+    - "PMOS/SHOWINGS"
+    - "PMOS/FINANCE"
+    - "PMOS/LEGAL"
+    - "PMOS/ARREARS"
+    - "PMOS/BOND-RTBA"
+    - "PMOS/INSURANCE"
+    - "PMOS/STRATA-OC"
+    - "PMOS/UTILITIES"
+    - "PMOS/VENDORS"
+    - "PMOS/GOV-VIC"
+    - "PMOS/SAFETY"
+    - "PMOS/IT-DOCS"
+
+# -------------------------
+# 6) ROUTING (folders; stakeholder-aware subfolders)
+# -------------------------
+routing:
+  base_path: "/Categorisation.os/PM-Email-Categorisation.os/"
+  folders:
+    RES:
+      - "01_Inbox/Residential/"
+      - "02_Leasing/Applications/"
+      - "02_Leasing/Renewals/"
+      - "03_Maintenance/"
+      - "04_Inspections_Access/"
+      - "05_Bond_RTBA/"
+      - "06_Arrears_Notices/"
+      - "07_Legal_VCAT/"
+      - "08_Insurance/"
+      - "09_Strata_OC/"
+      - "10_Invoices_Trust/"
+      - "11_Vendors/"
+      - "12_Shared_Links/"
+      - "20_Stakeholders/Renters/"
+      - "21_Stakeholders/Rental_Providers/"
+      - "99_Review/"
+    COM:
+      - "01_Inbox/Commercial/"
+      - "02_Lease_Admin/"
+      - "03_Maintenance_Facilities/"
+      - "04_Access_Security/"
+      - "05_Outgoings/"
+      - "06_Rent_Review/"
+      - "07_Legal/"
+      - "08_Insurance/"
+      - "09_Invoices/"
+      - "10_Vendors/"
+      - "11_Shared_Links/"
+      - "20_Stakeholders/Clients/"
+      - "21_Stakeholders/Landlords/"
+      - "22_Stakeholders/Tenants/"
+      - "99_Review/"
+    VAULT:
+      - "VAULT/Residential/Renters_ID_Applications/"
+      - "VAULT/Residential/Rental_Providers_PII/"
+      - "VAULT/Commercial/Clients_Confidential/"
+      - "VAULT/Commercial/Landlords_Confidential/"
+      - "VAULT/Commercial/Tenants_Confidential/"
+      - "VAULT/Legal_Notices_Evidence/"
+      - "VAULT/Claims_Insurance/"
+
+routing_logic:
+  stakeholder_folder_map:
+    RESIDENTIAL:
+      RENTERS: "RES/20_Stakeholders/Renters/"
+      RENTAL_PROVIDERS: "RES/21_Stakeholders/Rental_Providers/"
+    COMMERCIAL:
+      CLIENTS: "COM/20_Stakeholders/Clients/"
+      LANDLORDS: "COM/21_Stakeholders/Landlords/"
+      TENANTS: "COM/22_Stakeholders/Tenants/"
+  vault_folder_map:
+    RESIDENTIAL:
+      RENTERS: "VAULT/Residential/Renters_ID_Applications/"
+      RENTAL_PROVIDERS: "VAULT/Residential/Rental_Providers_PII/"
+    COMMERCIAL:
+      CLIENTS: "VAULT/Commercial/Clients_Confidential/"
+      LANDLORDS: "VAULT/Commercial/Landlords_Confidential/"
+      TENANTS: "VAULT/Commercial/Tenants_Confidential/"
+
+# -------------------------
+# 7) RULES — stakeholder inference + portfolio split
+# -------------------------
+rules:
+  # 7.1 Portfolio detection (RES vs COM)
+  - id: "PORTFOLIO_COMMERCIAL_MARKERS"
+    priority: 180
+    when:
+      any:
+        - subject_contains_any: ["outgoings", "cpi", "make good", "fitout", "option", "rent review", "lease admin", "occupier"]
+        - body_contains_any: ["lessee", "lessor", "outgoings", "make good", "fitout"]
+        - calendar_title_contains_any: ["commercial", "lease", "outgoings", "make good"]
+    then:
+      set:
+        portfolio_guess: "COMMERCIAL"
+        labels_add: ["PMOS/COMMERCIAL"]
+
+  - id: "PORTFOLIO_RESIDENTIAL_MARKERS"
+    priority: 175
+    when:
+      any:
+        - subject_contains_any: ["renter", "tenant", "bond", "rtba", "routine inspection", "entry notice", "fixed term", "rent increase"]
+        - body_contains_any: ["rental provider", "condition report", "routine inspection", "notice of entry"]
+        - calendar_title_contains_any: ["routine inspection", "entry", "condition report"]
+    then:
+      set:
+        portfolio_guess: "RESIDENTIAL"
+        labels_add: ["PMOS/RESIDENTIAL"]
+
+  # 7.2 Stakeholder inference — Residential (Renters vs Rental Providers)
+  - id: "STAKE_RES_RENTERS"
+    priority: 170
+    when:
+      all:
+        - portfolio_is: "RESIDENTIAL"
+      any:
+        - subject_contains_any: ["renter", "tenant", "applicant", "application", "routine inspection", "bond refund", "maintenance request"]
+        - body_contains_any: ["I am the tenant", "we are the tenants", "renters", "maintenance request"]
+    then:
+      set:
+        stakeholder_primary: "RESIDENTIAL.RENTERS"
+        labels_add: ["PMOS/RES-RENTERS"]
+        rationale_append: "Stakeholder inferred as residential renter/tenant."
+
+  - id: "STAKE_RES_RENTAL_PROVIDERS"
+    priority: 169
+    when:
+      all:
+        - portfolio_is: "RESIDENTIAL"
+      any:
+        - subject_contains_any: ["rental provider", "landlord", "owner instructions", "owner approval"]
+        - body_contains_any: ["as the owner", "landlord approval", "please approve", "rental provider"]
+    then:
+      set:
+        stakeholder_primary: "RESIDENTIAL.RENTAL_PROVIDERS"
+        labels_add: ["PMOS/RES-RENTAL_PROVIDERS"]
+        rationale_append: "Stakeholder inferred as residential rental provider/landlord."
+
+  # 7.3 Stakeholder inference — Commercial (Clients / Landlords / Tenants)
+  - id: "STAKE_COM_TENANTS"
+    priority: 168
+    when:
+      all:
+        - portfolio_is: "COMMERCIAL"
+      any:
+        - subject_contains_any: ["tenant", "lessee", "occupier", "fitout works", "make good", "access request"]
+        - body_contains_any: ["we are the tenant", "lessee", "occupier", "tenant request"]
+    then:
+      set:
+        stakeholder_primary: "COMMERCIAL.TENANTS"
+        labels_add: ["PMOS/COM-TENANTS"]
+        rationale_append: "Stakeholder inferred as commercial tenant/lessee."
+
+  - id: "STAKE_COM_LANDLORDS"
+    priority: 167
+    when:
+      all:
+        - portfolio_is: "COMMERCIAL"
+      any:
+        - subject_contains_any: ["landlord", "lessor", "owner approval", "asset owner"]
+        - body_contains_any: ["as lessor", "landlord instructions", "owner approval"]
+    then:
+      set:
+        stakeholder_primary: "COMMERCIAL.LANDLORDS"
+        labels_add: ["PMOS/COM-LANDLORDS"]
+        rationale_append: "Stakeholder inferred as commercial landlord/lessor."
+
+  - id: "STAKE_COM_CLIENTS"
+    priority: 166
+    when:
+      all:
+        - portfolio_is: "COMMERCIAL"
+      any:
+        - subject_contains_any: ["client report", "monthly report", "portfolio update", "budget", "capex", "asset management"]
+        - body_contains_any: ["client", "portfolio", "investment", "asset strategy", "reporting pack"]
+    then:
+      set:
+        stakeholder_primary: "COMMERCIAL.CLIENTS"
+        labels_add: ["PMOS/COM-CLIENTS"]
+        rationale_append: "Stakeholder inferred as commercial client-side stakeholder."
+
+  # 7.4 Secondary stakeholder (threads that include both sides)
+  - id: "STAKE_SECONDARY_BOTH_SIDES"
+    priority: 120
+    when:
+      any:
+        - body_contains_any: ["cc landlord", "cc tenant", "copied the owner", "copied the tenant", "forwarded to tenant", "forwarded to owner"]
+    then:
+      set:
+        stakeholder_secondary: "PRESENT"
+        rationale_append: "Thread likely includes multiple counterparties; apply careful sharing controls."
+
+  # 7.5 Vault triggers (PII / applications) — keep from v0.1 with stakeholder routing
+  - id: "VAULT_APPLICATIONS_ID"
+    priority: 200
+    when:
+      any:
+        - subject_contains_any: ["application", "apply", "rental application", "tenant application", "100 points", "id check"]
+        - attachment_name_matches_any: ["*passport*", "*driver*licen*", "*medicare*", "*bank statement*", "*payslip*", "*utility bill*"]
+    then:
+      set:
+        lock_level_guess: "L4_VAULT"
+        needs_deep_extraction_flag: true
+        routing_folder_resolve: "routing_logic.vault_folder_map"
+        rationale_append: "ID/application attachments => Vault only."
+
+# -------------------------
+# 8) APPENDIX (keywords for stakeholder detection)
+# -------------------------
+appendix:
+  stakeholder_keywords:
+    RESIDENTIAL:
+      RENTERS: ["renter", "tenant", "applicant", "application", "maintenance request", "bond refund", "condition report"]
+      RENTAL_PROVIDERS: ["rental provider", "owner", "landlord", "owner approval", "owner instructions"]
+    COMMERCIAL:
+      TENANTS: ["tenant", "lessee", "occupier", "fitout", "make good", "access request"]
+      LANDLORDS: ["landlord", "lessor", "asset owner", "owner approval"]
+      CLIENTS: ["client", "portfolio", "asset management", "reporting pack", "capex", "budget"]
+  link_domain_groups:
+    cloud_shares:
+      - "drive.google.com"
+      - "docs.google.com"
+      - "onedrive.live.com"
+      - "sharepoint.com"
+      - "dropbox.com"
+      - "icloud.com"
+      - "weiyun.com"
+      - "cloud.tencent.com"
+
+# -------------------------
+# 9) NEXT STEPS (executable)
+# -------------------------
+next_steps:
+  - "Add stakeholder labels as mandatory output of Stage-0 cover scan (even if UNKNOWN)."
+  - "Route stakeholder-specific threads into Stakeholders subfolders; keep main category routing unchanged."
+  - "Enforce: if stakeholder is renters/tenants and attachments include ID/financial docs => L4 Vault."
+  - "For commercial: label CLIENTS vs LANDLORDS vs TENANTS to separate reporting vs leasing vs requests; avoid cross-sharing unless explicitly authorised."
+  - "For residential: use RENTERS vs RENTAL_PROVIDERS to separate renter issues from owner instructions and approvals."

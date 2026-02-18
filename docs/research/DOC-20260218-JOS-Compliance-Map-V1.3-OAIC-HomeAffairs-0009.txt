@@ -1,0 +1,223 @@
+================================================================================
+DOC-20260218-JOS-Compliance-Map-V1.3-OAIC-HomeAffairs-0009
+Title: J.OS — Melbourne Gov Research Compliance Map v1.3
+Version: 1.3
+Date: 2026-02-18
+Design: Jiadong Chen (陈佳栋) — Student ID: 723912
+Classification: HIGH CONFIDENTIAL — GOV / PUBLIC ONLY
+Updated: OAIC + Home Affairs Cyber + Visa 190 Integration
+================================================================================
+
+
+SECTION 0 — PRE-RESEARCH DEVICE SECURITY BASELINE
+================================================================================
+
+All research must occur:
+- On-device
+- Manual browsing only
+- HTTPS validated
+- No automation
+- No scraping
+- No third-party data harvesting
+
+
+SECTION 1 — DOMAIN AUTHORITY & CERTIFICATE VALIDATION
+================================================================================
+
+MANDATORY CHECKS BEFORE ANY EXTRACTION:
+1. HTTPS enabled
+2. TLS certificate valid (no expiry / no mismatch)
+3. Issuer from trusted CA
+4. Domain exact match
+5. No unexpected redirects
+6. No marketing trackers injected
+7. Government domain priority
+
+GOVERNMENT DOMAIN PREFERENCE:
+- .gov.au
+- .vic.gov.au
+- .edu.au
+- Verified .org.au
+
+STRICT MODE:
+Use Private Browsing when reviewing policy, visa, privacy, or
+regulatory material.
+
+
+SECTION 2 — PRIVACY, DATA PROTECTION & CYBER SECURITY
+================================================================================
+
+This section must be reviewed before conducting any research involving:
+- Personal information
+- Visa information
+- Immigration matters
+- Cyber security frameworks
+- Data governance
+
+
+2.1 OFFICE OF THE AUSTRALIAN INFORMATION COMMISSIONER (OAIC)
+-------------------------------------------------------------
+
+SOURCE: https://www.oaic.gov.au
+
+ROLE:
+Independent national regulator for:
+- Privacy Act 1988 (Cth)
+- Australian Privacy Principles (APPs)
+- Freedom of Information (FOI)
+- Notifiable Data Breaches scheme
+
+WHY INCLUDED:
+AI-assisted research must:
+- Respect Privacy Act requirements
+- Avoid collecting personal data
+- Avoid storing identifiable information
+- Follow data minimisation principle
+- Respect FOI structure
+
+AI EXTRACTION RULE:
+- Public policy pages may be summarised
+- Do not reproduce complaint case files
+- Do not extract personal complaint examples
+- Cite original URLs only
+
+
+2.2 HOME AFFAIRS — CYBER SECURITY PORTFOLIO
+-------------------------------------------------------------
+
+SOURCE: https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security
+
+ROLE:
+Australian Government cyber security coordination:
+- National cyber resilience
+- Critical infrastructure protection
+- Cyber Security Strategy
+- Threat response frameworks
+
+LEGAL CONTEXT:
+- Security of Critical Infrastructure Act
+- National Cyber Security Strategy
+- Australian Cyber Security Centre integration
+
+AI RULE:
+- Extract only publicly available framework descriptions
+- No technical vulnerability analysis
+- No system mapping
+- No automation testing
+
+
+2.3 SKILLED NOMINATED VISA (SUBCLASS 190)
+-------------------------------------------------------------
+
+SOURCE: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-nominated-190
+
+ROLE:
+Official immigration information for Skilled Nominated visa.
+
+RESEARCH REQUIREMENTS:
+- Use only official immi.homeaffairs.gov.au pages
+- Do not rely on third-party migration blogs
+- Confirm eligibility, obligations, conditions from official text
+- Do not interpret beyond published conditions
+- Do not provide migration advice unless explicitly requested
+
+PRIVACY NOTE:
+Visa processes involve sensitive personal data.
+AI must:
+- Not request passport numbers
+- Not store identification numbers
+- Not replicate application forms
+- Not simulate submission workflows
+
+ZERO ASSUMPTION PROTOCOL:
+If requirement is not explicitly stated on official page,
+AI must state: "Refer to official Home Affairs source."
+
+
+SECTION 3 — eSAFETY & ONLINE SAFETY ALIGNMENT
+================================================================================
+
+SOURCE: https://www.esafety.gov.au
+LEGAL BASIS: Online Safety Act 2021
+
+RESEARCH LIMITS:
+- No reproduction of harmful content
+- No amplification of abusive material
+- Cite regulatory guidance only
+
+
+SECTION 4 — AI ABSTRACTION PERMISSION MATRIX
+================================================================================
+
+ALLOWED:
+- Legislative summaries
+- Policy outlines
+- Official visa requirement summaries
+- Public regulatory guidance
+
+CONDITIONAL:
+- NGO reports (short citation only)
+- Media (non-copyright heavy quoting)
+
+PROHIBITED:
+- Personal data extraction
+- Login portal access
+- Automated crawling
+- System testing
+- Bypass attempts
+- Scraping structured databases
+
+
+SECTION 5 — COOKIE & TRACKING CONTROL
+================================================================================
+
+STRICT RESEARCH MODE:
+
+Enable:
+- Prevent Cross-Site Tracking
+- Advanced Tracking Protection
+- Hide IP Address (Trackers Only or All)
+- Private Browsing for immigration/privacy topics
+
+Disable:
+- Remote Automation
+- Web Inspector (unless required manually)
+- Highlights (optional for strict mode)
+
+TRANSLATION WARNING:
+Safari translation sends full text to Apple servers.
+For regulatory reading:
+- Avoid translation
+- Read original English source
+
+
+SECTION 6 — HOW TO CONDUCT LEGAL GOV RESEARCH (FINAL PROTOCOL)
+================================================================================
+
+STEP 1 — Define scope: time / dir / loc
+STEP 2 — Restrict to: .gov.au / official domains
+STEP 3 — Confirm: Privacy Policy, Terms of Use, Disclaimer, Data Protection
+STEP 4 — Validate: HTTPS certificate, No malicious redirects, No trackers
+STEP 5 — Read manually (no automation)
+STEP 6 — Extract minimal summary
+STEP 7 — Cross-verify with original HTML text
+STEP 8 — Respect: Privacy Act, Cyber Security laws, Immigration confidentiality
+
+
+FINAL PRINCIPLES
+================================================================================
+
+1. AI is a summarisation tool, not a data collection engine
+2. No scraping
+3. No intrusion
+4. No automation
+5. No assumption
+6. No sensitive data processing
+7. Government sources are authoritative
+8. Immigration and privacy matters require strict compliance
+9. All content must remain within publicly accessible boundaries
+
+
+================================================================================
+END OF DOCUMENT — J.OS GOV RESEARCH SAFE MAP v1.3
+================================================================================

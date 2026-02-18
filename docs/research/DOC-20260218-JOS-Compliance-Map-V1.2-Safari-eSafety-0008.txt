@@ -1,0 +1,206 @@
+================================================================================
+DOC-20260218-JOS-Compliance-Map-V1.2-Safari-eSafety-0008
+Title: J.OS — Melbourne Gov Research Compliance Map v1.2
+Version: 1.2
+Date: 2026-02-18
+Design: Jiadong Chen (陈佳栋) — Student ID: 723912
+Classification: HIGH CONFIDENTIAL — GOV / PUBLIC ONLY
+Integrated: Safari Privacy + eSafety Requirements
+================================================================================
+
+
+SECTION 0 — PRE-RESEARCH DEVICE SECURITY BASELINE
+================================================================================
+
+SOURCE REVIEWED:
+- Safari & Privacy settings (iOS Advanced panel screenshots)
+- https://www.esafety.gov.au
+
+OBJECTIVE:
+AI-assisted research must operate only after device-level privacy controls
+and regulatory awareness are confirmed.
+
+
+SECTION 1 — SAFARI PRIVACY BASELINE (DEVICE LEVEL)
+================================================================================
+
+WHAT (Observed from Screenshots):
+- Private Browsing mode
+- Intelligent Tracking Prevention
+- Hide IP Address
+- Privacy Preserving Ad Measurement
+- Block All Cookies (toggle)
+- Advanced Tracking & Fingerprinting Protection
+- JavaScript (enabled)
+- Web Inspector (disabled)
+- Remote Automation (disabled)
+
+WHY:
+Research integrity requires:
+- No cross-site tracking
+- No third-party cookie leakage
+- No browser fingerprinting exposure
+- No automated remote scripting
+- No hidden relay exploitation
+
+HOW TO CONFIGURE (SECURE MODE):
+
+1. Enable:
+   - Prevent Cross-Site Tracking
+   - Advanced Tracking & Fingerprinting Protection (All Browsing)
+   - Hide IP Address (Trackers Only or All if required)
+   - Private Browsing for sensitive research
+
+2. Disable:
+   - Remote Automation
+   - Web Inspector (unless manual debugging required)
+   - Block All Cookies (optional; may break some gov sites)
+
+3. Privacy Preserving Ad Measurement:
+   - Can remain enabled (no personal data storage, delayed reporting)
+
+4. Translation Warning:
+   - Safari may send full webpage text to Apple servers for translation
+   - For sensitive policy reading: DO NOT use translation
+   - Read original English source when possible
+
+5. Highlights Feature:
+   - May send webpage address via OHTTP
+   - For strict research mode: disable Highlights
+
+
+SECTION 2 — eSAFETY AUSTRALIA COMPLIANCE INTEGRATION
+================================================================================
+
+SOURCE:
+https://www.esafety.gov.au
+
+ROLE:
+The eSafety Commissioner is Australia's independent online safety regulator.
+
+LEGAL CONTEXT:
+- Online Safety Act 2021 (Cth)
+- Cyber abuse reporting framework
+- Image-based abuse regulation
+- Removal notices & takedown authority
+
+WHY INCLUDE:
+AI-assisted research must:
+- Avoid unlawful content
+- Avoid harmful dissemination
+- Respect online harm reporting structures
+- Not reproduce abusive material
+
+HOW TO RESEARCH LEGALLY WITH eSAFETY FRAMEWORK:
+1. Verify content classification
+2. Avoid copying harmful material
+3. Cite regulatory guidance, not user-generated abuse content
+4. Respect reporting processes
+5. Ensure AI does not amplify prohibited content
+
+
+SECTION 3 — CONNECTION SECURITY CERTIFICATE CHECK
+================================================================================
+
+MANDATORY BEFORE EXTRACTION:
+1. Confirm HTTPS
+2. Check TLS certificate:
+   - Valid issuer
+   - No expiry
+   - Domain matches
+3. No mixed content warnings
+4. No unexpected third-party tracking scripts
+5. No forced redirects to unrelated domains
+
+GOVERNMENT PREFERENCE:
+- .gov.au
+- .vic.gov.au
+- .edu.au
+- Verified .org.au
+
+DO NOT:
+- Access login portals
+- Bypass authentication
+- Use scraping tools
+- Execute automation scripts
+
+
+SECTION 4 — AI ABSTRACTION & EXTRACTION RULES
+================================================================================
+
+ALLOWED:
+- Summarising public legislation
+- Extracting policy headings
+- Referencing open datasets
+- Citing official URLs
+
+CONDITIONAL:
+- NGO annual reports (copyright aware)
+- Media summaries (short quotations only)
+
+NOT ALLOWED:
+- Bulk copying
+- Reproducing paywalled content
+- Storing personal data
+- Extracting contact databases
+- Reverse engineering
+
+ZERO ASSUMPTION PROTOCOL:
+- No filling missing gaps
+- No predictive claims
+- No inferred intentions
+- No altered context
+
+
+SECTION 5 — HOW TO RESEARCH (J.OS MODE WITH SAFETY LAYER)
+================================================================================
+
+STEP 1 — Define: time / dir / loc
+STEP 2 — Restrict: Official domain whitelist only
+STEP 3 — Verify: Privacy Policy, Terms of Use, Disclaimer, Data Protection
+STEP 4 — Validate: HTTPS, Certificate, No third-party trackers
+STEP 5 — Read: Manual on-device browsing only
+STEP 6 — Extract: Minimal summary, Quote original URL
+STEP 7 — Cross-check: Compare with original HTML text
+STEP 8 — Confirm: No translation relay, No highlights relay,
+                    No unsafe cookie activity
+
+
+SECTION 6 — COOKIE & THIRD-PARTY CONTROL STANDARD
+================================================================================
+
+STRICT MODE:
+- Private Browsing ON
+- Prevent Cross-Site Tracking ON
+- Hide IP Address ON
+- Block All Cookies OPTIONAL
+- No external analytics tools
+
+ONLY ALLOWED COOKIES:
+- First-party session cookies from government domains
+- Security authentication cookies for public services
+
+NOT PERMITTED:
+- Marketing trackers
+- Behavioral profiling cookies
+- Embedded advertising scripts
+
+
+SECTION 7 — SECURITY PRINCIPLES SUMMARY
+================================================================================
+
+1. Respect author ownership
+2. Respect government intellectual property
+3. Respect Australian law
+4. Respect privacy legislation
+5. Respect online safety standards
+6. AI is a summarisation assistant, not a data harvester
+7. No automation
+8. No intrusion
+9. No assumption
+10. No third-party data expansion
+
+
+================================================================================
+END OF DOCUMENT — J.OS GOV RESEARCH SAFE MAP v1.2
+================================================================================

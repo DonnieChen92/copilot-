@@ -1,0 +1,249 @@
+================================================================================
+TEMPLATE 3 – RESEARCH DOMAIN REGISTER (DRAFT ONE)
+Document ID: DOC-20260131-Research-Domain-Register-0003
+================================================================================
+CONFIDENTIAL
+Research Owner: Donnie Chen
+Research Label: Personal research file — for Donnie Chen use only
+Research Created Date: 2026-01-31
+Primary Registrable Domain Focus: vic.gov.au (unless otherwise stated)
+Purpose: Domain frequency tracking for Melbourne / Victorian Government research
+-------------------------------------------------------------------------------
+ENTRY STRUCTURE
+-------------------------------------------------------------------------------
+research_owner:
+research_label:
+research_created_date:
+domain_host:
+count:
+registrable_domain:
+-------------------------------------------------------------------------------
+REGISTERED DOMAIN LIST
+-------------------------------------------------------------------------------
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: bigbuild.vic.gov.au
+count: 26
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: health.vic.gov.au
+count: 24
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.vhba.vic.gov.au
+count: 19
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: levelcrossings.vic.gov.au
+count: 12
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: education.vic.gov.au
+count: 12
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.schoolbuildings.vic.gov.au
+count: 12
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.homes.vic.gov.au
+count: 8
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: homes.vic.gov.au
+count: 8
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.vic.gov.au
+count: 5
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: northeastlink.vic.gov.au
+count: 4
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: transport.vic.gov.au
+count: 4
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.development.vic.gov.au
+count: 3
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: suburbanrailloop.vic.gov.au
+count: 2
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: srla.vic.gov.au
+count: 2
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: justice.vic.gov.au
+count: 2
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.rdv.vic.gov.au
+count: 2
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: dcceew.gov.au
+count: 2
+registrable_domain: dcceew.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: rdv.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: wgta.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: deeca.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: roads.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: federalfinancialrelations.gov.au
+count: 1
+registrable_domain: federalfinancialrelations.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.exploreoutdoors.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.nationalwatergrid.gov.au
+count: 1
+registrable_domain: nationalwatergrid.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: westgatetunnelproject.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.ptv.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.vicroads.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: csba.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: regionalroads.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.fishermansbend.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: carparks.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+
+research_owner: Donnie Chen
+research_label: Personal research file — for Donnie Chen use only
+research_created_date: 2026-01-31
+domain_host: www.dtf.vic.gov.au
+count: 1
+registrable_domain: vic.gov.au
+-------------------------------------------------------------------------------
+END OF TEMPLATE 3 – DRAFT ONE
+CONFIDENTIAL – ONE COPY ARCHIVE STRUCTURE
+================================================================================

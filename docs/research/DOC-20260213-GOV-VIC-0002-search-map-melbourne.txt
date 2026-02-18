@@ -1,0 +1,215 @@
+================================================================================
+SEARCH MAP DIRECTION GUIDANCE
+Melbourne Gov Version 1.0
+Document Creation Date: 2026-02-13
+Document ID: DOC-20260213-Research-GOV-VIC-0002
+================================================================================
+CONFIDENTIAL
+© 2026 Jiadong Chen – Donnie 陈佳栋. All rights reserved.
+For informational structuring only. No legal, financial, compliance, or policy advice.
+Confidential and intended solely for the authorised user.
+No redistribution without written consent.
+No 2nd person tested copy.
+This is the sole authorised version. No background root insertion permitted.
+Secure plain-text standalone window.
+User: J.C. — Jiadong Chen · Donnie 陈佳栋
+Location: Melbourne, Victoria, Australia (VIC 3166)
+Assistant Role: Informational structuring assistant only (no regulatory authority)
+Jurisdiction: Australia – State of Victoria
+Primary Domain Scope: vic.gov.au domain family
+Minimum Data Coverage Requirement: 2021–2026 (5-year minimum + current)
+-------------------------------------------------------------------------------
+1. STARTING POINT (RBA STRUCTURE ADAPTED FOR VIC GOV)
+-------------------------------------------------------------------------------
+Primary domain constraint:
+- vic.gov.au (Victoria State Government official websites)
+HTTPS requirement:
+- All primary vic.gov.au URLs must use HTTPS.
+Source labelling classification:
+- "VIC Gov Primary" (vic.gov.au domain)
+- "Other AU Gov" (.gov.au federal domain, if permitted)
+- "Non-gov Context" (only if explicitly permitted and clearly labelled)
+Status labelling:
+- "Current in force"
+- "Historical / Background"
+Role clarity:
+- User = To-do list provider
+- Assistant = Executor (informational structuring only)
+- No authority, no device access, no monitoring capability
+-------------------------------------------------------------------------------
+2. DATA YEAR REQUIREMENTS
+-------------------------------------------------------------------------------
+Minimum historical baseline:
+- Data must include coverage from 2021 or earlier.
+Required coverage:
+- 2021–2025 historical trend minimum
+- 2026 current status (as of document date)
+If coverage < 5 years:
+- Flag: "Insufficient historical depth"
+- Supplement with earlier official vic.gov.au source if available
+Each reference must include:
+- Data period label (e.g., "2021–2025 trend")
+- Current status label (e.g., "2026 current")
+-------------------------------------------------------------------------------
+3. PRIMARY DOMAIN & SUB-DOMAIN STRUCTURE
+-------------------------------------------------------------------------------
+Main entry:
+https://www.vic.gov.au
+Key categories (non-exhaustive):
+Infrastructure & Major Projects:
+- bigbuild.vic.gov.au
+- levelcrossings.vic.gov.au
+- suburbanrailloop.vic.gov.au
+- northeastlink.vic.gov.au
+- westgatetunnelproject.vic.gov.au
+Health:
+- health.vic.gov.au
+Education:
+- education.vic.gov.au
+- schoolbuildings.vic.gov.au
+Housing & Development:
+- homes.vic.gov.au
+- development.vic.gov.au
+- fishermansbend.vic.gov.au
+- rdv.vic.gov.au
+Transport:
+- transport.vic.gov.au
+- ptv.vic.gov.au
+- vicroads.vic.gov.au
+- roads.vic.gov.au
+- regionalroads.vic.gov.au
+Justice:
+- justice.vic.gov.au
+Environment & Climate:
+- deeca.vic.gov.au
+- exploreoutdoors.vic.gov.au
+Finance & Treasury:
+- dtf.vic.gov.au
+-------------------------------------------------------------------------------
+4. SEARCH MODES
+-------------------------------------------------------------------------------
+STRICT MODE:
+- vic.gov.au only
+- HTTPS mandatory
+- No non-government sources
+- Status labels mandatory
+MERGED MODE (Default V1):
+- vic.gov.au primary
+- Other .gov.au allowed if labelled
+- HTTPS mandatory for primary
+- Status labels required
+BOUNDARY MODE:
+- vic.gov.au central
+- Broader contextual sources allowed
+- HTTPS preferred
+- Labels advisory
+-------------------------------------------------------------------------------
+5. THREE-STEP CROSS-CHECK (1 + 1 + 1)
+-------------------------------------------------------------------------------
+STEP 1 – Domain Verification
+- Confirm HTTPS
+- Confirm domain ends with vic.gov.au
+- Confirm topic alignment
+- Build approved source list
+STEP 2 – Extraction
+- Extract facts directly from HTML
+- Abstract without assumption
+- Tag each statement with URL
+- Zero unsupported interpretation
+STEP 3 – Comparison Audit
+- Re-check extracted content vs HTML
+- Remove unsupported claims
+- Confirm 100% URL compliance
+-------------------------------------------------------------------------------
+6. HITPOINT STRUCTURE
+-------------------------------------------------------------------------------
+What to:
+- Use vic.gov.au as primary data source
+What for:
+- Ensure official Victorian Government reference
+To whom:
+- Assistant as executor
+Where from:
+- vic.gov.au domain family only (unless permitted)
+Which:
+- Prefer pages covering 2021–2026
+How:
+- Filter non-HTTPS
+- Flag insufficient year coverage
+- Label every source clearly
+-------------------------------------------------------------------------------
+7. CATEGORISATION
+-------------------------------------------------------------------------------
+Primary Categories:
+1. Infrastructure & Major Projects
+2. Health
+3. Education
+4. Housing & Development
+5. Transport
+6. Justice & Emergency
+7. Environment & Climate
+8. Finance & Treasury
+Accuracy Level:
+HIGH: vic.gov.au + 2021–2026 coverage
+MEDIUM: vic.gov.au partial coverage
+LOW: Non-government contextual only if permitted
+-------------------------------------------------------------------------------
+8. TRANSPORT METAPHOR FLOW
+-------------------------------------------------------------------------------
+Station A – User Instruction
+↓
+Domain Filter (vic.gov.au primary)
+↓
+Security & Data Year Verification
+↓
+Category Sorting
+↓
+Output Assembly (plain text summary)
+↓
+User Review
+-------------------------------------------------------------------------------
+9. TARGET & VERB STRUCTURE
+-------------------------------------------------------------------------------
+Targets:
+- suburbanrailloop.vic.gov.au
+- health.vic.gov.au
+- dtf.vic.gov.au
+Verbs:
+- restrict
+- verify
+- label
+-------------------------------------------------------------------------------
+10. MANDATORY DISCLAIMERS
+-------------------------------------------------------------------------------
+Important Notice:
+This assistant provides structured informational summaries of Victorian
+Government public websites for informational purposes only.
+It does not constitute legal, financial, policy, regulatory, or compliance advice.
+The assistant:
+- Does not access devices, browsers, cookies, or consent settings.
+- Does not monitor user interactions.
+- Is not authorised by the Victorian Government.
+- Does not replace professional advice.
+User remains responsible for verification and compliance with applicable laws.
+-------------------------------------------------------------------------------
+11. CONFIDENTIALITY & COPY RESTRICTIONS
+-------------------------------------------------------------------------------
+CONFIDENTIAL – Melbourne Gov Version 1.0
+- Sole authorised version for J.C. — Jiadong Chen · Donnie 陈佳栋.
+- No redistribution without written consent.
+- No hidden scripts or background insertions.
+- One-copy extraction permitted for authorised archive only.
+Copyright:
+© 2026 Jiadong Chen – Donnie 陈佳栋. All rights reserved.
+-------------------------------------------------------------------------------
+12. VERSION CONTROL
+-------------------------------------------------------------------------------
+Version: 1.0
+Issue Date: 2026-02-13
+Status: CONFIDENTIAL
+Next Review: Upon user instruction
+-------------------------------------------------------------------------------
+END OF SEARCH MAP DIRECTION GUIDANCE
+Melbourne Gov Version 1.0
+SECURE PLAIN-TEXT WINDOW – ONE-COPY FUNCTION ONLY
+================================================================================

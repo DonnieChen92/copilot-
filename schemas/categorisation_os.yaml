@@ -1,0 +1,330 @@
+# =============================================================================
+# Categorisation.os (VIC + AU Public Sector + Real Estate + Multi-Cloud + Vault/Locks)
+# =============================================================================
+# Enhanced to include Victoria Government sectors, AU federal (Home Affairs),
+# Australia Post, emergency services, BoM, PTV, VicPol, BDM/BDS certificates,
+# and Real Estate (residential/commercial).
+# Includes privacy locks/vault policies and multi-cloud storage mapping
+# (OneDrive/Google Drive/iCloud/Dropbox/Tencent Cloud).
+#
+# Design: Jiadong Chen (陈佳栋) — donniechen92@gmail.com
+# Location: VIC 3166, Victoria, Australia
+# Date: 2026-02-12 (Australia/Melbourne)
+# =============================================================================
+
+meta:
+  id: "Categorisation.os"
+  version: "0.4.0"
+  locale: "en-AU"
+  principles:
+    - "Evidence-first: classification must cite source pointers"
+    - "Explainable: each classification outputs rationale"
+    - "Privacy-minimising: sensitive domains folded unless user opts in"
+    - "Deterministic > probabilistic: rules override ML; ML suggests only"
+    - "Reversible: preserve raw descriptors and original source artifacts"
+    - "Least privilege: storage and sharing depend on lock/vault level"
+  locks:
+    levels:
+      L0_PUBLIC:   {label: "Public", default_share: "allowed"}
+      L1_PERSONAL: {label: "Personal", default_share: "restricted"}
+      L2_PRIVATE:  {label: "Private", default_share: "no_share"}
+      L3_SENSITIVE:
+        label: "Sensitive (ID/health/legal/finance)"
+        default_share: "no_share"
+        requires: ["encryption_at_rest", "limited_access_list"]
+      L4_VAULT:
+        label: "Vault (passport/visa/identity/core legal)"
+        default_share: "no_share"
+        requires: ["encryption_at_rest", "separate_store", "manual_release", "audit_log"]
+
+# -------------------------
+# 1) SOURCES
+# -------------------------
+sources:
+  bank:
+    - name: "BankTransactionFeed"
+      fields:
+        - payment_channel
+        - posted_date
+        - amount
+        - currency
+        - descriptor_raw
+        - bank_category_raw
+        - merchant_ref
+        - authority_id
+        - batch_prefix
+        - biller_code
+        - bpay_biller_name
+        - payee_name
+  email:
+    - name: "GovNoticeEmail"
+      fields:
+        - from
+        - subject
+        - body_snippet
+        - attachment_names
+        - issuer_hint
+        - reference_number
+        - account_or_crn_hint
+        - domains
+  documents:
+    - name: "OfficialDocs"
+      fields:
+        - issuer
+        - reference_number
+        - due_date
+        - period
+        - document_type
+        - abn_or_agency_id
+  third_party:
+    - name: "ABNLookup"
+      fields: [abn, legal_name, entity_type, industry, status]
+
+# -------------------------
+# 2) REFERENCES (normalised evidence fields)
+# -------------------------
+references_schema:
+  required: [record_id, record_type, source_type, captured_at]
+  common_fields:
+    payment_channel: {enum: ["CARD", "BECS_DIRECT_DEBIT", "BPAY", "TRANSFER", "PAYROLL", "CASH", "UNKNOWN"]}
+    batch_prefix: {examples: ["GN"]}
+    authority_id: {type: "string"}
+    merchant_ref: {type: "string"}
+    biller_code: {type: "string"}
+    bpay_biller_name: {type: "string"}
+    descriptor_raw: {type: "string"}
+    descriptor_norm: {rules: "appendix.normalisation_rules"}
+    provider_name: {type: "string"}
+    issuer_agency: {type: "string"}
+    issuer_jurisdiction: {enum: ["AU_FED", "VIC_STATE", "LOCAL_GOV", "AUS_WIDE", "UNKNOWN"]}
+    gov_service: {type: "string"}
+    gov_program: {type: "string"}
+    is_government_levy: {type: "boolean"}
+    levy_strength: {enum: ["strong", "medium", "weak", "unknown"]}
+    essentiality_flag: {type: "boolean"}
+    sensitivity_flag: {type: "boolean"}
+    lock_level: {enum: ["L0_PUBLIC", "L1_PERSONAL", "L2_PRIVATE", "L3_SENSITIVE", "L4_VAULT"]}
+    confidence: {range: [0, 1]}
+    rationale: {type: "string"}
+    pointers:
+      type: "array"
+      items: {type: "string"}
+
+# -------------------------
+# 3) TAXONOMY
+# -------------------------
+taxonomy:
+  top_level:
+    GOV:   {label: "Government Services"}
+    UTIL:  {label: "Utilities & Essential Services"}
+    CARE:  {label: "Community & Support Services"}
+    MED:   {label: "Clinical Medical"}
+    HOUS:  {label: "Housing & Property"}
+    RE:    {label: "Real Estate (Work/Industry)"}
+    FIN:   {label: "Finance"}
+    TRAN:  {label: "Transport"}
+    COMM:  {label: "Communications"}
+    SUBS:  {label: "Subscriptions"}
+    EDU:   {label: "Education"}
+    FOOD:  {label: "Food & Grocery"}
+    SHOP:  {label: "Shopping & Retail"}
+    ENT:   {label: "Entertainment"}
+    MISC:  {label: "Unclassified / Review"}
+
+  gov_subcategories:
+    # AU Federal
+    ATO_TAX:
+      label: "ATO: Tax & Super"
+      jurisdiction: "AU_FED"
+      levy_strength_default: "strong"
+      lock_level_default: "L3_SENSITIVE"
+    HOME_AFFAIRS_ID_VISA:
+      label: "Home Affairs: Passport / Visa / Immigration"
+      jurisdiction: "AU_FED"
+      levy_strength_default: "medium"
+      lock_level_default: "L4_VAULT"
+    SERVICES_AUSTRALIA_MEDICARE:
+      label: "Services Australia: Medicare"
+      jurisdiction: "AU_FED"
+      levy_strength_default: "medium"
+      lock_level_default: "L3_SENSITIVE"
+    SERVICES_AUSTRALIA_CENTRELINK:
+      label: "Services Australia: Centrelink"
+      jurisdiction: "AU_FED"
+      levy_strength_default: "medium"
+      lock_level_default: "L3_SENSITIVE"
+    SERVICES_AUSTRALIA_CHILD_SUPPORT:
+      label: "Services Australia: Child Support"
+      jurisdiction: "AU_FED"
+      levy_strength_default: "medium"
+      lock_level_default: "L4_VAULT"
+    DIGITAL_ID_MYGOVID:
+      label: "Digital Identity: myGov / myGovID"
+      jurisdiction: "AU_FED"
+      levy_strength_default: "weak"
+      lock_level_default: "L4_VAULT"
+    # Victoria State
+    VIC_ROADS_LICENCES_REGO:
+      label: "VicRoads / DTP: Licences, Registration, Permits"
+      jurisdiction: "VIC_STATE"
+      levy_strength_default: "medium"
+      lock_level_default: "L3_SENSITIVE"
+    VIC_FINESCORP_INFRINGEMENTS:
+      label: "Fines Victoria: Infringements & Enforcement"
+      jurisdiction: "VIC_STATE"
+      levy_strength_default: "strong"
+      lock_level_default: "L3_SENSITIVE"
+    VIC_POLICE:
+      label: "Victoria Police (VicPol)"
+      jurisdiction: "VIC_STATE"
+      levy_strength_default: "unknown"
+      lock_level_default: "L4_VAULT"
+    VIC_EMERGENCY_SERVICES:
+      label: "VIC Emergency Services (000/SES/CFA/MFB)"
+      jurisdiction: "VIC_STATE"
+      levy_strength_default: "weak"
+      lock_level_default: "L2_PRIVATE"
+    VIC_BDM_CERTIFICATES:
+      label: "VIC Births, Deaths & Marriages: Certificates"
+      jurisdiction: "VIC_STATE"
+      levy_strength_default: "medium"
+      lock_level_default: "L4_VAULT"
+    # Local government
+    COUNCIL_RATES:
+      label: "Council rates & municipal charges"
+      jurisdiction: "LOCAL_GOV"
+      levy_strength_default: "strong"
+      lock_level_default: "L2_PRIVATE"
+    # National operators
+    AUSPOST:
+      label: "Australia Post"
+      jurisdiction: "AUS_WIDE"
+      levy_strength_default: "weak"
+      lock_level_default: "L2_PRIVATE"
+    BOM_WEATHER:
+      label: "Bureau of Meteorology (BoM)"
+      jurisdiction: "AUS_WIDE"
+      levy_strength_default: "weak"
+      lock_level_default: "L1_PERSONAL"
+    PTV_PUBLIC_TRANSPORT:
+      label: "Public Transport Victoria (PTV / Myki)"
+      jurisdiction: "VIC_STATE"
+      levy_strength_default: "weak"
+      lock_level_default: "L1_PERSONAL"
+    OTHER_GOV:
+      label: "Other government agencies (unresolved)"
+      jurisdiction: "UNKNOWN"
+      levy_strength_default: "unknown"
+      lock_level_default: "L2_PRIVATE"
+
+  real_estate_subcategories:
+    RE_RESIDENTIAL:
+      label: "Real Estate: Residential"
+      includes: ["leasing", "property management", "sales", "residential compliance"]
+      lock_level_default: "L2_PRIVATE"
+    RE_COMMERCIAL:
+      label: "Real Estate: Commercial (Office/Industrial/Retail)"
+      includes: ["asset management", "lease admin", "PAM/LA", "facilities/BMS alignment"]
+      lock_level_default: "L2_PRIVATE"
+    RE_AGENT_LICENSING_VIC:
+      label: "Real Estate Licensing (VIC)"
+      includes: ["Agent representative", "Certificate IV / CPD", "licence renewals"]
+      lock_level_default: "L3_SENSITIVE"
+    RE_CLIENT_CONFIDENTIAL:
+      label: "Client/Owner/Tenant Confidential"
+      includes: ["tenant details", "leases", "PII", "financials"]
+      lock_level_default: "L4_VAULT"
+
+# -------------------------
+# 4) MULTI-CLOUD STORAGE MAPPING
+# -------------------------
+storage:
+  providers:
+    onedrive:
+      label: "Microsoft OneDrive"
+      default_root: "/OneDrive/Categorisation.os/"
+    google_drive:
+      label: "Google Drive"
+      default_root: "/GoogleDrive/Categorisation.os/"
+    icloud:
+      label: "iCloud Drive"
+      default_root: "/iCloud/Categorisation.os/"
+    dropbox:
+      label: "Dropbox"
+      default_root: "/Dropbox/Categorisation.os/"
+    tencent_cloud:
+      label: "Tencent Cloud (COS)"
+      default_root: "/TencentCloud/Categorisation.os/"
+  placement_policy:
+    L0_PUBLIC:   {allowed_targets: ["google_drive", "onedrive", "dropbox"], encryption_required: false}
+    L1_PERSONAL: {allowed_targets: ["icloud", "google_drive", "onedrive"], encryption_required: false}
+    L2_PRIVATE:  {allowed_targets: ["icloud", "onedrive", "dropbox"], encryption_required: true}
+    L3_SENSITIVE: {allowed_targets: ["onedrive", "dropbox", "tencent_cloud"], encryption_required: true}
+    L4_VAULT:
+      allowed_targets: ["onedrive", "tencent_cloud"]
+      encryption_required: true
+      notes: ["separate vault root", "manual sharing only", "audit log mandatory"]
+  vault_roots:
+    onedrive: "/OneDrive/Vault/Categorisation.os/"
+    tencent_cloud: "cos://vault-bucket/Categorisation.os/"
+
+# -------------------------
+# 5) FILING STANDARD
+# -------------------------
+filing_standard:
+  naming:
+    pattern: "CATOS-{YYYYMMDD}-{HHMM}__{TOP}.{SUB}__{ISSUER_OR_DESC}__{CURRENCY}{AMOUNT}__REF-{REF}__LOCK-{LOCK}.pdf"
+    examples:
+      - "CATOS-20260209-0912__GOV.HOME_AFFAIRS_ID_VISA__HomeAffairs__AUD300__REF-IMMI123__LOCK-L4_VAULT.pdf"
+      - "CATOS-20260209-0912__GOV.VIC_BDM_CERTIFICATES__BDMVictoria__AUD55__REF-BDM9988__LOCK-L4_VAULT.pdf"
+      - "CATOS-20260209-0912__RE.RE_AGENT_LICENSING_VIC__CAV__AUD0__REF-CPD2026__LOCK-L3_SENSITIVE.pdf"
+
+# -------------------------
+# 6) AI TOOLS (allowed/forbidden)
+# -------------------------
+tools:
+  allowed_ai_roles:
+    extraction:
+      - "Extract issuer, reference numbers, due dates, periods from official docs"
+      - "Resolve agency from domain + document header"
+      - "Normalise truncated bank descriptors"
+    suggestion:
+      - "Suggest GOV subcategory when issuer evidence partial; must set confidence<0.8 and flag review"
+    explainability:
+      - "Generate rationale referencing channel + issuer + levy strength"
+  forbidden_ai_roles:
+    - "Infer personal legal/health status beyond document evidence"
+    - "Store or expose passport/visa numbers in non-vault locations"
+    - "Auto-share L3/L4 items"
+
+# -------------------------
+# 7) APPENDIX
+# -------------------------
+appendix:
+  normalisation_rules:
+    - "lowercase"
+    - "replace('&','and')"
+    - "collapse_spaces_underscores"
+    - "token_map: immi|immigration->immigration"
+    - "join_tokens_with_underscore"
+  agency_domain_map:
+    AU_FED:
+      home_affairs: ["homeaffairs.gov.au", "immi.gov.au"]
+      ato: ["ato.gov.au"]
+      mygov: ["my.gov.au"]
+      services_australia: ["servicesaustralia.gov.au"]
+    VIC_STATE:
+      vicroads_dtp: ["vicroads.vic.gov.au", "transport.vic.gov.au"]
+      fines_vic: ["fines.vic.gov.au"]
+      vicpol: ["police.vic.gov.au"]
+      bdm: ["bdm.vic.gov.au"]
+      ptv: ["ptv.vic.gov.au"]
+      consumer_affairs_vic: ["consumer.vic.gov.au"]
+    AUS_WIDE:
+      auspost: ["auspost.com.au"]
+      bom: ["bom.gov.au"]
+  keyword_maps:
+    passport_visa: ["passport", "visa", "immigration", "vevo", "home_affairs"]
+    vic_licence_rego: ["vicroads", "licence", "license", "rego", "registration", "permit"]
+    certificates_bdm: ["bdm", "birth_certificate", "death_certificate", "marriage_certificate", "name_change"]
+    real_estate: ["lease", "rent", "tenant", "commercial", "asset_management", "property_management", "agent_representative", "certificate_iv", "cpd"]

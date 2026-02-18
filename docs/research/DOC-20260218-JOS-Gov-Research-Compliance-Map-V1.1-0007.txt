@@ -1,0 +1,326 @@
+================================================================================
+DOC-20260218-JOS-Gov-Research-Compliance-Map-V1.1-0007
+Title: J.OS — Melbourne Gov Research Compliance Map v1.1
+Version: 1.1
+Date: 2026-02-18
+Design: Jiadong Chen (陈佳栋) — Student ID: 723912
+Classification: HIGH CONFIDENTIAL — GOV / PUBLIC ONLY
+Scope: Melbourne / Victoria / Australia — Public, Legal, Free Access Only
+================================================================================
+
+
+SECTION 1 — GOVERNMENT DOMAIN ELIGIBILITY & LEGAL BASIS
+================================================================================
+
+WHAT
+  Government domain rules & legal basis for confirming source legitimacy
+  and authority.
+
+WHERE
+  https://www.domainname.gov.au
+  https://www.auda.org.au
+  https://www.legislation.vic.gov.au
+  https://www.legislation.gov.au
+
+WHY
+  Ensure visited websites belong to legitimate government or regulated
+  entities. Prevent entering lookalike/impersonation domains.
+
+HOW (LEGAL RULES)
+  - .gov.au restricted to government entities only
+  - Per gov.au domain policy and auDA regulatory framework
+  - Legislative text must come from official legislation portals
+
+AI ABSTRACTION PERMISSION CHECK
+  - Government websites generally allow reading & citing public info
+  - Check Terms of Use & Copyright pages
+  - No bulk copying of copyright-protected content; citation & summary only
+
+CONNECTION SECURITY
+  - Must be HTTPS
+  - Certificate issued by trusted CA
+  - Browser lock indicator normal
+  - No abnormal redirects
+  - No loading of third-party tracking scripts (check DevTools Network)
+
+
+SECTION 2 — PRIVACY & DATA PROTECTION
+================================================================================
+
+WHAT
+  Privacy statements and data protection rules.
+
+WHERE
+  https://www.vic.gov.au/privacy
+  https://www.consumer.vic.gov.au/privacy
+  https://www.cyber.gov.au
+  https://www.abs.gov.au/about/privacy
+
+WHY
+  AI abstraction and extraction must comply with data minimisation principle.
+
+HOW (LAW & REGULATION)
+  - Federal Privacy Act 1988 (Cth)
+  - Victorian Privacy and Data Protection Act 2014
+  - Australian Privacy Principles (APPs)
+
+AI USAGE RULE
+  - Process only public information
+  - Do not scrape personal sensitive data
+  - Do not reconstruct databases
+  - Do not violate robots.txt or Terms
+
+CONNECTION SECURITY CHECK
+  - HTTPS enforced
+  - Certificate validity check
+  - Same-site cookies preferred
+  - Government sites typically allow first-party cookies only
+  - Block third-party analytics cookies (except official government analytics)
+
+
+SECTION 3 — ENERGY & UTILITIES (VICTORIA)
+================================================================================
+
+WHAT
+  Energy regulation and public utility public information.
+
+WHERE
+  https://www.esc.vic.gov.au
+  https://www.originenergy.com.au
+  https://www.agl.com.au
+
+WHY
+  Verify regulatory rules and public pricing mechanisms.
+
+HOW
+  - Priority: regulatory body website (ESC)
+  - Company websites for information reference only
+  - Do not access login-required account pages
+
+AI ABSTRACTION
+  - Allowed: summarise public tariff structures
+  - Not allowed: copy full contract terms
+
+SECURITY
+  - Company websites must be HTTPS
+  - If third-party marketing cookies appear, stop automated extraction
+
+
+SECTION 4 — EDUCATION (EARLY -> PHD)
+================================================================================
+
+WHAT
+  Education policy and course public information.
+
+WHERE
+  https://www.vic.gov.au/education
+  https://www.vcaa.vic.edu.au
+  https://www.unimelb.edu.au
+  https://www.monash.edu
+
+WHY
+  Legal query of admission rules, course structures.
+
+HOW
+  - Policy -> vic.gov.au
+  - Courses -> .edu.au official pages
+  - PhD programs -> Graduate Research pages
+
+AI RULE
+  - Allowed: summarise admission requirements
+  - Not allowed: copy copyright course materials
+  - Not allowed: access student portals
+
+SECURITY
+  - Access public directories only
+  - Do not enter login systems
+
+
+SECTION 5 — LANDMARKS & PUBLIC FACILITIES
+================================================================================
+
+WHAT
+  Public landmarks, cultural institutions, stadium rules.
+
+WHERE
+  https://marvelstadium.com.au
+  https://www.ngv.vic.gov.au
+  https://www.parks.vic.gov.au
+  https://museumsvictoria.com.au
+
+WHY
+  Verify public opening times, management regulations, safety rules.
+
+HOW
+  - Access public Visitors / Policy pages only
+  - Do not collect ticketing transaction data
+
+AI PERMISSION
+  - Allowed: summarise opening times & rules
+  - Not allowed: copy images, artworks
+
+SECURITY
+  - HTTPS valid
+  - Check Content-Security-Policy
+  - Do not accept external advertising redirects
+
+
+SECTION 6 — NON-PROFIT / HUMANITARIAN
+================================================================================
+
+WHAT
+  Public reports from non-profit and humanitarian organisations.
+
+WHERE
+  https://www.redcross.org.au
+  https://www.rspcavic.org
+  https://www.salvationarmy.org.au
+
+WHY
+  Verify registration legitimacy and annual reports.
+
+HOW
+  - Review Annual Report
+  - Verify ACNC registration
+
+AI RULE
+  - Summarise public reports only
+  - Do not copy copyright images and stories
+
+SECURITY
+  - Verify HTTPS
+  - Check for no malicious scripts
+
+
+SECTION 7 — CONNECTION SECURITY CERTIFICATE VALIDATION
+================================================================================
+
+CHECKLIST
+  1. HTTPS required
+  2. TLS 1.2+
+  3. Valid CA issuer
+  4. Certificate matches domain
+  5. No mixed content
+  6. No suspicious 3rd-party tracking scripts
+  7. Government domains preferred
+
+OPTIONAL VALIDATION (Manual Only)
+  - Use browser DevTools -> Security tab
+  - View Certificate chain
+  - View Cookies (First-party only preferred)
+
+
+SECTION 8 — AI ABSTRACT & EXTRACT PERMISSION MATRIX
+================================================================================
+
+ALLOW
+  - Public policy summaries
+  - Legislative references
+  - Public reports data citation
+  - Open data download (where permitted)
+
+CONDITIONAL
+  - Media articles (respect copyright)
+  - NGO annual reports
+
+NOT ALLOWED
+  - Paywalled databases
+  - Login portals
+  - Personal data scraping
+  - Bulk copying
+
+ZERO ASSUMPTION RULE
+  - Do not fill gaps
+  - Do not speculate on future policy
+  - Do not generate unverified content
+
+
+SECTION 9 — HOW TO RESEARCH LEGALLY (J.OS MODE)
+================================================================================
+
+STEP 1 — Define time / dir / loc
+STEP 2 — Restrict to official domain
+STEP 3 — Check Privacy / Terms / Disclaimer
+STEP 4 — Verify certificate
+STEP 5 — Read-only abstraction
+STEP 6 — Cite original URL
+STEP 7 — Output summary with no assumption
+
+
+FINAL COMPLIANCE NOTE
+================================================================================
+
+  - All operations based on public information
+  - No crawlers used
+  - No bypassing restrictions
+  - No system intrusion
+  - Respect authors and copyright
+  - AI used as summary tool only
+
+
+================================================================================
+
+MRI QUERY V1 EXTENSION EXAMPLES
+================================================================================
+
+Example 1: VIC environmental policy changes (last 3 years)
+  time: 2021-2024
+  dir: check climate and environment policy updates
+  loc: victoria
+  opt: source=gov strict=high out=detail
+
+Example 2: VIC 3000 public cultural facilities
+  time: now
+  dir: list public museums and libraries
+  loc: vic 3000
+  opt: source=gov out=links
+
+Example 3: Docklands stadium recent events & management
+  time: last-30d
+  dir: check management and events
+  loc: docklands victoria
+  opt: source=gov+official out=brief
+
+Example 4: University PhD admission policy
+  time: 2024-2025
+  dir: check phd admission requirements
+  loc: victoria
+  opt: source=edu strict=high out=detail
+
+
+HOW-TO: AI Agent Legal Search Flow
+================================================================================
+
+1. Always prioritise .gov.au / .vic.gov.au / .edu.au domains
+   Highest authority, no paywall, secure HTTPS, no infringing content
+
+2. Confirm document type hierarchy: L1->L6
+   L1 Legislation & Regulations
+   L2 Gazette Official Notices
+   L3 Government Policy / Official Reports
+   L4 Institutional Descriptive Pages
+   L5 Press Releases
+   L6 User Comments (lowest authority)
+
+3. Check privacy, disclaimers, terms of use:
+   Privacy Policy | Data Protection | Disclosure Statements
+   Terms of Use | Disclaimer
+
+4. Strictly prohibit retrieval of:
+   Paid databases | Infringing materials | Login-required internal platforms
+   Unsourced content
+
+5. Allow automated retrieval of:
+   All free public websites listed above (all safe, legal, no paywall)
+
+6. Signal priority (AI agent):
+   Law > Policy > Public Institutions > Datasets > University/Culture
+   > Media > Community
+
+7. All research uses original publishing body as final trusted source.
+   AI must NOT infer undisclosed information.
+
+
+================================================================================
+END OF DOCUMENT — J.OS GOV RESEARCH SAFE MAP v1.1
+================================================================================

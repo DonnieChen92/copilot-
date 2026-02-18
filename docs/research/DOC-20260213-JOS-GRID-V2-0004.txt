@@ -1,0 +1,206 @@
+================================================================================
+TEMPLATE 4
+J.OS – GLOBAL DIGITAL NAVIGATION GRID v2.0
+HIGH CONFIDENTIAL – ZERO VIOLATION – GREEN SIGNAL ONLY
+STANDARD: USER LANGUAGE AS PRIMARY CONTROL
+NO SCRAPING • NO AUTOMATION • NO BYPASS • NO ASSUMPTION
+Document ID: DOC-20260213-JOS-GRID-V2-0004
+================================================================================
+============================================================
+SECTION 1 — CODE QUADRANT GRID (NUMBER INDEX SYSTEM)
+============================================================
+GRID STRUCTURE:
+Quadrant Layout (Cartesian Orientation)
+Q1  |  Q2
+----+----
+Q3  |  Q4
+COORDINATE FORMAT:
+[Quadrant]-[ArabicNumber]-[AlphabetCaseSensitive]
+Examples:
+Q1-01-A
+Q2-14-b
+Q4-27-Z
+NUMBER INDEX LOGIC:
+01–26  → A–Z
+27–52  → a–z
+53–99  → Extended Function Codes
+ALPHABETICAL ORDER RULE:
+• Uppercase A–Z indexed first
+• Lowercase a–z indexed second
+• Case-sensitive indexing preserved
+SIGNAL STATUS CODE:
+GREEN   = Safe / Verified / Compliant
+YELLOW  = Public / Review Required
+RED     = Restricted / Login / Sensitive / Not Allowed
+============================================================
+SECTION 2 — LANGUAGE STANDARDIZATION CONTROL
+============================================================
+PRIMARY RULE:
+User-selected language standard governs spelling.
+REFERENCE TABLE:
+US ENGLISH       | UK ENGLISH
+--------------------------------
+Organization     | Organisation
+Authorization    | Authorisation
+Defense          | Defence
+License (noun)   | Licence (noun)
+Center           | Centre
+Program          | Programme
+Analyze          | Analyse
+Modeling         | Modelling
+Behavior         | Behaviour
+Labor            | Labour
+IMPLEMENTATION RULE:
+• When citing official domains → preserve original spelling.
+• When summarizing → align with user's selected language standard.
+============================================================
+SECTION 3 — DIGITAL SIGNAL TRAFFIC SYSTEM (RED–GREEN MODEL)
+============================================================
+NETWORK LAYERS:
+L1 — Local Device
+L2 — ISP / Router
+L3 — DNS Resolution
+L4 — TLS Handshake
+L5 — Server Gateway
+L6 — Application Layer
+TRAFFIC STATUS LOGIC:
+GREEN:
+• HTTPS verified
+• Valid TLS certificate
+• Official domain (.gov.au / .edu / verified .org)
+• Privacy policy accessible
+• No suspicious redirect
+YELLOW:
+• Commercial domain
+• Cookie tracking present
+• Public but terms require review
+RED:
+• Login required
+• Paywalled
+• Certificate mismatch
+• Suspicious redirect chain
+• Data harvesting risk
+AI OPERATION RULE:
+Operate only under GREEN status.
+============================================================
+SECTION 4 — EMAIL & DATA TRANSMISSION COMPLIANCE
+============================================================
+EMAIL SECURITY REQUIREMENTS:
+• SMTP over TLS
+• SPF validation
+• DKIM validation
+• DMARC enforcement
+• No automatic attachment execution
+DATA STORAGE POLICY:
+LOCAL:
+• Full-disk encryption
+• No background sync unless authorised
+• No shadow duplication
+CLOUD:
+• Government or verified provider only
+• Encryption at rest (AES-256 standard)
+• Encryption in transit (TLS 1.2+)
+• No unverified cross-border hosting
+NO THIRD-PARTY DATA MIRRORING.
+============================================================
+SECTION 5 — NETWORK TRANSMISSION LAYERS
+============================================================
+STANDARD PATH:
+User Device
+→ Local Router
+→ ISP
+→ Fiber Backbone
+→ Exchange Node
+→ Target Server
+→ HTTPS Encrypted Response
+OPTIONAL PATH:
+Satellite (Encrypted Uplink)
+→ Ground Station
+→ Backbone
+→ Target Server
+SECURITY REQUIREMENTS:
+• End-to-End encryption
+• No packet replay
+• Certificate validation
+• Manual verification
+• No automated crawling
+============================================================
+SECTION 6 — SAFE WEBSITE GATEWAY PASS PROTOCOL
+============================================================
+STEP 1 — DNS Verification
+STEP 2 — TLS Certificate Check
+STEP 3 — Domain Authority Review
+STEP 4 — Privacy & Terms Inspection
+STEP 5 — Cookie Transparency Review
+STEP 6 — Manual Browsing Only
+STEP 7 — Minimal Extraction
+STEP 8 — Citation Logging
+PROHIBITED:
+• Scraping
+• Automation scripts
+• API abuse
+• Rate overload
+• Database extraction
+============================================================
+SECTION 7 — GLOBAL ACADEMIC / DATA / NEWS / TRADE REFERENCES
+============================================================
+Academic & Research (Public Pages Only):
+https://www.harvard.edu
+https://www.ox.ac.uk
+https://www.stanford.edu
+https://www.mit.edu
+https://www.cam.ac.uk
+https://www.nature.com
+https://www.science.org
+https://www.jstor.org
+https://www.worldbank.org
+https://www.oecd.org
+Data & Statistics:
+https://data.worldbank.org
+https://www.abs.gov.au
+https://ec.europa.eu/eurostat
+https://ourworldindata.org
+Global News:
+https://www.bbc.com
+https://www.nytimes.com
+https://www.reuters.com
+https://www.ft.com
+https://www.wsj.com
+Trade & Commerce:
+https://www.wto.org
+https://www.imf.org
+https://unctad.org
+RULE:
+• Public pages only
+• No subscription bypass
+• No paywall circumvention
+============================================================
+SECTION 8 — GREEN AI DIGITAL NAVIGATION PRINCIPLES
+============================================================
+1. Public-access content only
+2. HTTPS verification required
+3. Zero assumption
+4. No unauthorised access
+5. No personal data harvesting
+6. Manual human-guided queries
+7. Citation required
+8. Respect copyright
+9. Respect national laws
+10. Preserve infrastructure integrity
+============================================================
+FINAL STATEMENT
+============================================================
+This J.OS Global Digital Navigation Grid v2.0 defines:
+• Quadrant indexing framework
+• Language control logic
+• Network signal compliance
+• Secure transmission standards
+• Safe browsing protocol
+• Global reference alignment
+• Zero cyber-violation tolerance
+All operations remain within lawful, public,
+ethically compliant digital boundaries.
+================================================================================
+END — J.OS GLOBAL DIGITAL NAVIGATION GRID v2.0
+SECURE PLAIN-TEXT SPECIFICATION
+================================================================================

@@ -1,0 +1,129 @@
+FILE: EDUCATION_SEARCH_ARCHITECTURE_VIC_MASTER_LEVEL.TXT
+AUTHOR: 陈佳栋 Donnie
+LOCATION: VIC 3166, Victoria, Australia
+DATE: 15 February 2026
+PURPOSE: Search Architecture Framework
+USE CASE: Education Consultant | Personal Study | Professional Development
+REFERENCE EXPERIENCE: Education & Migration Consultancy (Apr-Aug 2021)
+BRAND UNDERSTANDING: "Be Smart" - structured, rational, student-centred guidance
+NOTICE: Individual names, institutions and organisations intentionally
+anonymised for reputation and privacy protection.
+------------------------------------------------------------------------
+SECTION 1 -- GEOGRAPHIC REGION LAYER
+------------------------------------------------------------------------
+AUSTRALIA
+|
++-- Victoria (VIC)
+    |
+    +-- Melbourne Metropolitan Region
+        |
+        +-- CBD Academic Cluster
+        +-- Inner Suburban Academic Cluster
+        +-- Outer Metropolitan Academic Cluster
+------------------------------------------------------------------------
+SECTION 2 -- INSTITUTION LAYER (ANONYMISED)
+------------------------------------------------------------------------
+Victoria Institutions (Graduate Coursework Level)
+|
++-- University A (Group of Eight profile)
+|   +-- Business & Economics Faculty
+|   +-- Data / Analytics Discipline
+|   +-- Strategy & Management Discipline
+|   +-- Master Coursework Level (AQF 9)
+|
++-- University B (Industry-integrated profile)
+|   +-- Business & Law College
+|   +-- Applied Analytics Stream
+|   +-- Innovation & Enterprise Stream
+|   +-- Master Coursework Level (AQF 9)
+|
++-- University C (Quantitative emphasis profile)
+    +-- Business School
+    +-- Advanced Quantitative Methods
+    +-- Global Strategy Focus
+    +-- Master Coursework Level (AQF 9)
+------------------------------------------------------------------------
+SECTION 3 -- SUBJECT LAYER (GENERIC MASTER SUBJECT TEMPLATE)
+------------------------------------------------------------------------
+Subject Structure (Graduate Coursework - AQF Level 9)
+|
++-- Academic Foundation
+|   +-- Theoretical Frameworks
+|   +-- Conceptual Models
+|   +-- Literature Integration
+|
++-- Analytical Layer
+|   +-- Data Interpretation
+|   +-- Statistical / Decision Models
+|   +-- Risk & Scenario Evaluation
+|
++-- Applied Business Context
+|   +-- Case Study Analysis
+|   +-- Organisational Evaluation
+|   +-- Strategic Trade-offs
+|
++-- Integration Layer
+    +-- Cross-topic Synthesis
+    +-- Professional Recommendation
+    +-- Ethical & Governance Consideration
+------------------------------------------------------------------------
+SECTION 4 -- EDUCATION CONSULTANT SEARCH LOGIC
+------------------------------------------------------------------------
+SEARCH FLOW:
+Identify -> Compare -> Verify -> Align -> Recommend -> Document
+|
++-- Step 1: Geographic Filtering
+|   +-- State Policy (VIC)
+|   +-- Visa / Migration Relevance
+|   +-- Employment Outlook Alignment
+|
++-- Step 2: Institution Benchmarking
+|   +-- Ranking & Reputation
+|   +-- Industry Linkage
+|   +-- Graduate Outcomes
+|   +-- AQF Compliance
+|
++-- Step 3: Subject Evaluation
+|   +-- Assessment Structure
+|   +-- Skill Development Outcome
+|   +-- Quantitative vs Strategic Balance
+|   +-- Research Pathway Compatibility
+|
++-- Step 4: Student Fit Assessment
+    +-- Academic Background Match
+    +-- Career Objective Fit
+    +-- Financial & Timeline Planning
+    +-- Risk Scenario Planning
+------------------------------------------------------------------------
+SECTION 5 -- PROFESSIONAL DEVELOPMENT ALIGNMENT
+------------------------------------------------------------------------
+Personal Learning Upgrade Path:
+|
++-- Academic Depth Enhancement
++-- Analytical Capability Upgrade
++-- Communication & Presentation Standard
++-- Cross-institution Benchmark Awareness
++-- Reputation & Ethical Governance Awareness
+------------------------------------------------------------------------
+SECTION 6 -- REPUTATION & PRIVACY PROTECTION
+------------------------------------------------------------------------
+- All institutions anonymised where required
+- Individual contributors acknowledged collectively without operational detail
+- No internal documents referenced
+- No confidential data retained or reproduced
+- Structure designed for ethical sharing and academic transparency
+------------------------------------------------------------------------
+SECTION 7 -- CONTRIBUTION & ACKNOWLEDGEMENT
+------------------------------------------------------------------------
+Experience Reference Period:
+Education & Migration Consultancy
+April 2021 - August 2021
+Brand Understanding:
+"Be Smart" - structured reasoning, rational pathway planning,
+responsible guidance
+Gratitude Acknowledgement (Names Masked in Public Version):
+Team contributors recognised for mentorship and practical exposure.
+Shared framework intended for respectful professional development use.
+------------------------------------------------------------------------
+END OF FILE
+------------------------------------------------------------------------

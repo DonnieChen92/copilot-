@@ -1,0 +1,371 @@
+================================================================================
+DOC-20260218-JOS-Property-Suburb-Map-V1.5-V1.7-0010
+Title: J.OS — Melbourne Property & Suburb Research Map v1.5 -> v1.7
+Version: 1.5 / 1.6 / 1.7 (consolidated)
+Date: 2026-02-18
+Design: Jiadong Chen (陈佳栋) — Student ID: 723912
+Classification: HIGH CONFIDENTIAL — PUBLIC DOMAIN ONLY
+================================================================================
+
+
+V1.5 — TOP 20 LISTS + BUILDERS + STRATA + REGULATORS
+================================================================================
+
+
+SECTION 1 — PROPERTY PORTALS (READ-ONLY)
+-------------------------------------------------------------
+https://www.realestate.com.au
+https://www.realcommercial.com.au
+https://www.domain.com.au
+https://www.rplogic.com.au
+
+RULE: Manual browsing only. No scraping. No data harvesting.
+Respect copyright.
+
+
+SECTION 2 — TOP 20 RESIDENTIAL REAL ESTATE AGENCIES (MELBOURNE)
+-------------------------------------------------------------
+Widely recognised market participants. Not ranked.
+
+1. Marshall White          11. Harcourts Victoria
+2. Kay & Burton            12. Ray White Victoria
+3. Jellis Craig            13. Belle Property Victoria
+4. RT Edgar                14. Buxton Real Estate
+5. McGrath Estate Agents   15. OBrien Real Estate
+6. Nelson Alexander        16. Noel Jones
+7. Biggin & Scott          17. Buxton Brighton
+8. Barry Plant             18. Cayzer Real Estate
+9. Woodards                19. Greg Hocking Elly Partners
+10. Fletchers              20. Lucas Real Estate
+
+
+SECTION 3 — TOP 20 COMMERCIAL REAL ESTATE AGENCIES
+-------------------------------------------------------------
+1. CBRE                    11. Stonebridge Property Group
+2. JLL                     12. Cushman Industrial
+3. Colliers                13. Dawkins Occhiuto
+4. Cushman & Wakefield     14. Gorman Commercial
+5. Knight Frank            15. Gross Waddell ICR
+6. Savills                 16. Dixon Commercial
+7. Burgess Rawson          17. Vinci Carbone
+8. Fitzroys                18. GrayJohnson
+9. Lemon Baxter            19. Crabtrees Real Estate
+10. Teska Carson           20. Lemon Baxter Retail
+
+
+SECTION 4 — TOP 20 PROPERTY DEVELOPERS (VIC / AUS ACTIVE IN MELB)
+-------------------------------------------------------------
+1. Lendlease              11. Cedar Woods
+2. Mirvac                  12. Caydon Property
+3. Stockland               13. Pellicano Group
+4. Frasers Property        14. Riverlee
+5. Charter Hall            15. ICD Property
+6. Salta Properties        16. Far East Consortium
+7. Grocon                  17. Bensons Property Group
+8. Gurner Group            18. BPM Corp
+9. Central Equity          19. Development Victoria (Gov)
+10. Pace Development Group 20. PDG Corporation
+
+
+SECTION 5 — TOP 20 CONSTRUCTION COMPANIES (VIC / NATIONAL)
+-------------------------------------------------------------
+1. Multiplex               11. Icon Construction
+2. Lendlease Construction  12. Hickory Group
+3. Built                   13. Probuild (verify status)
+4. Kane Constructions      14. Roberts Co
+5. John Holland            15. McCorkell Constructions
+6. Hutchinson Builders     16. Ironside
+7. BESIX Watpac            17. Shape Australia
+8. CPB Contractors         18. Hamilton Marino
+9. Hansen Yuncken          19. PCL Construction (Aus)
+10. ADCO Constructions     20. Laing O'Rourke
+
+
+SECTION 6 — TOP 20 HOUSE & LAND BUILDERS (VIC)
+-------------------------------------------------------------
+1. Metricon                11. Orbit Homes
+2. Henley Homes            12. SJD Homes
+3. Simonds Homes           13. GJ Gardner Homes
+4. Porter Davis (verify)   14. Hotondo Homes
+5. Carlisle Homes          15. Fairhaven Homes
+6. Burbank Homes           16. Nostra Homes
+7. Dennis Family Homes     17. Hallbury Homes
+8. Boutique Homes          18. SOHO Living
+9. Mimosa Homes            19. Latitude 37
+10. Eight Homes            20. Homebuyers Centre
+
+
+SECTION 7 — STRATA / OWNERS CORPORATION MANAGEMENT FIRMS
+-------------------------------------------------------------
+1. Strata Equity Management  11. The Knight
+2. MICM Strata               12. Realcorp
+3. Ace Body Corporate         13. Whittles
+4. VBCS                       14. Netstrata (verify VIC ops)
+5. Owners Corporation Services 15. Dynamic Property Services
+6. Melbourne OC               16. Strata Logic
+7. BCS Strata                 17. OC Connect
+8. Strata Plan                18. Strata Title Management
+9. First Class Owners Corp    19. Strata One
+10. OC Link                   20. Elite OC Management
+
+
+SECTION 8 — REGULATORS & DISPUTE RESOLUTION
+-------------------------------------------------------------
+REIV: https://reiv.com.au
+VCAT: https://www.vcat.vic.gov.au
+VSBC: https://www.vsbc.vic.gov.au
+Consumer Affairs Victoria: https://www.consumer.vic.gov.au
+DFFH: https://www.dffh.vic.gov.au
+Service Australia: https://www.servicesaustralia.gov.au
+Land Use Victoria: https://www.land.vic.gov.au
+
+
+================================================================================
+
+V1.6 — MELBOURNE CBD & INNER WEST SUBURB MAP (3000-3027)
+================================================================================
+
+
+SECTION 1 — SUBURB MAPPING (POSTCODE 3000-3027)
+-------------------------------------------------------------
+
+3000 — Melbourne (CBD)
+  Property: Residential (apartment/unit/flat), Commercial office,
+            Mixed-use, Retail arcades, Car parks, Community, Non-profit,
+            Telecom hubs, Strata high-rise
+  Agencies: CBRE, JLL, Colliers, Marshall White, Kay & Burton, Jellis Craig
+  Developers: Lendlease, Mirvac, Charter Hall
+  Strata: MICM, Strata Equity
+  Regulators: VCAT, Consumer Affairs Victoria
+
+3002 — East Melbourne
+  Property: Residential (apartment/townhouse), Medical suites, Community
+  Agencies: RT Edgar, Kay & Burton
+
+3003 — West Melbourne
+  Property: Industrial conversion, Warehouses, Mixed-use, Commercial fringe
+  Agencies: Colliers, Lemon Baxter
+  Developers: Salta, Riverlee
+
+3004 — St Kilda Road
+  Property: High-density apartments, Commercial towers, Medical
+  Agencies: CBRE, JLL
+  Developers: ICD, Frasers
+
+3005 — World Trade Centre
+  Property: Commercial office, Complex, Retail
+  Agencies: Knight Frank, Cushman & Wakefield
+
+3006 — Southbank
+  Property: Apartment towers, Mixed-use, Retail, Community
+  Agencies: Marshall White, Belle
+  Developers: Central Equity
+
+3008 — Docklands
+  Property: High-rise residential, Commercial, Warehouses, Car parks, Telecom
+  Agencies: JLL, Colliers
+  Developers: Lendlease, Development Victoria
+
+3011 — Footscray
+  Property: Mixed residential, Retail strips, Warehouses, Community housing
+  Agencies: Biggin & Scott, Barry Plant
+
+3012 — Maidstone
+  Property: Townhouses, Units
+  Agencies: OBrien, Ray White
+
+3013 — Yarraville
+  Property: Residential houses, Retail, Community
+  Agencies: Jellis Craig, Nelson Alexander
+
+3015 — Newport
+  Property: House + land, Townhouse
+  Agencies: RT Edgar, Barry Plant
+
+3016 — Williamstown
+  Property: Premium residential, Marina mixed-use
+  Agencies: Marshall White, Greg Hocking
+
+3018 — Altona
+  Property: Industrial, Warehouses, Residential
+  Agencies: GrayJohnson, Colliers
+
+3020 — Sunshine
+  Property: Industrial precinct, Retail complex, Community housing
+  Agencies: Harcourts, Barry Plant
+
+3021 — St Albans
+  Property: Residential, Social housing, Community
+  Agencies: Ray White, OBrien
+
+3023 — Caroline Springs
+  Property: House & land, Estate developments, Builders active
+  Agencies: Barry Plant, Harcourts
+
+3024 — Wyndham Vale
+  Property: Greenfield estates
+  Builders: Metricon, Carlisle
+  Agencies: Ray White, Harcourts
+
+3025 — Altona North
+  Property: Industrial + residential mix
+  Agencies: Colliers, Nelson Alexander
+
+3026 — Laverton North
+  Property: Industrial hub, Factories, Warehouses
+  Agencies: CBRE Industrial, Lemon Baxter
+
+3027 — Williams Landing
+  Property: Mixed-use, Commercial, Residential estates
+  Agencies: Barry Plant, Ray White
+  Developers: Cedar Woods
+
+
+SECTION 2 — PROPERTY CATEGORIES PER SUBURB (STANDARDISED)
+-------------------------------------------------------------
+Residential: House, Townhouse, Unit, Apartment, Flat, Estate (house & land)
+Commercial: Office, Retail, Shopping Centre, Mixed Use Complex, Car Park
+Industrial: Warehouse, Factory, Logistics, Telecommunication Facility
+Community: Non-profit, Social housing, Community centre, Government office
+Strata: Owners Corporation, Apartment management, Mixed-use strata
+
+
+SECTION 3 — REGIONAL VICTORIA EXTENSION (MAJOR CENTRES)
+-------------------------------------------------------------
+Geelong (3220+), Ballarat (3350+), Bendigo (3550+),
+Shepparton (3630+), Latrobe Valley (3844+), Warrnambool (3280+),
+Mildura (3500+), Wodonga (3690+)
+
+Regional Types: Greenfield estates, Agricultural land, Industrial logistics,
+Community housing, Retail precincts, Government service centres
+
+
+================================================================================
+
+V1.7 — FINANCIAL & REGULATORY SECTOR EXPANSION
+================================================================================
+
+
+SECTION 1 — KEY LEGISLATION / ACTS / REGULATIONS
+-------------------------------------------------------------
+Federal:
+- Privacy Act 1988 (Cth)
+- Corporations Act 2001 (Cth)
+- Australian Consumer Law (Schedule 2 CCA 2010)
+- Online Safety Act 2021
+- Security of Critical Infrastructure Act 2018
+- Migration Act 1958
+- Superannuation Industry (Supervision) Act 1993
+
+Victorian:
+- Privacy and Data Protection Act 2014 (Vic)
+- Estate Agents Act 1980 (Vic)
+- Owners Corporations Act 2006 (Vic)
+- Residential Tenancies Act 1997 (Vic)
+- Planning and Environment Act 1987 (Vic)
+- Building Act 1993 (Vic)
+- Retail Leases Act 2003 (Vic)
+
+
+SECTION 2 — SUPERANNUATION FUNDS (TOP 20 — MAJOR AUSTRALIA)
+-------------------------------------------------------------
+1. AustralianSuper — https://www.australiansuper.com
+2. Aware Super — https://www.aaware.com.au
+3. Hostplus — https://www.hostplus.com.au
+4. REST — https://www.rest.com.au
+5. CareSuper — https://www.caresuper.com.au
+6. HESTA — https://www.hesta.com.au
+7. UniSuper — https://www.unisuper.com.au
+8. CBUS — https://www.cbus.com.au
+9. MLC Super — https://www.mlc.com.au
+10. Colonial First State — https://www.colonialfirststate.com.au
+11. TelstraSuper — https://www.telstrasuper.com.au
+12. Australian Retirement Trust — https://www.art.com.au
+13. IOOF — https://www.ioof.com.au
+14. AMP Super — https://www.amp.com.au
+15. Insignia Financial — https://www.insigniafinancial.com.au
+16. Legacy Super — https://www.legacysuper.com.au
+17. Vision Super — https://www.vision6.com.au
+18. Commonwealth Super Corp — https://www.commonwealthsuper.com.au
+19. QSuper — https://www.qsuper.qld.gov.au
+20. Energy Industries Super — https://www.energyindustries.com.au
+
+
+SECTION 3 — ASSET / CAPITAL MANAGEMENT FIRMS (TOP 20)
+-------------------------------------------------------------
+1. BlackRock — https://www.blackrock.com
+2. Vanguard Australia — https://www.vanguard.com.au
+3. Bennelong Funds — https://www.begroup.com.au
+4. Magellan — https://www.magellangroup.com.au
+5. Perpetual — https://www.perpetual.com.au
+6. Pendal — https://www.pendalgroup.com
+7. Platinum — https://www.platinum.com.au
+8. Morningstar — https://www.morningstar.com.au
+9. BT Financial — https://www.bt.com.au
+10. Macquarie — https://www.macquarie.com
+11. LGIM — https://www.lgiam.com
+12. J.P. Morgan — https://www.jpmorgan.com
+13. Goldman Sachs — https://www.gs.com
+14. Fidelity — https://www.fidelity.com.au
+15. Aberdeen Standard — https://www.aberdeen.com
+16. IFM Investors — https://www.ifm.com.au
+17. Hostplus Investments — https://www.hostplus.com.au
+18. CBUS Investment Mgmt — https://www.cbus.com.au
+19. ART Investments — https://www.art.com.au
+20. Mirvac Asset Mgmt — https://www.mirvac.com
+
+
+SECTION 4 — BANKING SECTOR (MAJOR AUSTRALIA)
+-------------------------------------------------------------
+1. Commonwealth Bank — https://www.commbank.com.au
+2. ANZ — https://www.anz.com.au
+3. NAB — https://www.nab.com.au
+4. Westpac — https://www.westpac.com.au
+5. Macquarie Bank — https://www.macquarie.com.au
+6. Bendigo & Adelaide Bank — https://www.bendigobank.com.au
+7. Suncorp — https://www.suncorp.com.au
+8. ING Australia — https://www.ing.com.au
+9. HSBC Australia — https://www.hsbc.com.au
+10. Citi Australia — https://www.citibank.com.au
+
+
+SECTION 5 — AUDITING & ACCOUNTING FIRMS
+-------------------------------------------------------------
+1. PwC Australia — https://www.pwc.com.au
+2. EY Australia — https://www.ey.com/en_au
+3. KPMG Australia — https://home.kpmg/au
+4. Deloitte Australia — https://www2.deloitte.com/au
+5. BDO Australia — https://www.bdo.com.au
+6. Grant Thornton — https://www.grantthornton.com.au
+7. Pitcher Partners — https://www.pitcher.com.au
+8. RSM Australia — https://www.rsm.global/australia
+9. Moore Australia — https://www.moore-australia.com.au
+10. HLB Mann Judd — https://www.hlb.com.au
+
+
+SECTION 6 — ADDITIONAL REGULATORY ENTITIES
+-------------------------------------------------------------
+ASIC: https://asic.gov.au
+APRA: https://www.apra.gov.au
+ACCC: https://www.accc.gov.au
+RBA: https://www.rba.gov.au
+AASB: https://www.aasb.gov.au
+
+
+SECTION 7 — REGULATORY SECTOR MAPPING
+-------------------------------------------------------------
+Banking       -> APRA / ASIC / RBA
+Superannuation -> APRA / ASIC
+Asset Management -> ASIC
+Real Estate   -> Consumer Affairs Victoria / REIV
+Strata        -> Owners Corporations Act (Vic)
+Building      -> Victorian Building Authority (VBA)
+Immigration   -> Home Affairs
+Privacy       -> OAIC
+Cyber Security -> Home Affairs Cyber / ACSC
+Competition   -> ACCC
+
+
+================================================================================
+END OF DOCUMENT — J.OS PROPERTY & FINANCIAL GOV MAP v1.5-v1.7
+================================================================================

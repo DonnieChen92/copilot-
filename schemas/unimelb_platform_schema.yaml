@@ -1,0 +1,305 @@
+# =============================================================================
+# UniMelb AI Platform — Data Schema Definition
+# =============================================================================
+# Defines all data models, relationships, and deployment environments
+# for the UniMelb AI Platform across all modules.
+#
+# Pilot Concept: Jiadong Chen (Student ID: 723912)
+# Date: 12 February 2026, Melbourne, Australia
+# =============================================================================
+
+schema_version: "1.0.0-alpha"
+platform: "UniMelb AI"
+
+# --- Deployment Environments ---
+environments:
+  alpha_dev:
+    description: "Development & unit testing"
+    data_type: "synthetic"
+    access: "developers_only"
+    language_stack: "Python 3.12+ (FastAPI), TypeScript (React)"
+    database: "SQLite"
+    infrastructure: "Local Docker"
+    mri_connection: "mock"
+
+  beta_staging:
+    description: "Integration testing & UAT"
+    data_type: "anonymised_production_clone"
+    access: "dev_qa_select_users"
+    language_stack: "C# (.NET 8), TypeScript (Next.js), Python (ML)"
+    database: "Azure SQL (staging)"
+    infrastructure: "Azure AKS (staging)"
+    mri_connection: "staging_api"
+
+  test:
+    description: "Daily automated regression"
+    data_type: "synthetic_edge_cases"
+    access: "ci_cd_pipeline"
+    language_stack: "All"
+    database: "Ephemeral (per test run)"
+    infrastructure: "GitHub Actions"
+    mri_connection: "mock"
+
+  training:
+    description: "Staff and agent training"
+    data_type: "curated_training_dataset"
+    access: "onboarding_users"
+    language_stack: "All"
+    database: "Training DB (Azure SQL)"
+    infrastructure: "Azure AKS (training)"
+    mri_connection: "sandbox"
+
+  daily_use:
+    description: "Standard daily operations"
+    data_type: "live_production"
+    access: "authorised_users_per_rbac"
+    language_stack: "C#/.NET + C/C++ core"
+    database: "Azure SQL"
+    infrastructure: "Azure AKS (production)"
+    mri_connection: "production_api"
+
+  live_production:
+    description: "Real-time production (primary)"
+    data_type: "live_primary"
+    access: "all_users_per_rbac"
+    language_stack: "C#/.NET + C/C++ optimised core"
+    database: "Azure SQL HA (multi-region)"
+    infrastructure: "Azure AKS (multi-region AU + APAC)"
+    mri_connection: "production_api_ha"
+
+  backup:
+    description: "Disaster recovery"
+    data_type: "geo_redundant_replica"
+    access: "dr_team_automated_failover"
+    language_stack: "N/A"
+    database: "Azure SQL Geo-replica"
+    infrastructure: "Azure paired region"
+    mri_connection: "readonly_replica"
+
+# --- User Roles & Access Matrix ---
+user_roles:
+  student:
+    teams_access: "full"
+    web_access: "full"
+    ios_app: ["unimelb_official"]
+    property_mgmt: "none"
+    ai_chat: "full"
+    admin: "none"
+
+  academic_staff:
+    teams_access: "full"
+    web_access: "full"
+    ios_app: ["unimelb_official", "mymbs"]
+    property_mgmt: "none"
+    ai_chat: "full_plus_research"
+    admin: "faculty_admin"
+
+  professional_staff:
+    teams_access: "full"
+    web_access: "full"
+    ios_app: ["unimelb_official", "mymbs"]
+    property_mgmt: "read"
+    ai_chat: "full"
+    admin: "department_admin"
+
+  external_supplier:
+    teams_access: "limited_guest"
+    web_access: "portal"
+    ios_app: []
+    property_mgmt: "assigned_scope"
+    ai_chat: "scoped"
+    admin: "none"
+
+  retail_tenant:
+    teams_access: "limited_guest"
+    web_access: "portal"
+    ios_app: []
+    property_mgmt: "tenant_view"
+    ai_chat: "scoped"
+    admin: "none"
+
+  commercial_tenant:
+    teams_access: "limited_guest"
+    web_access: "portal"
+    ios_app: []
+    property_mgmt: "tenant_view"
+    ai_chat: "scoped"
+    admin: "none"
+
+  sub_tenant:
+    teams_access: "limited_guest"
+    web_access: "portal"
+    ios_app: []
+    property_mgmt: "sub_view"
+    ai_chat: "scoped"
+    admin: "none"
+
+  property_agent:
+    agent_types: ["lendlease", "jll", "micm"]
+    teams_access: "full"
+    web_access: "portal"
+    ios_app: []
+    property_mgmt: "agent_view"
+    ai_chat: "full"
+    admin: "property_admin"
+
+  government_auditor:
+    teams_access: "read_only"
+    web_access: "audit_portal"
+    ios_app: []
+    property_mgmt: "audit_view"
+    ai_chat: "logs_only"
+    admin: "audit"
+
+# --- Canvas → Teams Migration Mapping ---
+canvas_to_teams_mapping:
+  courses: "teams_team"
+  modules: "teams_channel_with_tabs"
+  assignments: "teams_assignments_with_rubrics"
+  grades: "teams_gradebook_plus_azure_sql"
+  discussion_boards: "teams_channel_posts"
+  quizzes: "ms_forms_with_ai_grading"
+  speedgrader: "teams_feedback_with_copilot"
+  canvas_inbox: "teams_chat_plus_outlook"
+  turnitin: "turnitin_teams_integration"
+  spark_ai: "unimelb_ai_copilot_azure_foundry"
+  aila: "copilot_studio_custom_agents"
+  calendar: "outlook_plus_teams_calendar"
+  files: "sharepoint_plus_onedrive"
+  analytics: "power_bi_plus_azure_monitor"
+
+# --- MRI Property Tree Data Model ---
+property_management:
+  property_types:
+    residential:
+      - student_housing
+      - staff_residences
+      - visitor_accommodation
+    commercial:
+      - retail_tenancies
+      - office_leases
+      - lab_research_space
+      - event_venues
+      - food_and_beverage
+
+  lease_statuses:
+    - draft
+    - pending_approval
+    - active
+    - renewal_due
+    - expired
+    - terminated
+
+  maintenance_statuses:
+    - open
+    - assigned
+    - in_progress
+    - awaiting_parts
+    - completed
+    - closed
+
+  agents:
+    lendlease:
+      scope: "facility_management"
+      description: "Campus facility management, maintenance, and operations"
+    jll:
+      scope: "valuation_and_leasing"
+      description: "Property valuation, commercial leasing, and tenant management"
+    micm:
+      scope: "residential_management"
+      description: "Residential property management, student/staff housing"
+
+# --- Anti-Hallucination Verification Pipeline ---
+anti_hallucination:
+  pipeline_stages:
+    1_multi_model_query:
+      description: "Query sent to 3+ frontier models simultaneously"
+      models: ["gpt-4o", "claude-sonnet-4-5-20250929", "gemini-2.0-pro"]
+    2_cross_verification:
+      description: "Compare responses; identify consensus and divergence"
+      method: "embedding_semantic_similarity"
+    3_source_citation:
+      description: "Every claim must cite evidence"
+      source_types:
+        - academic_paper
+        - legislation
+        - elibrary_resource
+        - official_documentation
+        - court_case
+        - textbook
+    4_confidence_scoring:
+      description: "Composite score 0.0 → 1.0"
+      thresholds:
+        high_confidence: 0.8
+        partial_verification: 0.6
+        rejection: 0.2
+    5_manual_verification:
+      description: "Human-in-the-loop for flagged responses"
+      triggers:
+        - "confidence < 0.6"
+        - "legal/legislation query"
+        - "medical/clinical query"
+        - "financial advice query"
+      verification_sources:
+        - "AustLII (www.austlii.edu.au)"
+        - "UniMelb e-library"
+        - "PubMed"
+        - "IEEE Xplore"
+    6_audit_log:
+      description: "Immutable Azure Monitor log"
+      fields:
+        - timestamp
+        - user_id
+        - models_used
+        - confidence_score
+        - sources_cited
+        - verification_status
+        - latency
+        - token_usage
+        - cost
+
+# --- Financial Forecast Summary ---
+financial_forecast:
+  tier_1_conservative:
+    year_1_aud: 1721500
+    year_2_aud: 1677500
+    year_3_aud: 1699500
+    description: "Minimum viable platform — core features only"
+
+  tier_2_standard:
+    year_1_aud: 3633500
+    year_2_aud: 3589150
+    year_3_aud: 3643200
+    description: "Full platform with APAC readiness"
+
+  tier_3_premium:
+    year_1_aud: 8084500
+    year_2_aud: 8387500
+    year_3_aud: 8875500
+    description: "Full APAC research platform with GPU compute"
+
+# --- Life Challenge Programme ---
+life_challenge:
+  stages:
+    finance:
+      access: "full_plus_support"
+      description: "Active but under financial stress"
+      support: ["financial_aid", "scholarship", "fee_deferral", "centrelink_guide", "mental_health"]
+    pause:
+      access: "limited_ai_read_only"
+      description: "Study leave (up to 6 months)"
+      max_duration_months: 6
+      support: ["mental_health", "financial_aid", "centrelink_guide"]
+    restart:
+      access: "full_plus_catch_up"
+      description: "Returning to study"
+      support: ["ai_catch_up", "peer_mentoring", "academic_advisor", "career_guidance"]
+    complete:
+      access: "alumni_lifetime"
+      description: "Graduated"
+      support: ["career_guidance", "alumni_network"]
+
+  milestone:
+    date: "2026-02-12"
+    location: "Melbourne, Australia"
+    description: "Target milestone for Life Challenge Programme pilot cohort"

@@ -1,0 +1,284 @@
+FILE: EDUCATION_CONSULTANT_OPERATIONAL_MANUAL_V3.1_CATEGORISATION_OS_EXTENDED.TXT
+AUTHOR: 陈佳栋 Donnie
+LOCATION: Hughesdale, VIC 3166, Melbourne, Australia
+DATE: 16 February 2026
+VERSION: 3.1 (Extended Compliance, Ethics & Equality Edition)
+PURPOSE: Structured Education & Migration Advisory Framework -
+         Compliance, Privacy, Equality & Cultural Respect Integrated
+STATUS: Public-Domain Structured Model | Legislative-Aligned | Non-Legal Advice
+====================================================================
+TABLE OF CONTENTS
+====================================================================
+0. Personal Declaration & Purpose Statement
+1. Legislative & Regulatory Alignment Matrix
+2. Categorisation_OS Expanded Architecture (All Sections Integrated)
+3. Higher Education Sector Governance Expansion
+4. Visa & Migration Compliance Expansion
+5. Skilled Occupation Governance & Monitoring
+6. Data Governance, Privacy & Cyber Security Expansion
+7. Consultant Code of Conduct & Professional Requirements
+8. Equality, Cultural Respect & Non-Discrimination Charter
+9. Safety, Liability & Pre-Use Compliance Framework
+10. Documentation, Audit & Transparency Controls
+11. References & Legislative Citations (Expanded)
+12. Master Index
+====================================================================
+0. PERSONAL DECLARATION & PURPOSE STATEMENT
+====================================================================
+Author Reflection (Professional Context Only):
+This framework is developed in Melbourne, Victoria, informed by lived
+experience, professional exposure, and recognition that misunderstanding,
+language barriers, and social bias can cause harm.
+Core Commitment:
+- Equality under law.
+- No discrimination.
+- No withholding of material information.
+- No misleading representation.
+- No cultural bias.
+- Respect for the spirit of Australia's democratic and multicultural
+  foundation.
+Purpose:
+To create a structured, lawful, ethical advisory architecture aligned with:
+- Department of Education (Australia)
+- Department of Home Affairs
+- Australian Privacy Act & APPs
+- Cyber.gov.au security guidance
+- Anti-discrimination legislation
+This document is not legal advice.
+All users must verify policies directly with official government sources.
+====================================================================
+1. LEGISLATIVE & REGULATORY ALIGNMENT MATRIX
+====================================================================
+Federal Education Governance:
+- Education Services for Overseas Students Act 2000 (ESOS)
+- Higher Education Standards Framework (Threshold Standards)
+- Australian Qualifications Framework (AQF)
+Migration Governance:
+- Migration Act 1958 (Cth)
+- Migration Regulations 1994 (Cth)
+- Skilled Migration Program Settings
+- Student Visa (Subclass 500)
+- Visitor Visa (Subclass 600)
+Privacy & Data Protection:
+- Privacy Act 1988 (Cth)
+- Australian Privacy Principles (APP 1-13)
+- Notifiable Data Breaches (NDB) Scheme
+Cyber Security:
+- Cyber.gov.au - Essential Eight
+- Australian Cyber Security Centre guidance
+Anti-Discrimination & Equality:
+- Racial Discrimination Act 1975
+- Sex Discrimination Act 1984
+- Disability Discrimination Act 1992
+- Age Discrimination Act 2004
+- Fair Work Act 2009
+====================================================================
+2. CATEGORISATION_OS -- EXPANDED ARCHITECTURE
+====================================================================
+Categorisation_OS applies to ALL SECTIONS:
+Layer A -- Identity & Purpose Declaration
+Layer B -- Legislative Alignment
+Layer C -- Education Categorisation
+Layer D -- Migration Categorisation
+Layer E -- Risk & Compliance Review
+Layer F -- Data Governance
+Layer G -- Ethical & Equality Assurance
+Layer H -- Documentation & Audit Trail
+Operational Loop:
+Identify -> Categorise -> Verify Legislation -> Evaluate Risk ->
+Document -> Review -> Disclose
+====================================================================
+3. HIGHER EDUCATION GOVERNANCE EXPANSION
+====================================================================
+Institution Verification Checklist:
+- TEQSA registration confirmed
+- CRICOS listing confirmed
+- AQF level validated
+- Course duration verified
+- Graduate outcome data reviewed
+Academic Integrity Alignment:
+- No falsified transcripts
+- No fabricated experience
+- No misleading marketing
+====================================================================
+4. VISA & MIGRATION COMPLIANCE EXPANSION
+====================================================================
+Student Visa (Subclass 500):
+- Genuine Student requirement verified
+- Financial capacity documented
+- English evidence valid
+- OSHC confirmed
+Visitor Visa (Subclass 600):
+- Short study compliance
+- No employment activity
+Skilled Migration:
+- ANZSCO code validated
+- Skills assessment authority identified
+- Occupation list confirmed current
+- Points test recalculated before submission
+No guarantee of outcome.
+Policy subject to change.
+====================================================================
+5. SKILLED OCCUPATION GOVERNANCE
+====================================================================
+Quarterly Monitoring:
+- Federal occupation list updates
+- State nomination changes
+- English requirement updates
+- Labour market trends
+Risk Categories:
+Low -- Stable occupation
+Moderate -- Policy-sensitive
+High -- Short-term list volatility
+====================================================================
+6. DATA GOVERNANCE, PRIVACY & CYBER SECURITY
+====================================================================
+DATA COLLECTION PRINCIPLES:
+Collection:
+- Only data necessary for advisory purpose
+- Informed consent documented
+- Purpose clearly stated
+Categories of Data:
+- Identification data
+- Academic records
+- English test results
+- Employment history
+- Visa history
+Processing:
+- Used solely for assessment & documentation
+- No secondary use without consent
+- No data sale or transfer
+Storage:
+- Encrypted digital storage
+- Restricted access controls
+- Multi-factor authentication
+Retention:
+- Stored only as long as required
+- Secure deletion after retention period
+Breach Response:
+- Immediate containment
+- Assessment of impact
+- Notification under NDB scheme if required
+====================================================================
+7. CONSULTANT CODE OF CONDUCT & JOB REQUIREMENTS
+====================================================================
+Professional Knowledge Requirements:
+- Understanding of Migration Act & Regulations
+- Familiarity with AQF & ESOS
+- Ability to interpret ANZSCO
+- Awareness of anti-discrimination law
+- Cyber security awareness
+Conduct Standards:
+- No misleading statements
+- No outcome guarantees
+- No discrimination
+- No coercion or pressure
+- Full disclosure of material facts
+- Transparent fee structure
+Prohibited Conduct:
+- False documentation
+- Omission of critical information
+- Exploitation of language barriers
+- Cultural stereotyping
+- Prejudice or bias in advice
+====================================================================
+8. EQUALITY, CULTURAL RESPECT & NON-DISCRIMINATION
+====================================================================
+Principle:
+Every individual has equal dignity and protection under Australian law.
+No discrimination based on:
+- Gender
+- Age
+- Skin colour
+- Sexual orientation
+- Disability
+- Religion or no religion
+- Job status (employed/unemployed)
+- Residency or passport
+- Appearance (clean/untidy)
+- Clothing (traditional/modern)
+- Communication style (loud/quiet)
+- Punctuality differences
+- Cultural expression
+- Personal background
+- Past failure or setbacks
+Respect:
+- Indigenous heritage of Australia
+- Multicultural society
+- Freedom of belief
+- Equal opportunity principles
+Advisory Neutrality:
+Advice must not be influenced by personal bias or social status.
+====================================================================
+9. SAFETY, LIABILITY & PRE-USE CHECKLIST
+====================================================================
+Before Using This Framework:
+- Confirm latest legislation from official sites
+- Confirm migration planning levels
+- Confirm privacy consent signed
+- Confirm risk disclosure provided
+- Confirm no guarantee implied
+- Confirm documentation accuracy
+- Confirm cultural respect standard applied
+Liability Notice:
+Advice based on publicly available information.
+Legislation may change without notice.
+Final responsibility rests with applicant for application accuracy.
+====================================================================
+10. DOCUMENTATION, AUDIT & TRANSPARENCY
+====================================================================
+Documentation Required:
+- Client intake record
+- Risk assessment sheet
+- Occupation mapping record
+- Visa compliance checklist
+- Disclosure acknowledgement
+Audit Trail:
+- Date of advice
+- Legislative version referenced
+- Source website cited
+- Update log maintained
+====================================================================
+11. REFERENCES & CITATIONS (EXPANDED)
+====================================================================
+Legislation:
+- Migration Act 1958 (Cth)
+- Migration Regulations 1994 (Cth)
+- ESOS Act 2000
+- Privacy Act 1988 (Cth)
+- Racial Discrimination Act 1975
+- Sex Discrimination Act 1984
+- Disability Discrimination Act 1992
+- Age Discrimination Act 2004
+Official Government Websites:
+- homeaffairs.gov.au
+- education.gov.au
+- legislation.gov.au
+- teqsa.gov.au
+- aqf.edu.au
+- cyber.gov.au
+- oaic.gov.au
+====================================================================
+12. MASTER INDEX
+====================================================================
+ANZSCO -- Section 5
+AQF -- Section 3
+CRICOS -- Section 3
+Cyber Security -- Section 6
+Discrimination Law -- Section 8
+ESOS -- Section 1
+Migration Act -- Section 1
+Privacy Act -- Section 6
+Student Visa -- Section 4
+Visitor Visa -- Section 4
+====================================================================
+CLOSING DECLARATION
+====================================================================
+Developed in Melbourne, Victoria.
+Aligned with Australian law and democratic principles.
+Committed to fairness, transparency, privacy, and cultural respect.
+No harm. No discrimination. No deception.
+Equal dignity for all.
+====================================================================
+END OF DOCUMENT
+====================================================================

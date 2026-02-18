@@ -1,0 +1,95 @@
+================================================================================
+SIGNATURE DIRECTIVE TEMPLATE  |  TXT FORMAT  |  AUTHORISED USE STRUCTURE
+================================================================================
+[IDENTITY HEADER]
+Full Legal Name: Jiadong Chen (陈佳栋)
+Preferred Name: Donnie
+Primary Account Email: donniechen92@gmail.com
+Jurisdiction: Victoria, Australia
+Time Zone Reference: Australia/Melbourne (AEST/AEDT)
+Document Creation Date: 2026-02-13
+Document ID: DOC-20260213-Research-GOV-VIC-0001
+-------------------------------------------------------------------------------
+[OWNERSHIP DECLARATION]
+This document and its structured content are created under the authorship of
+Jiadong Chen (陈佳栋). All structural logic, formatting design, integration
+concepts, indexing models, and system mapping belong to the author unless
+explicitly referenced to publicly verifiable sources.
+No replication, reinterpretation, structural imitation, reframing, semantic
+substitution, or contextual distortion is permitted without explicit written
+authorisation from the author.
+-------------------------------------------------------------------------------
+[SCOPE OF USE]
+Purpose:
+- Victorian Government sector registry research
+- Cross-department URL verification
+- ABN / ACN validation logging
+- Security certificate documentation
+- Public institutional directory indexing
+- Compliance structure mapping
+Permitted Use:
+- Personal archival and registry control
+- Government domain verification
+- Structured research documentation
+- Security audit preparation
+Not Permitted:
+- Unauthorised redistribution
+- Context removal or manipulation
+- Identity misrepresentation
+- Certificate data falsification
+- Third-party structural reuse
+-------------------------------------------------------------------------------
+[DATA STRUCTURE FORMAT]
+SECTOR:
+Entity Display Name:
+Legal Name:
+ABN / ACN / Gov ID:
+Official URL:
+Domain Classification: (.vic.gov.au / .gov.au / .edu.au / Commercial)
+Certificate Issuer Organisation:
+Certificate Issuer Country:
+Certificate Valid From (Not Before):
+Certificate Expiry (Not After):
+Certificate Verification Date:
+Verification Method: (Browser Certificate Inspection / CT API / Manual Archive)
+-------------------------------------------------------------------------------
+[CERTIFICATE VERIFICATION INSTRUCTION]
+1. Access official HTTPS domain.
+2. Open browser security panel → View certificate details.
+3. Record:
+   - Issuer Organisation
+   - Issuer Country
+   - Valid From
+   - Valid To
+4. Cross-check via Certificate Transparency search:
+   https://api.certspotter.com/v1/issuances?domain=DOMAIN
+5. Archive verification record with timestamp and reviewer identity.
+6. Schedule re-verification prior to expiry.
+-------------------------------------------------------------------------------
+[GOVERNMENT DOMAIN VALIDATION RULE]
+If domain ends with:
+- .vic.gov.au → Verified Victorian Government Authority
+- .gov.au → Verified Australian Government Authority
+- .edu.au → Registered Australian Education Institution
+- Commercial domain → Verify ABN via ABR
+ABN Verification Source:
+https://abr.business.gov.au/
+-------------------------------------------------------------------------------
+[DOCUMENT CONTROL LOG]
+Version: 1.0
+Revision Date: 2026-02-13
+Revision Summary: Initial structured registry format for GOV-VIC research
+Verified By: Jiadong Chen (陈佳栋)
+Archive Classification: GOV-VIC-Registry-Research
+Next Review Date: 2026-05-13
+-------------------------------------------------------------------------------
+[LEGAL POSITION STATEMENT]
+This TXT registry framework records public institutional references
+for structured research and verification purposes.
+Security certificates are time-sensitive and subject to renewal.
+All certificate information must be independently verified at the
+time of inspection and revalidated periodically.
+No assumption of perpetual validity shall be made.
+-------------------------------------------------------------------------------
+END OF FILE
+================================================================================

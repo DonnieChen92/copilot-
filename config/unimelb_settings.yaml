@@ -1,0 +1,192 @@
+# =============================================================================
+# UniMelb AI Platform — Configuration
+# =============================================================================
+# Pilot Concept: Jiadong Chen (Student ID: 723912)
+# Date: 12 February 2026, Melbourne, Australia
+# WARNING: Never commit real API keys to version control
+# =============================================================================
+
+# --- Platform Identity ---
+platform:
+  name: "UniMelb AI"
+  version: "1.0.0-alpha"
+  institution: "University of Melbourne"
+  pilot_author: "Jiadong Chen (Student ID: 723912)"
+  milestone_date: "2026-02-12"
+
+# --- Azure AI Foundry ---
+azure_foundry:
+  endpoint: "${AZURE_FOUNDRY_ENDPOINT}"
+  api_key: "${AZURE_FOUNDRY_API_KEY}"
+  api_version: "2025-01-01"
+  tenant_id: "unimelb"
+  data_residency: "australiaeast"
+  models:
+    primary_chat: "gpt-4o"
+    primary_reasoning: "claude-opus-4-6"
+    fast: "gemini-2.0-flash"
+    code: "claude-sonnet-4-5-20250929"
+    cost_effective: "deepseek-r1"
+    web_search: "grok-4"
+
+# --- Microsoft Copilot ---
+copilot:
+  tenant_id: "${MS_TENANT_ID}"
+  copilot_licence: "education_a5_copilot_addon"
+  copilot_studio:
+    enabled: true
+    agents:
+      - academic_advisor
+      - research_assistant
+      - student_support
+      - property_assistant
+      - life_challenge_support
+
+# --- Microsoft Entra ID (SSO) ---
+identity:
+  provider: "microsoft_entra_id"
+  tenant_id: "${MS_TENANT_ID}"
+  client_id: "${MS_CLIENT_ID}"
+  client_secret: "${MS_CLIENT_SECRET}"
+  authority: "https://login.microsoftonline.com/${MS_TENANT_ID}"
+  scopes:
+    - "openid"
+    - "profile"
+    - "email"
+    - "User.Read"
+    - "Teams.ReadWrite"
+  mfa_required: true
+  conditional_access: true
+
+# --- Canvas LMS (Migration Source) ---
+canvas:
+  api_url: "${CANVAS_API_URL}"
+  api_key: "${CANVAS_API_KEY}"
+  migration_status: "in_progress"  # not_started | in_progress | completed
+  read_only_mode: false            # Set to true after cutover
+
+# --- MRI Property Tree ---
+property_management:
+  provider: "mri_property_tree"
+  api_endpoint: "${MRI_API_ENDPOINT}"
+  api_key: "${MRI_API_KEY}"
+  environment: "alpha_dev"  # alpha_dev | beta_staging | test | training | daily_use | live | backup
+  features:
+    residential: true
+    commercial: true
+    maintenance: true
+    lease_management: true
+    agent_portal: true
+  agents:
+    - name: "Lendlease"
+      role: "facility_management"
+    - name: "JLL"
+      role: "valuation_leasing"
+    - name: "MICM"
+      role: "residential_management"
+
+# --- Anti-Hallucination ---
+anti_hallucination:
+  enabled: true
+  multi_model_verification: true
+  default_models_for_verification:
+    - "gpt-4o"
+    - "claude-sonnet-4-5-20250929"
+    - "gemini-2.0-pro"
+  confidence_thresholds:
+    high: 0.8
+    partial: 0.6
+    rejection: 0.2
+  mandatory_manual_review_patterns:
+    - "legislation"
+    - "legal"
+    - "law"
+    - "regulation"
+    - "medical"
+    - "diagnosis"
+    - "financial advice"
+    - "tax"
+  source_verification:
+    austlii: true           # Australian Legal Information Institute
+    elibrary: true          # UniMelb e-library
+    pubmed: true            # Medical literature
+    ieee_xplore: true       # Engineering papers
+
+# --- Education Platforms ---
+education_platforms:
+  microsoft:
+    tier: "a5_premium"
+    copilot_addon: true
+    users_estimate: 50000
+  google:
+    tier: "education_plus"
+    gemini_enabled: true
+    workspace_domain: "unimelb.edu.au"
+  openai:
+    default_student_tier: "student"
+    default_staff_tier: "research"
+    enterprise_sso: true
+    api_key: "${OPENAI_API_KEY}"
+
+# --- iOS Mobile Apps ---
+mobile:
+  unimelb_app:
+    apple_id: "904152776"
+    bundle_id: "au.edu.unimelb.app"
+  mymbs_app:
+    apple_id: "1095799806"
+    bundle_id: "au.edu.unimelb.mbs"
+  apns:
+    key_id: "${APNS_KEY_ID}"
+    team_id: "${APNS_TEAM_ID}"
+    environment: "development"  # development | production
+
+# --- Compliance & Monitoring ---
+compliance:
+  azure_monitor:
+    workspace_id: "${AZURE_MONITOR_WORKSPACE_ID}"
+    instrumentation_key: "${AZURE_APPINSIGHTS_KEY}"
+  data_residency: "australiaeast"
+  frameworks:
+    - "privacy_act_1988_cth"
+    - "teqsa_higher_education_standards"
+    - "esos_act_2000"
+    - "ai_ethics_framework_au"
+    - "iso_27001"
+    - "irap_au_govt"
+  apac_extension:
+    nz_enabled: false       # Year 2
+    fiji_enabled: false      # Year 2
+    singapore_enabled: false # Year 3
+  audit:
+    immutable: true
+    retention_days: 2555     # 7 years
+    government_access: true
+
+# --- Life Challenge Programme ---
+life_challenge:
+  enabled: true
+  max_pause_months: 6
+  milestone_date: "2026-02-12"
+  auto_surface_support: true
+  support_types:
+    - financial_aid
+    - scholarship
+    - fee_deferral
+    - centrelink_guide
+    - mental_health
+    - peer_mentoring
+    - ai_catch_up
+    - career_guidance
+
+# --- Financial Forecast Tier ---
+financial:
+  active_tier: "tier_2_standard"  # tier_1_conservative | tier_2_standard | tier_3_premium
+  currency: "AUD"
+  fiscal_year_start: "2026-01-01"
+
+# --- Logging ---
+logging:
+  level: "INFO"
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+  azure_monitor_enabled: true

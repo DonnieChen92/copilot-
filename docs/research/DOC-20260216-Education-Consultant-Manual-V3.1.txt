@@ -1,0 +1,502 @@
+FILE: EDUCATION_CONSULTANT_OPERATIONAL_MANUAL_V3.1_CATEGORISATION_OS_COMPLIANCE.TXT
+ACCOUNT OWNER / AUTHOR: 陈佳栋 Donnie
+DATE (AUS/MEL): 16 February 2026
+LOCATION: Hughesdale, Melbourne, VIC 3166, Australia
+PRIMARY CONTACT (GENERAL): donniechen92@gmail.com
+PLATFORM (CONTEXT): ChatGPT iOS App (1.2026.034) | iOS 26.3
+DOCUMENT TYPE: Consultant / Agent Operational Manual (Template, Public-Domain Referencing)
+CONFIDENTIALITY MODE: No institution / company / individual names (non-government) disclosed; reputation-protection enabled.
+====================================================================
+0) INTRODUCTION | PURPOSE | VALUES DECLARATION (Categorisation_OS)
+====================================================================
+[CATEGORISATION_OS: COS-00]
+LAYER: Governance (Applies to ALL Sections)
+CATEGORY TAGS: PURPOSE | SAFETY | ETHICS | NON-DISCRIMINATION | COMPLIANCE
+PURPOSE (What this manual is for)
+- Provide a structured "Search -> Verify -> Advise -> Document" framework for education-pathway planning in Australia.
+- Use ONLY public-domain, official sources to support decision-making and reduce misinformation risk.
+- Separate education consulting activities from regulated migration assistance activities.
+VALUES DECLARATION (Personal + Professional)
+- This manual is written from lived lessons that language can harm, exclude, or distort.
+- The operational baseline here is equality, dignity, and non-prejudicial treatment in every interaction.
+- Every person has equal value regardless of background or circumstances.
+NON-DISCRIMINATION COMMITMENT (Expanded)
+- No discrimination or differential treatment (direct or indirect) based on, including but not limited to:
+  gender, age, race/skin colour, nationality, ethnicity, sexual orientation, gender identity, intersex status,
+  disability, neurodiversity, religion or no religion, employment status (lost job / employed), job role,
+  residency / passport status, education background, language accent, presentation or clothing,
+  "clean" or "untidy", "straight" or "hiding", "loud" or "quiet", "late" or "on time".
+- Respect local culture and the spirit of Australia, including respect for Aboriginal and Torres Strait Islander peoples,
+  and respect for multicultural communication styles.
+- Operate under legislation and professional codes; no harmful, misleading, or manipulative intent.
+SCOPE BOUNDARIES (Hard limits)
+- This manual is NOT legal advice.
+- This manual does NOT guarantee visa outcomes.
+- If a task becomes "immigration assistance" (as defined by law), it must be done only by:
+  a Registered Migration Agent (RMA), an Australian legal practitioner, or an exempt person (and must follow rules).
+EVIDENCE / LOG (Required for every engagement)
+- Engagement_ID
+- Date_Time (AUS/MEL)
+- Source_List (REF IDs used)
+- Client_Consent_Record (privacy)
+- Advice_Summary (facts vs assumptions)
+- Risk_Disclosure_Record
+- Escalation_Record (if referred to RMA/legal)
+====================================================================
+1) TABLE OF CONTENTS
+====================================================================
+COS-00  Introduction | Purpose | Values Declaration
+COS-01  Regulatory Alignment Map (Education + Migration + Privacy + Cyber)
+COS-02  Categorisation_OS Architecture (All-sections control model)
+COS-03  Higher Education Sector (TEQSA / HESF / AQF / CRICOS / ESOS)
+COS-04  ESOS National Code + Education Agents (Standard 4)
+COS-05  Visa Taxonomy & Study Rights (Visitor 600 vs Student 500)
+COS-06  Genuine Student (GS) + Student Compliance Monitoring
+COS-07  Skilled Migration Occupation Lists + ANZSCO + Skills Assessment Authorities
+COS-08  Visa-Course-Occupation Mapping (End-to-end)
+COS-09  Multi-State Comparison (Nomination pathways + state lists connectors)
+COS-10  Consultant / Agent Job Requirements (Role separation + competency matrix)
+COS-11  Code of Conduct Table (Operational behaviours + evidence)
+COS-12  Privacy Statement + Data Lifecycle (collect/process/store/share/retain/dispose)
+COS-13  Cyber Security Controls (Essential Eight + incident response + NDB)
+COS-14  Pre-Use Safety Gate + Liability Controls (checklists + disclaimers)
+COS-15  References (REF Index) + Retrieval Log
+COS-16  Index (A-Z)
+====================================================================
+2) REGULATORY ALIGNMENT MAP (Education + Migration + Privacy + Cyber)
+====================================================================
+[CATEGORISATION_OS: COS-01]
+LAYER: National (Applies across Australia)
+CATEGORY TAGS: EDUCATION_REG | MIGRATION_REG | PRIVACY | CYBER | CONSUMER_LAW | HUMAN_RIGHTS
+AUTHORITATIVE GOVERNMENT DOMAINS (Primary)
+- Education (ESOS / National Code / CRICOS): education.gov.au ; cricos.education.gov.au
+- Migration / visas / skilled lists / tools: immi.homeaffairs.gov.au
+- Migration agents regulator: mara.gov.au
+- Privacy regulator: oaic.gov.au ; legislation.gov.au (Privacy Act text)
+- Cyber baseline controls: cyber.gov.au
+- Higher education regulator info: teqsa.gov.au ; legislation.gov.au (HESF instrument)
+- Human rights / anti-discrimination: humanrights.gov.au ; ag.gov.au
+- Consumer law guidance (misleading claims): accc.gov.au
+- State anti-discrimination (VIC example): legislation.vic.gov.au ; humanrights.vic.gov.au
+CONTROL RULE
+- Use official sources first; if a non-official source is used for context, it cannot override official sources.
+OUTPUTS
+- Compliance-ready source pack (REF IDs)
+- Engagement disclaimer pack (education vs migration)
+- Privacy + cyber controls checklist
+====================================================================
+3) CATEGORISATION_OS ARCHITECTURE (All-sections control model)
+====================================================================
+[CATEGORISATION_OS: COS-02]
+LAYER: Operating System (OS) for advisory work
+CATEGORY TAGS: CATEGORISE | VERIFY | TRACEABILITY | RISK
+CORE LAYERS (Horizontal distribution; keep constant)
+L1 National (AU)
+L2 State/Territory (VIC/NSW/QLD/SA/WA/TAS/ACT/NT)
+L3 Institution Type (anonymised tiers)
+L4 Course Level (AQF) + Provider Registration (TEQSA/CRICOS)
+L5 Visa Pathway (Visitor vs Student vs Skilled etc.)
+L6 Occupation Mapping (ANZSCO / lists / assessing authority)
+L7 Risk & Compliance (policy volatility, integrity, consumer law)
+L8 Ethics, Non-Discrimination, Privacy, Cyber
+STANDARD PROCESS (Applies to every Section)
+- Identify -> Verify -> Categorise -> Align -> Risk-rate -> Document -> Review
+MINIMUM TRACEABILITY FIELDS (Mandatory)
+- Claim_ID: (what statement is being relied on)
+- Evidence: REF-xx source
+- Currency: last checked date
+- Confidence: High/Medium/Low
+- Impact if wrong: High/Medium/Low
+- Mitigation: action if disputed or changed
+====================================================================
+4) HIGHER EDUCATION SECTOR (TEQSA / HESF / AQF / CRICOS / ESOS)
+====================================================================
+[CATEGORISATION_OS: COS-03]
+LAYER: L1 National + L3 Providers + L4 AQF/Course
+CATEGORY TAGS: HE_QUALITY | AQF | TEQSA | CRICOS | ESOS
+OBJECTIVE
+- Confirm provider legitimacy, course legitimacy, and qualification level.
+PRIMARY CHECKS
+A) Provider quality / standards baseline
+- Higher Education Standards Framework (Threshold Standards) 2021: [REF-TEQSA-HESF] [REF-LEG-HESF]
+B) Qualification level mapping
+- AQF level 9 masters descriptors / criteria: [REF-AQF-L9] [REF-AQF-LEVELS]
+C) International student course validity
+- CRICOS register confirms provider + course: [REF-CRICOS]
+OUTPUT
+- Provider_Verification_Record (TEQSA/CRICOS)
+- Course_Verification_Record (AQF level, duration, CRICOS code)
+RISK CONTROLS
+- Do not advise on non-CRICOS course for Student visa pathway planning.
+- Record the "retrieved date" for CRICOS and handbook pages.
+====================================================================
+5) ESOS NATIONAL CODE + EDUCATION AGENTS (Standard 4)
+====================================================================
+[CATEGORISATION_OS: COS-04]
+LAYER: L1 National + L3 Provider-Agent Relationship
+CATEGORY TAGS: ESOS | NATIONAL_CODE | EDUCATION_AGENT | ETHICS | REPUTATION
+OBJECTIVE
+- Ensure ethical recruitment, accurate information, and sector reputation protection.
+PRIMARY REQUIREMENTS (Provider-facing, agent-relevant)
+- National Code 2018 (under ESOS Act): [REF-EDU-NATIONAL-CODE] [REF-LEG-NATIONAL-CODE]
+- Standard 4: Education Agents (ethical, honest, best interest; reputation): [REF-EDU-STD4]
+AGENT CONDUCT (Operational translation)
+- Provide accurate information about:
+  course entry requirements, fees, refund policies, visa realities, study load expectations.
+- Avoid conflicts of interest; disclose fees and commissions where required/appropriate.
+- Avoid false/misleading representations (consumer law exposure).
+EVIDENCE / LOG
+- Agent_Disclosure_Record (what was said to client; what sources used)
+- Marketing_Claims_Evidence (screenshots/URLs + date)
+- Provider_Authorisation_Status (if applicable)
+====================================================================
+6) VISA TAXONOMY & STUDY RIGHTS (Visitor 600 vs Student 500)
+====================================================================
+[CATEGORISATION_OS: COS-05]
+LAYER: L5 Visa Pathways
+CATEGORY TAGS: VISA | STUDY_RIGHTS | WORK_RIGHTS | COMPLIANCE
+CLARIFICATION (Common confusion)
+- "600" is a Visitor visa (not the main student visa).
+- Student visa is subclass 500.
+VISITOR VISA (SUBCLASS 600) -- STUDY LIMIT
+- Study/training generally permitted up to 3 months: [REF-HA-600]
+  (also described on StudyAustralia: [REF-STUDYAUS-VISAS])
+- No standard work rights; not a degree-study pathway.
+STUDENT VISA (SUBCLASS 500) -- CORE FEATURES
+- For eligible study in Australia; work limits apply; details on official page: [REF-HA-500]
+- Visa conditions are checked via official Home Affairs conditions pages/VEVO guidance:
+  [REF-HA-CONDITIONS]
+OUTPUTS
+- Visa_Pathway_Eligibility_Notes
+- "600 vs 500" client explanation sheet
+- Risk statement: "visitor visa cannot be used for full-degree pathway"
+====================================================================
+7) GENUINE STUDENT (GS) + STUDENT COMPLIANCE MONITORING
+====================================================================
+[CATEGORISATION_OS: COS-06]
+LAYER: L5 Visa Pathways + L7 Compliance
+CATEGORY TAGS: GS | STUDENT_COMPLIANCE | POLICY_CURRENCY
+GS REQUIREMENT
+- Genuine Student requirement applies for student visa applications lodged
+  on/after 23 March 2024 (Home Affairs): [REF-HA-GS]
+COMPLIANCE MONITORING (Operational)
+- Maintain evidence of:
+  course progression, attendance requirements (provider rules),
+  address/contact updates, financial capacity consistency.
+- Always reference current official visa conditions page when discussing
+  obligations: [REF-HA-CONDITIONS]
+- If discussing processing priorities, reference Home Affairs policy page:
+  [REF-HA-PROCESSING]
+RISK CONTROLS
+- No fabricated claims about "guaranteed approval".
+- Keep dated notes of client's purpose, study rationale, and education plan.
+====================================================================
+8) SKILLED MIGRATION OCCUPATION LISTS + ANZSCO + ASSESSING AUTHORITIES
+====================================================================
+[CATEGORISATION_OS: COS-07]
+LAYER: L6 Occupation Mapping + L7 Risk
+CATEGORY TAGS: SOL | ANZSCO | SKILLS_ASSESSMENT | POINTS_TEST | POLICY_VOLATILITY
+OFFICIAL OCCUPATION LISTS (Federal)
+- Skilled occupation list + references to MLTSSL/STSOL/ROL structure: [REF-HA-SOL]
+- Skills assessment overview and "assessing authorities" list:
+  [REF-HA-SKILLS-ASSESS] [REF-HA-ASSESSING-AUTH]
+- Points calculator / points information tools: [REF-HA-POINTS-CALC]
+  (and points tables where relevant)
+STATE LIST CONNECTORS (Examples; always check current updates per state)
+- NSW skills lists: [REF-NSW-SKILLS]
+- SA skilled occupation list (shows explicit "last updated"): [REF-SA-SOL]
+CONTROLS
+- Occupation-list currency risk is HIGH: record date checked; do not reuse old lists.
+- Confirm ANZSCO code, then confirm assessing authority, then confirm evidence needed.
+OUTPUT
+- Occupation_Mapping_Record (ANZSCO, list membership, authority, evidence)
+- Currency_Log (date last checked)
+====================================================================
+9) VISA-COURSE-OCCUPATION MAPPING (End-to-end)
+====================================================================
+[CATEGORISATION_OS: COS-08]
+LAYER: L4 Course + L5 Visa + L6 Occupation
+CATEGORY TAGS: MAPPING | EVIDENCE | DECISION_MODEL
+MAPPING CHAIN (No shortcuts)
+Course (AQF + CRICOS) -> Skills/Outcomes -> Target Occupation (ANZSCO) ->
+Assessing Authority -> Visa options (points-tested/state nomination/employer) ->
+Risk review -> Documented recommendation
+MINIMUM EVIDENCE SET
+- Course proof: CRICOS + provider page: [REF-CRICOS]
+- Visa facts: student 500 / visitor 600: [REF-HA-500] [REF-HA-600]
+- Occupation facts: skilled occupation list: [REF-HA-SOL]
+- Assessing authority facts: [REF-HA-ASSESSING-AUTH]
+- If a client wants paid immigration assistance: refer to RMA/legal rules:
+  [REF-HA-USING-AGENT] [REF-MARA-HELPERS]
+OUTPUT
+- Pathway_Options (Plan A / Plan B / Plan C)
+- Risk_Disclosure (policy volatility, evidence gaps, timelines)
+- Escalation note (to RMA/legal practitioner if needed)
+====================================================================
+10) MULTI-STATE COMPARISON (Nomination pathways + state connectors)
+====================================================================
+[CATEGORISATION_OS: COS-09]
+LAYER: L2 States/Territories + L7 Risk
+CATEGORY TAGS: MULTI_STATE | NOMINATION | COST | LABOUR_MARKET
+STRUCTURE (Horizontal; do not hardcode outcomes)
+For each State/Territory:
+- Official nomination program page
+- Official occupation list (if published)
+- Minimum nomination requirements (if published)
+- Update frequency and "last updated" stamp (preferred)
+EVIDENCE RULE
+- Store "last updated" date for each state list; never treat as permanent.
+OUTPUT
+- MultiState_Comparison_Matrix (state-by-state, evidence-backed)
+- State_Suitability_Rationale (facts vs judgement separated)
+====================================================================
+11) CONSULTANT / AGENT JOB REQUIREMENTS (Role separation + competency)
+====================================================================
+[CATEGORISATION_OS: COS-10]
+LAYER: L7 Governance + Professional Practice
+CATEGORY TAGS: ROLE_BOUNDARY | COMPETENCY | LICENSING | ETHICS
+ROLE A -- Education Consultant (Non-RMA)
+Allowed scope (examples):
+- Explain education options using official handbooks/CRICOS/ESOS references.
+- Compare AQF levels and course structures.
+- Provide document checklists for education admission (not visa legal drafting).
+Not allowed (if charging / holding out expertise):
+- Providing "immigration assistance" as defined by law.
+ROLE B -- Registered Migration Agent (RMA) / Legal Practitioner
+- Only RMAs/legal practitioners can charge for immigration assistance
+  (Home Affairs): [REF-HA-USING-AGENT]
+- MARA explains rules for non-registered helpers and "exempt persons":
+  [REF-MARA-HELPERS]
+- Professional conduct for RMAs: [REF-MARA-CODE]
+COMPETENCY MATRIX (Minimum)
+- Source literacy: can locate and date-check official pages
+  (Home Affairs/Education/OAIC/Cyber).
+- Documentation: can maintain evidence logs and disclose uncertainty.
+- Privacy: can apply APP principles in practice.
+- Cyber: can apply baseline controls (Essential Eight) to client data handling.
+- Non-discrimination: can demonstrate inclusive communication and equal service delivery.
+OUTPUT
+- Role_Scope_Statement provided to each client (signed / acknowledged)
+- Referral protocol to RMA/legal practitioner when required
+====================================================================
+12) CODE OF CONDUCT TABLE (Operational behaviours + evidence)
+====================================================================
+[CATEGORISATION_OS: COS-11]
+LAYER: Practice Controls (Applies to all engagements)
+CATEGORY TAGS: CONDUCT | INTEGRITY | TRANSPARENCY | RECORDS
+CONDUCT TABLE (Minimum operational standard)
+| Conduct Area     | Rule (Must)                                           | Evidence / Log            | Source Anchor         |
+|-----------------:|-------------------------------------------------------|---------------------------|-----------------------|
+| Truthfulness     | No false/misleading claims; separate facts from opinion | Advice_Summary + Source_List | [REF-ACCC-MISLEADING] |
+| No Guarantee     | Never promise visa outcomes                           | Risk_Disclosure_Record    | [REF-HA-500]          |
+| Role Boundary    | If "immigration assistance", refer to RMA/legal       | Escalation_Record         | [REF-HA-USING-AGENT]  |
+| Student-first    | Provide accurate education info; avoid conflicts      | Disclosure_Record         | [REF-EDU-STD4]        |
+| Privacy          | Collect minimum necessary; consent; purpose limit     | Consent_Record + Data_Map | [REF-OAIC-APP]        |
+| Security         | Apply baseline cyber controls; MFA/patching/backups   | Security_Checklist        | [REF-CYBER-E8]        |
+| Recordkeeping    | Keep dated copies of key sources used                 | Evidence_Pack             | (internal control)    |
+| Respect/Equality | Inclusive language; no prejudice                       | Interaction_Notes         | [REF-AHRC-LAWS] [REF-VIC-EOA] |
+| Complaint pathway| Provide complaint/referral pathway transparently      | Complaint_Record          | [REF-MARA-CODE] (if RMA) |
+====================================================================
+13) PRIVACY STATEMENT + PERSONAL DATA LIFECYCLE
+====================================================================
+[CATEGORISATION_OS: COS-12]
+LAYER: L8 Privacy + L7 Risk
+CATEGORY TAGS: PRIVACY | CONSENT | DATA_MINIMISATION | DISCLOSURE | RETENTION
+PRIVACY STATEMENT (Plain)
+- We collect only the minimum personal data required to provide
+  education-planning support.
+- We do not sell personal data.
+- We do not use personal data beyond the stated purpose without consent.
+- We keep records only as long as needed for the purpose and
+  legal/operational requirements.
+LEGAL BASE (Primary)
+- Privacy Act 1988 (full text): [REF-LEG-PRIVACY-ACT]
+- OAIC: Privacy Act overview + APPs: [REF-OAIC-PRIVACY-ACT] [REF-OAIC-APP]
+- NDB scheme obligations guidance: [REF-OAIC-NDB]
+DATA LIFECYCLE (How data is handled)
+1) Collect
+   - Data types: identity/contact, education history, English level
+     (if provided), goals, budget range, timeline constraints.
+   - Consent: explicit; written/recorded consent before collecting
+     sensitive info.
+2) Store
+   - Secure storage, access control, least privilege.
+   - Avoid storing unnecessary documents (e.g., passport scans)
+     unless strictly required and consented.
+3) Process
+   - Use only to: shortlist courses, check CRICOS, prepare education
+     application checklists, create comparison matrices.
+4) Share
+   - Share only with written consent and only to authorised parties
+     (e.g., nominated RMA/legal practitioner, or provider admissions).
+5) Retain
+   - Retention schedule defined; periodic review for deletion.
+6) Dispose
+   - Secure deletion; if paper, secure shredding.
+CLIENT RIGHTS (Operational)
+- Access/correction requests logged; response tracked.
+- Withdrawal of consent triggers data minimisation and deletion
+  where practicable.
+====================================================================
+14) CYBER SECURITY CONTROLS (Essential Eight + incident response + NDB)
+====================================================================
+[CATEGORISATION_OS: COS-13]
+LAYER: L8 Cyber + L7 Risk
+CATEGORY TAGS: CYBER | ESSENTIAL_EIGHT | INCIDENT_RESPONSE | BREACH_NOTIFICATION
+BASELINE CONTROL SET (Essential Eight)
+- Essential Eight overview: [REF-CYBER-E8]
+- Essential Eight explained / maturity model (implementation):
+  [REF-CYBER-E8-EXPLAIN] [REF-CYBER-E8-MATURITY]
+PRACTICAL CONTROLS (Minimum)
+- MFA for all accounts holding client data
+- Patch management for OS/apps
+- Backups (tested restore)
+- Access control + admin privilege restriction
+- Logging (basic audit trails)
+INCIDENT RESPONSE (If breach suspected)
+- Contain -> Assess -> Notify (if required) -> Remediate -> Document
+- NDB scheme guidance (OAIC): [REF-OAIC-NDB]
+OUTPUTS
+- Cyber_Checklist per engagement
+- Breach_Runbook (internal)
+====================================================================
+15) PRE-USE SAFETY GATE + LIABILITY CONTROLS
+====================================================================
+[CATEGORISATION_OS: COS-14]
+LAYER: L7 Risk + L8 Ethics
+CATEGORY TAGS: SAFETY_GATE | LIABILITY | QUALITY_CONTROL
+MANDATORY PRE-USE CHECKLIST (Before giving advice)
+- Confirm client understands: "education advice != immigration assistance"
+- Confirm current official sources were checked today (or logged date)
+- Confirm CRICOS listing (if Student visa intent) [REF-CRICOS]
+- Confirm Student visa subclass 500 requirements page reviewed [REF-HA-500]
+- Confirm Visitor visa subclass 600 study limit if relevant [REF-HA-600]
+- Confirm Genuine Student (GS) page if Student visa discussion [REF-HA-GS]
+- Confirm skilled occupation list page date checked if migration mapping
+  discussed [REF-HA-SOL]
+- Confirm assessing authority page checked for target occupation
+  [REF-HA-ASSESSING-AUTH]
+- Confirm privacy consent captured before collecting data [REF-OAIC-APP]
+- Confirm cyber controls applied to stored data [REF-CYBER-E8]
+- Confirm non-discrimination and respectful communication standard stated
+  [REF-AHRC-LAWS] [REF-VIC-EOA]
+- Confirm no misleading claims; consumer law risk considered
+  [REF-ACCC-MISLEADING]
+LIABILITY BOUNDARY STATEMENT (Use in each engagement)
+- Information is based on public sources that can change.
+- Client remains responsible for final submissions and accuracy of documents.
+- If immigration assistance is requested, refer to RMA/legal practitioner.
+====================================================================
+16) REFERENCES (REF INDEX) + RETRIEVAL LOG
+====================================================================
+[CATEGORISATION_OS: COS-15]
+LAYER: Evidence Store
+CATEGORY TAGS: REFERENCES | CITATIONS | CURRENCY
+RETRIEVAL DATE (for all URLs below): 16 February 2026 (AUS/MEL)
+EDUCATION / ESOS / CRICOS
+[REF-EDU-ESOS]         https://www.education.gov.au/esos-framework
+[REF-EDU-ESOS-LEG]     https://www.education.gov.au/esos-framework/esos-legislative-framework
+[REF-LEG-ESOS-ACT]     https://www.legislation.gov.au/Details/C2017C00292
+[REF-EDU-NATIONAL-CODE] https://www.education.gov.au/esos-framework/national-code-practice-providers-education-and-training-overseas-students-2018
+[REF-LEG-NATIONAL-CODE] https://www.legislation.gov.au/Details/F2017L01182
+[REF-EDU-STD4]         https://www.education.gov.au/esos-framework/resources/standard-4-education-agents
+[REF-CRICOS]           https://cricos.education.gov.au/
+HOME AFFAIRS (VISAS / LISTS / TOOLS)
+[REF-HA-500]           https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500
+[REF-HA-GS]            https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500/genuine-student-requirement
+[REF-HA-600]           https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/visitor-600
+[REF-HA-CONDITIONS]    https://immi.homeaffairs.gov.au/visas/already-have-a-visa/check-visa-details-and-conditions/see-your-visa-conditions?product=500
+[REF-HA-PROCESSING]    https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-processing-times/visa-processing-priorities/student-visa
+[REF-HA-SOL]           https://immi.homeaffairs.gov.au/visas/working-in-australia/skill-occupation-list
+[REF-HA-ASSESSING-AUTH] https://immi.homeaffairs.gov.au/visas/working-in-australia/skills-assessment/assessing-authorities
+[REF-HA-SKILLS-ASSESS] https://immi.homeaffairs.gov.au/visas/working-in-australia/skills-assessment
+[REF-HA-POINTS-CALC]   https://immi.homeaffairs.gov.au/help-support/tools/points-calculator
+[REF-HA-USING-AGENT]   https://immi.homeaffairs.gov.au/help-support/who-can-help-with-your-application/using-a-migration-agent
+MARA / MIGRATION AGENTS
+[REF-MARA-CODE]        https://www.mara.gov.au/tools-for-registered-agents/code-of-conduct
+[REF-MARA-HELPERS]     https://www.mara.gov.au/get-help-with-a-visa/helpers-not-registered
+PRIVACY (OAIC / LEGISLATION)
+[REF-LEG-PRIVACY-ACT]  https://www.legislation.gov.au/C2004A03712/latest
+[REF-OAIC-PRIVACY-ACT] https://www.oaic.gov.au/privacy/privacy-legislation/the-privacy-act
+[REF-OAIC-APP]         https://www.oaic.gov.au/privacy/australian-privacy-principles
+[REF-OAIC-NDB]         https://www.oaic.gov.au/privacy/notifiable-data-breaches
+CYBER (Essential Eight)
+[REF-CYBER-E8]         https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight
+[REF-CYBER-E8-EXPLAIN] https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-explained
+[REF-CYBER-E8-MATURITY] https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-maturity-model
+HIGHER EDUCATION STANDARDS (TEQSA / LEGISLATION)
+[REF-TEQSA-HESF]       https://www.teqsa.gov.au/how-we-regulate/higher-education-standards-framework-2021
+[REF-LEG-HESF]         https://www.legislation.gov.au/Details/F2022C00105
+AQF
+[REF-AQF-LEVELS]       https://www.aqf.edu.au/framework/aqf-levels
+[REF-AQF-L9]           https://www.aqf.edu.au/framework/aqf-qualifications
+HUMAN RIGHTS / ANTI-DISCRIMINATION (Federal + VIC example)
+[REF-AHRC-LAWS]        https://humanrights.gov.au/our-work/legal/legislation
+[REF-AG-ANTI-DISC]     https://www.ag.gov.au/rights-and-protections/human-rights-and-anti-discrimination/australias-anti-discrimination-law
+[REF-VIC-EOA]          https://www.legislation.vic.gov.au/in-force/acts/equal-opportunity-act-2010
+CONSUMER LAW (Misleading claims)
+[REF-ACCC-MISLEADING]  https://www.accc.gov.au/business/advertising-and-promotions/false-or-misleading-claims
+STATE CONNECTORS (Examples)
+[REF-NSW-SKILLS]       https://www.nsw.gov.au/visas-and-migration/skilled-visas/nsw-skills-lists
+[REF-SA-SOL]           https://www.migration.sa.gov.au/occupation-lists/south-australia-skilled-occupation-list
+====================================================================
+17) INDEX (A-Z)
+====================================================================
+A
+- APP (Australian Privacy Principles): COS-12 | [REF-OAIC-APP]
+- AQF Level 9: COS-03 | [REF-AQF-L9] [REF-AQF-LEVELS]
+- Assessing Authorities: COS-07 | [REF-HA-ASSESSING-AUTH]
+C
+- CRICOS: COS-03 | [REF-CRICOS]
+- Consumer Law (misleading claims): COS-11 | [REF-ACCC-MISLEADING]
+- Cyber Essential Eight: COS-13 | [REF-CYBER-E8]
+E
+- ESOS Framework: COS-03/04 | [REF-EDU-ESOS]
+- Education Agents Standard 4: COS-04 | [REF-EDU-STD4]
+G
+- Genuine Student (GS): COS-06 | [REF-HA-GS]
+H
+- Higher Education Standards Framework (HESF): COS-03 | [REF-TEQSA-HESF]
+M
+- Migration Agent (RMA) Code of Conduct: COS-10/11 | [REF-MARA-CODE]
+- Migration assistance boundaries: COS-10 | [REF-HA-USING-AGENT] [REF-MARA-HELPERS]
+N
+- National Code 2018: COS-04 | [REF-EDU-NATIONAL-CODE]
+P
+- Privacy Act 1988: COS-12 | [REF-LEG-PRIVACY-ACT]
+- NDB Scheme: COS-13 | [REF-OAIC-NDB]
+- Points Calculator: COS-07 | [REF-HA-POINTS-CALC]
+S
+- Skilled Occupation List: COS-07 | [REF-HA-SOL]
+- Student Visa 500: COS-05/06 | [REF-HA-500]
+- Visitor Visa 600: COS-05 | [REF-HA-600]
+====================================================================
+ACKNOWLEDGEMENTS | THANK YOU (Reputation-Safe, No Operational Detail)
+====================================================================
+This manual is written with gratitude to the people, places, and learning
+environments that shaped my understanding of education pathways,
+professional service ethics, and the importance of equal dignity.
+Thank you to:
+- BSmart (Be Smart) -- for early professional exposure and the practical
+  discipline of structured guidance and responsibility.
+- LNU -- for foundational study experience and lessons in communication,
+  resilience, and self-improvement.
+- VU -- for educational experience, adaptation, and continued learning
+  in Australia.
+- UniMelb -- for academic standards awareness and the value of rigorous,
+  evidence-based work.
+- PY -- for personal growth context and learning support (named here
+  only as acknowledgement, without operational detail).
+- St. Peter -- for community values, respect, and character formation
+  (named here only as acknowledgement, without operational detail).
+Acknowledgement boundaries:
+- This section expresses gratitude only.
+- It does not imply endorsement, affiliation, or disclosure of any
+  internal information.
+- No confidential materials, internal systems, or private communications
+  are reproduced or referenced.
+====================================================================
+END OF FILE
+====================================================================
+Author: 陈佳栋 Donnie | 16 February 2026
+Location: Hughesdale, Melbourne, VIC 3166, Australia
