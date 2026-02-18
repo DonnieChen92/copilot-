@@ -1,0 +1,222 @@
+================================================================================
+DOC-20260218-AZ-AI-Admin-Vocabulary-0011
+Title: A-Z AI Administration Vocabulary Matrix (104 Terms)
+Version: 1.0
+Date: 2026-02-18
+Design: Jiadong Chen (陈佳栋) — Student ID: 723912
+Classification: HIGH CONFIDENTIAL — INTERNAL RESEARCH
+================================================================================
+
+
+OVERVIEW
+================================================================================
+
+26 letters × 4 terms = 104 English vocabulary items mapped to:
+- Administration Direction (Role / Function)
+- AI Functional Scope (AI Scope)
+
+Structure per entry:
+  Term → Administration 方向 (Role/Function) → AI Scope
+
+
+A
+-------------------------------------------------------------
+1. Architecture    — 系统架构管理      — Model deployment / Multi-cloud AI topology
+2. Audit           — 合规审计管理      — AI output traceability / Model logging
+3. Automation      — 自动化流程管理    — Agent orchestration
+4. Access          — 访问控制管理      — RBAC / Zero-Trust AI
+
+B
+-------------------------------------------------------------
+1. Benchmarking    — 性能评估管理      — LLM accuracy / hallucination testing
+2. Budgeting       — AI 成本治理       — Token / GPU allocation
+3. Backup          — 数据备份策略      — Model checkpoint control
+4. Bias            — 偏见控制管理      — Fairness evaluation
+
+C
+-------------------------------------------------------------
+1. Compliance      — 法规合规管理      — ISO 42001 / AI Act alignment
+2. Cybersecurity   — 网络安全管理      — AI threat detection
+3. Configuration   — 模型参数配置      — Prompt governance
+4. Capacity        — 算力容量规划      — GPU scaling
+
+D
+-------------------------------------------------------------
+1. Data            — 数据治理          — Training pipeline
+2. Deployment      — 模型上线管理      — CI/CD for AI
+3. Documentation   — 文档与审计记录    — Model cards
+4. Detection       — 异常检测          — AI misuse monitoring
+
+E
+-------------------------------------------------------------
+1. Evaluation      — 模型评估          — Benchmark testing
+2. Ethics          — AI 伦理治理       — Responsible AI
+3. Encryption      — 数据加密管理      — Secure inference
+4. Escalation      — 风险升级机制      — Human-in-the-loop
+
+F
+-------------------------------------------------------------
+1. Forecasting     — 预测系统管理      — Predictive AI
+2. Federation      — 联邦学习管理      — Cross-jurisdiction AI
+3. Filtering       — 内容过滤管理      — Moderation models
+4. Failover        — 容灾机制          — Redundancy AI nodes
+
+G
+-------------------------------------------------------------
+1. Governance      — AI 治理框架       — Policy enforcement
+2. Granularity     — 细粒度权限        — Data segmentation
+3. Guardrails      — 风险边界控制      — Prompt safety layers
+4. Graph           — 知识图谱管理      — RAG systems
+
+H
+-------------------------------------------------------------
+1. Hosting         — 云托管管理        — AI infrastructure
+2. Hardening       — 系统加固          — Secure model serving
+3. Human-Oversight — 人工监管机制      — Approval workflows
+4. Horizon-Scanning — 技术前瞻管理    — Emerging AI tracking
+
+I
+-------------------------------------------------------------
+1. Integration     — API 集成管理      — Multi-platform AI
+2. Identity        — 数字身份管理      — AI-linked ID systems
+3. Indexing        — 向量索引管理      — Retrieval systems
+4. Infrastructure  — 底层架构管理      — GPU clusters
+
+J
+-------------------------------------------------------------
+1. Jurisdiction    — 跨地区监管        — Data residency
+2. Job-Scheduling  — 任务调度管理      — AI batch jobs
+3. Justification   — 决策可解释性      — Explainable AI
+4. Joint-Control   — 双人审核机制      — Two-person rule
+
+K
+-------------------------------------------------------------
+1. Knowledge-Base  — 知识库管理        — RAG curation
+2. Key-Management  — API 密钥治理      — Secure token systems
+3. KPI             — 绩效指标管理      — Model quality metrics
+4. Kernel          — 核心模型管理      — Foundation models
+
+L
+-------------------------------------------------------------
+1. Lifecycle       — 模型生命周期管理  — MLOps
+2. Logging         — 审计日志管理      — SIEM
+3. Latency         — 性能延迟优化      — Real-time AI
+4. Licensing       — 许可与订阅管理    — Enterprise AI
+
+M
+-------------------------------------------------------------
+1. Monitoring      — 实时监控          — Drift detection
+2. Moderation      — 内容治理          — Harm detection
+3. Modeling        — 模型设计          — Architecture tuning
+4. Migration       — 平台迁移          — AI stack upgrade
+
+N
+-------------------------------------------------------------
+1. Normalization   — 数据标准化        — Preprocessing
+2. Notification    — 事件通知管理      — Alert systems
+3. Node-Management — 节点调度          — Distributed AI
+4. Network         — 网络安全管理      — Secure AI traffic
+
+O
+-------------------------------------------------------------
+1. Orchestration   — Agent 编排        — Multi-AI coordination
+2. Optimization    — 性能优化          — Token efficiency
+3. Observability   — 可观测性管理      — Telemetry
+4. Ownership       — 责任归属管理      — AI accountability
+
+P
+-------------------------------------------------------------
+1. Privacy         — 隐私保护          — Differential privacy
+2. Provisioning    — 资源分配          — Cloud AI scaling
+3. Policy          — 制度制定          — AI usage policy
+4. Prompting       — 提示工程管理      — Prompt governance
+
+Q
+-------------------------------------------------------------
+1. Quality-Assurance — 质量控制        — AI output review
+2. Quantification    — 指标量化        — Risk scoring
+3. Queue-Management  — 请求排队管理    — Load balancing
+4. Query-Optimization — 查询优化       — RAG tuning
+
+R
+-------------------------------------------------------------
+1. Resilience      — 系统韧性管理      — Fail-safe AI
+2. Risk            — 风险控制          — AI risk taxonomy
+3. Regulation      — 法规执行          — AI compliance mapping
+4. Retrieval       — 信息检索管理      — Vector DB
+
+S
+-------------------------------------------------------------
+1. Security        — 安全管理          — Threat mitigation
+2. Scalability     — 扩展性管理        — Elastic compute
+3. Simulation      — 仿真系统          — Digital twin AI
+4. Sustainability  — 能耗管理          — Green AI
+
+T
+-------------------------------------------------------------
+1. Transparency    — 透明度管理        — Explainability
+2. Training        — 模型训练管理      — Fine-tuning
+3. Telemetry       — 数据采集          — Performance tracking
+4. Trust           — 信任体系          — Verification systems
+
+U
+-------------------------------------------------------------
+1. Update          — 模型更新管理      — Patch cycles
+2. Usage           — 使用监控          — AI consumption logs
+3. User-Governance — 用户权限体系      — Enterprise AI control
+4. Uptime          — 可用性管理        — SLA control
+
+V
+-------------------------------------------------------------
+1. Validation      — 验证机制          — Model testing
+2. Versioning      — 版本管理          — Model lineage
+3. Vulnerability   — 漏洞管理          — AI threat exposure
+4. Virtualization  — 虚拟化管理        — Cloud instances
+
+W
+-------------------------------------------------------------
+1. Workflow        — 工作流管理        — AI pipeline
+2. Whitelisting    — 白名单机制        — Tool restriction
+3. Watermarking    — 内容标识          — AI origin tracking
+4. Workload        — 负载分配          — GPU balancing
+
+X
+-------------------------------------------------------------
+1. X-AI (Explainable AI) — 可解释系统  — Decision transparency
+2. X-Scaling       — 横向扩展          — Distributed training
+3. X-Validation    — 交叉验证          — Model reliability
+4. X-Architecture  — 跨结构设计        — Hybrid AI
+
+Y
+-------------------------------------------------------------
+1. Yield           — 产出效率管理      — AI productivity
+2. Yardstick       — 评估基准          — Benchmark index
+3. YAML-Governance — 配置标准化        — AI policy as code
+4. Year-Over-Year  — 年度趋势分析      — AI maturity tracking
+
+Z
+-------------------------------------------------------------
+1. Zero-Trust      — 零信任架构        — AI identity security
+2. Zoning          — 区域权限划分      — Data segmentation
+3. Zettabyte       — 海量数据管理      — Big data AI
+4. Zenith          — 性能极值优化      — Peak model capacity
+
+
+CONVERSION TARGETS
+================================================================================
+
+The A-Z matrix can be converted to:
+- Job Classification Table (Current vs Future)
+- Enterprise AI Admin Responsibility Matrix
+- M365 / Azure / Multi-cloud Mapping Structure
+- Administration-AI Capability OS Framework Diagram
+
+Cross-reference with:
+- Microsoft Azure Roles / Google Cloud Roles
+- User permissions mapping
+- Career pathways in AI industry
+
+
+================================================================================
+END OF DOCUMENT — A-Z AI Administration Vocabulary Matrix v1.0
+================================================================================
