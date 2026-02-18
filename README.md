@@ -14,6 +14,7 @@
 5. [Repository Structure / 倉庫結構 / 仓库结构](#5-repository-structure)
 6. [Quick Start / 快速開始 / 快速开始](#6-quick-start)
 7. [CI/CD Pipeline / 持續整合流程 / 持续集成流程](#7-cicd-pipeline)
+8. [AI Coding Assistant Integration / AI編碼助手整合 / AI编码助手整合](#8-ai-coding-assistant-integration)
 
 ---
 
@@ -238,6 +239,34 @@ Automated via GitHub Actions:
 - **Release**: Tag-based PyPI publish
 
 See [`.github/workflows/ci.yml`](./.github/workflows/ci.yml)
+
+---
+
+## 8. AI Coding Assistant Integration
+
+This project is optimized for use with **Google Jules** and **GitHub Copilot** AI coding assistants.
+
+### 🤖 Google Jules (Asynchronous AI Agent)
+**Jules** is ideal for large, autonomous coding tasks:
+- Add new LLM provider integrations
+- Implement new document export formats
+- Large-scale refactoring
+- Comprehensive test suite generation
+
+Configuration: [`.ai/jules-config.yaml`](./.ai/jules-config.yaml)
+
+### 🚀 GitHub Copilot (Real-Time AI Assistant)
+**Copilot** is perfect for interactive development:
+- Inline code suggestions
+- Quick bug fixes
+- Learning the codebase
+- Writing individual functions
+
+Configuration: [`.github/copilot-instructions.md`](./.github/copilot-instructions.md)
+
+### 📖 Full Integration Guide
+For detailed instructions on using both assistants with this Digital Engine, see:
+**[AI Assistant Integration Guide](./docs/AI_ASSISTANT_INTEGRATION.md)**
 
 ---
 
