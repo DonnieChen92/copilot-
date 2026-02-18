@@ -282,10 +282,10 @@ jules assign "Add multi-language support to RAG module:
 # Step 2: Copilot adds specific language handling
 # Open src/rag/language_detector.py
 
-from langdetect import detect
+# from langdetect import detect
 
 
-def detect_language(text: str) -> str:
+def detect_language_example(text: str) -> str:
     """
     Detect language of input text.
     # Copilot suggests trilingual docstring

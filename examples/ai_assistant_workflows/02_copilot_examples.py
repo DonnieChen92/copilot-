@@ -146,11 +146,11 @@ Follow-up questions:
 # Create a new test file or open existing: tests/test_excel.py
 # Start typing a test function:
 
-import pytest
-from src.excel.excel_engine import ExcelEngine
+# import pytest
+# from src.excel.excel_engine import ExcelEngine
 
 
-def test_export_entity_memory_with_empty_list():
+def test_export_entity_memory_with_empty_list_example():
     """
     Test entity memory export with empty entity list.
     測試空實體列表的實體記憶匯出。
